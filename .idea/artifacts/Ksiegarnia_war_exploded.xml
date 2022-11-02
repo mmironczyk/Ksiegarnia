@@ -6,13 +6,16 @@
         <exploded>true</exploded>
         <module>Ksiegarnia</module>
         <packaging>war</packaging>
-        <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Ksiegarnia" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: jakarta.mvc:jakarta.mvc-api:2.0.0" />
+          <element id="library" level="project" name="Maven: org.mariadb.jdbc:mariadb-java-client:3.0.8" />
         </element>
       </element>
       <element id="directory" name="META-INF">

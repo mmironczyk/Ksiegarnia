@@ -15,7 +15,6 @@
     <h1><%= "Tu bedzie strona glowna, stopka automatycznie bedzie na dole" %>
     </h1>
     <br/>
-    <a href="hello-servlet">Hello Servlet</a>
 </div>
 
 <%@include file="fragment/footer.jspf"%>
