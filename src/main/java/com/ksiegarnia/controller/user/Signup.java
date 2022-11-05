@@ -8,6 +8,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -34,8 +36,10 @@ public class Signup extends HttpServlet {
         String kod = request.getParameter("kod");
         String miasto = request.getParameter("miasto");
 
+        String kodakt = givenUsingApache_whenGeneratingRandomAlphanumericString_thenCorrect();
         //-------------- create user object ------------------
-       User user = new User();
+
+        User user = new User();
         user.setLogin(login);
         user.setImie(imie);
         user.setNazwisko(nazwisko);
@@ -46,24 +50,22 @@ public class Signup extends HttpServlet {
         user.setKod(kod);
         user.setMiasto(miasto);
         System.out.println(user.getHaslo());
-        if(new UserDbModel().signUp(user)){
-            new MailModel(email,"","").sendActivationMail();
+        if(new UserDbModel().signUp(user,kodakt)){
+
+            new MailModel(email,"","").sendActivationMail(kodakt);
             getServletContext().getRequestDispatcher("/success2.jsp").forward(request, response);
 
         }else {
-            request.setAttribute("message", "Cant't Signup <br/> Email or Cridt Card used before .. ");
-            getServletContext().getRequestDispatcher("/Failed.jsp").forward(request, response);
+            request.setAttribute("message", "Nie udało się zalogować");
+            getServletContext().getRequestDispatcher("/failed.jsp").forward(request, response);
         }
-       
-        
-        
+    }
+    public String givenUsingApache_whenGeneratingRandomAlphanumericString_thenCorrect() {
+        String generatedString = RandomStringUtils.randomAlphanumeric(20);
+        System.out.println(generatedString);
+        return generatedString;
+
     }
 
-
-        /**
-         * Returns a short description of the servlet.
-         *
-         * @return a String containing servlet description
-         */
     }
 

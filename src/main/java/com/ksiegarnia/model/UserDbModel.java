@@ -13,7 +13,7 @@ public class UserDbModel {
 
         try {
             con = db.openConnection();
-            PreparedStatement pst = con.prepareStatement("SELECT * from users where (login=?) and blokada=0");
+            PreparedStatement pst = con.prepareStatement("SELECT * from users where (login=?) and blokada=0 and czy_aktywne=");
             pst.setString(1, login);
             ResultSet result = pst.executeQuery();
             if (result.next()) {
@@ -66,19 +66,18 @@ public class UserDbModel {
         return null;
     }
 
-    public boolean signUp(User bean) {
+    public boolean signUp(User bean,String kodakt) {
 
         boolean b = false;
-
-
         if (!search(bean.getLogin())) {
             try {
                 con = db.openConnection();
-                PreparedStatement pst1 = con.prepareStatement("INSERT into users (login,haslo,email)"
-                        + "values (?,?,?)");
+                PreparedStatement pst1 = con.prepareStatement("INSERT into users (login,haslo,email,kod)"
+                        + "values (?,?,?,?)");
                 pst1.setString(1, bean.getLogin());
                 pst1.setString(2, SHA.encrypt(bean.getHaslo()));
                 pst1.setString(3, bean.getEmail());
+                pst1.setString(4, kodakt);
                 pst1.executeUpdate();
 
                 PreparedStatement pst2 = con.prepareStatement("INSERT into klienci (login,imie,nazwisko,miejscowosc,kod_pocztowy,ulica,nr_telefonu)"
@@ -103,11 +102,9 @@ public class UserDbModel {
         }
         return b;
     }
-
     public User getUser(int id) {
         User user = null ;
         try {
-
             con = db.openConnection();
             PreparedStatement pst = con.prepareStatement("SELECT * from users where (id=?)");
             pst.setInt(1, id);
@@ -129,5 +126,21 @@ public class UserDbModel {
             ex.printStackTrace();
         }
         return user ;
+    }
+    public boolean aktywuj(String kodakt) throws SQLException {
+        con = db.openConnection();
+        PreparedStatement pst = con.prepareStatement("SELECT * FROM users WHERE czy_aktywne=0 AND (kod=?)");
+        pst.setString(1, kodakt);
+        ResultSet result = pst.executeQuery();
+        if(result.next()) {
+            PreparedStatement pst2 = con.prepareStatement("UPDATE users SET czy_aktywne=1 where (kod=?)");
+            pst2.setString(1, kodakt);
+            pst2.executeQuery();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
