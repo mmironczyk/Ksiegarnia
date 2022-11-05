@@ -13,7 +13,7 @@ public class UserDbModel {
 
         try {
             con = db.openConnection();
-            PreparedStatement pst = con.prepareStatement("SELECT * from users where (login=?)");
+            PreparedStatement pst = con.prepareStatement("SELECT * from users where (login=?) and blokada=0");
             pst.setString(1, login);
             ResultSet result = pst.executeQuery();
             if (result.next()) {
@@ -44,9 +44,19 @@ public class UserDbModel {
                     userSignIn.setLogin(result.getString("login"));
                     userSignIn.setEmail(result.getString("email"));
                     userSignIn.setHaslo("");
+                    PreparedStatement pst2 = con.prepareStatement("UPDATE users SET liczba_prob=0 where (login=?)");
+                    pst2.setString(1, login);
+                    pst2.executeQuery();
+                    db.closeConnection();
+                    System.out.println("zalogowano");
                 }
-                db.closeConnection();
-                System.out.println("zalogowano");
+                else
+                {
+                    con = db.openConnection();
+                    PreparedStatement pst3 = con.prepareStatement("UPDATE users SET liczba_prob=liczba_prob+1 where (login=?)");
+                    pst3.setString(1, login);
+                    pst3.executeQuery();
+                }
                 return userSignIn;
             }
         } catch (SQLException ex) {
