@@ -9,24 +9,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Bestsellery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Kategorie</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Kryminalne</a></li>
-                        <li><a class="dropdown-item" href="#">Fantasy</a></li>
-                        <li><a class="dropdown-item" href="#">Biografie</a></li>
-                        <li><a class="dropdown-item" href="#">O Javie <3</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Podręczniki</a></li>
-                    </ul>
-                </li>
-            </ul>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto">
@@ -43,20 +25,55 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        <img src="#" alt="Koszyk" width="24" height="24">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                        </svg>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
+                    <ul class="dropdown-menu dropdown-menu-end navbar-dropdown">
                         <li><a class="dropdown-item" href="#">Zawartość</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown ms-auto">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">
-                        <img src="#" alt="Profil" width="24" height="24">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
+                    <ul class="dropdown-menu dropdown-menu-end navbar-dropdown">
+                        <%
+                            //user logged
+                            if (true) {
+                        %>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelProfile.jsp">Profil</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelOrders.jsp">Zamówienia</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelReservations.jsp">Rezerwacje</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelInvoices.jsp">Faktury</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelOpinions.jsp">Opinie</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelOrders.jsp">Wyloguj</a></li>
+                        <%
+                            }
+                            //admin logged
+                            else if (false) {
+                        %>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelOrders.jsp">Zamówienia</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelReservations.jsp">Rezerwacje</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelInvoices.jsp">Faktury</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelUsers.jsp">Panel Użytkowników</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelOpinions.jsp">Panel Opinii</a></li>
+                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelProducts.jsp">Panel produktów</a></li>
+                        <li><a class="dropdown-item" href="">Wyloguj</a></li>
+                        <%
+                            }
+                            //no one is logged
+                            else {
+                        %>
                         <li><a class="dropdown-item" href="../Ksiegarnia_war_exploded/login.jsp">Logowanie</a></li>
                         <li><a class="dropdown-item" href="../Ksiegarnia_war_exploded/register.jsp">Rejestracja</a></li>
+                        <%
+                            }
+                        %>
                     </ul>
             </ul>
         </div>
