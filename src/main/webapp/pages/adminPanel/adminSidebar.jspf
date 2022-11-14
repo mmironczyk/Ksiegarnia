@@ -1,0 +1,35 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height: 80vh">
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="./adminPanelOrders.jsp" class="nav-link" aria-current="page">
+                Zamówienia
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="./adminPanelReservations.jsp" class="nav-link link-dark">
+                Rezerwacje
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="./adminPanelInvoices.jsp" class="nav-link link-dark">
+                Faktury
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="./adminPanelUsers.jsp" class="nav-link link-dark">
+                Użytkownicy
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="./adminPanelOpinions.jsp" class="nav-link link-dark">
+                Opinie
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="./adminPanelProducts.jsp" class="nav-link link-dark">
+                Produkty
+            </a>
+        </li>
+    </ul>
+</div>
