@@ -27,7 +27,7 @@ public class Signin extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("LoginUser", user);
             session.setMaxInactiveInterval(60*15);
-                   response.sendRedirect("success.jsp");
+                   response.sendRedirect("index.jsp");
                }
            }
 }

@@ -21,7 +21,7 @@ public class Signup extends HttpServlet {
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
 
-        //-------------- get request paramater ------------------
+
         String login = request.getParameter("login");
         System.out.println("TEST"+login);
         String imie = request.getParameter("imie");
@@ -37,7 +37,6 @@ public class Signup extends HttpServlet {
         String miasto = request.getParameter("miasto");
 
         String kodakt = givenUsingApache_whenGeneratingRandomAlphanumericString_thenCorrect();
-        //-------------- create user object ------------------
 
         User user = new User();
         user.setLogin(login);
@@ -66,6 +65,5 @@ public class Signup extends HttpServlet {
         return generatedString;
 
     }
-
     }
 

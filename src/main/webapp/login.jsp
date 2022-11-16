@@ -13,7 +13,7 @@
         <input type="login" name="login" id="login" placeholder="wpisz swój login" required class="box">
         <input type="password" name="password" id="password" placeholder="wpisz swoje hasło" required class="box">
         <input type="submit" name="submit" value="Zaloguj" class="btn">
-        <p>Nie masz jeszcze konta? <a href="register.jsp">Zarejestruj się!</a></p>
+        <p>Nie masz jeszcze konta? <a href="${pageContext.request.contextPath}/register.jsp">Zarejestruj się!</a></p>
     </form>
 </div>
 </body>
