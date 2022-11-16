@@ -14,6 +14,7 @@
 <div>
     <h1><%= "Tu bedzie strona glowna, stopka automatycznie bedzie na dole" %>
     </h1>
+    <a href="./pages/productPage.jsp">Testowa strona produktu</a>
     <br/>
 </div>
 
