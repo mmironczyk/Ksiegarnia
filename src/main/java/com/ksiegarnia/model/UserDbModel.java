@@ -45,6 +45,17 @@ public class UserDbModel {
                     userSignIn.setRola(result.getString("typ"));
                     userSignIn.setEmail(result.getString("email"));
                     userSignIn.setHaslo("");
+                    PreparedStatement pst3 = con.prepareStatement("SELECT * from klienci where (login=?)");
+                    pst3.setString(1, login);
+                    ResultSet result2 = pst3.executeQuery();
+                    if (result2.next()) {
+                        userSignIn.setImie(result2.getString("imie"));
+                        userSignIn.setNazwisko(result2.getString("nazwisko"));
+                        userSignIn.setMiasto(result2.getString("miejscowosc"));
+                        userSignIn.setKod(result2.getString("kod_pocztowy"));
+                        userSignIn.setTelefon(result2.getString("nr_telefonu"));
+                        userSignIn.setAdres(result2.getString("ulica"));
+                    }
                     PreparedStatement pst2 = con.prepareStatement("UPDATE users SET liczba_prob=0 where (login=?)");
                     pst2.setString(1, login);
                     pst2.executeQuery();
