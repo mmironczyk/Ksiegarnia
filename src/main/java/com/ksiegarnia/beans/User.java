@@ -10,10 +10,10 @@ public class User implements Cloneable{
     private String haslo;
     private String adres;
     private String miasto;
-
     private String kod_pocztowy;
     private String telefon;
 
+    private String rola;
     public User() {}
 
     public String getLogin() {
@@ -88,9 +88,14 @@ public class User implements Cloneable{
     public String getTelefon() {
         return telefon;
     }
-
     public void setTelefon(String telefon) {
         this.telefon = telefon;
+    }
+    public String getRola() {
+        return rola;
+    }
+    public void setRola(String rola) {
+        this.rola = rola;
     }
 
 

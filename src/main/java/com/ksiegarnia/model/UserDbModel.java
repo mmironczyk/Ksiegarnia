@@ -13,7 +13,7 @@ public class UserDbModel {
 
         try {
             con = db.openConnection();
-            PreparedStatement pst = con.prepareStatement("SELECT * from users where (login=?) and blokada=0 and czy_aktywne=");
+            PreparedStatement pst = con.prepareStatement("SELECT * from users where (login=?) and blokada=0 and czy_aktywne=1");
             pst.setString(1, login);
             ResultSet result = pst.executeQuery();
             if (result.next()) {
@@ -42,6 +42,7 @@ public class UserDbModel {
                     userSignIn = new User();
                     userSignIn.setUserId(result.getInt("id"));
                     userSignIn.setLogin(result.getString("login"));
+                    userSignIn.setRola(result.getString("typ"));
                     userSignIn.setEmail(result.getString("email"));
                     userSignIn.setHaslo("");
                     PreparedStatement pst2 = con.prepareStatement("UPDATE users SET liczba_prob=0 where (login=?)");
@@ -72,12 +73,13 @@ public class UserDbModel {
         if (!search(bean.getLogin())) {
             try {
                 con = db.openConnection();
-                PreparedStatement pst1 = con.prepareStatement("INSERT into users (login,haslo,email,kod)"
-                        + "values (?,?,?,?)");
+                PreparedStatement pst1 = con.prepareStatement("INSERT into users (login,haslo,typ,email,kod)"
+                        + "values (?,?,?,?,?)");
                 pst1.setString(1, bean.getLogin());
                 pst1.setString(2, SHA.encrypt(bean.getHaslo()));
                 pst1.setString(3, bean.getEmail());
-                pst1.setString(4, kodakt);
+                pst1.setString(4, "user");
+                pst1.setString(5, kodakt);
                 pst1.executeUpdate();
 
                 PreparedStatement pst2 = con.prepareStatement("INSERT into klienci (login,imie,nazwisko,miejscowosc,kod_pocztowy,ulica,nr_telefonu)"

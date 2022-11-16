@@ -1,5 +1,4 @@
 package com.ksiegarnia.tools;
-
 import jakarta.mail.Message;
 import jakarta.mail.MessagingException;
 import jakarta.mail.Session;
@@ -9,28 +8,14 @@ import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
 import java.util.Properties;
-
-
-
-/**
- * ClassName : JavaMailAPI.java Description : send mail with java mail API
- *
- * @author MotYim
- * @since 16-02-2017
- */
 public class MailModel {
-
-    //-------------- Mail API vars ------------------
     private Properties mailServerProperties;
     private Session getMailSession;
     private MimeMessage generateMailMessage;
-
-    //-------------- local vars ------------------
-    final private String SENDER_MAIL = "bookzwami@onet.pl";
-    final private String PASSWORD = "%Bookzwami123";
+    final private String SENDER_MAIL = "";
+    final private String PASSWORD = "";
     final private String SMTP = "smtp.poczta.onet.pl";
 
-    //-------------- object vars ------------------
     private String to;
     private String subject;
     private String emailBody;
@@ -44,8 +29,6 @@ public class MailModel {
     public boolean sendMail() {
         try {
 
-            //-------------- setup Mail Server Properties ------------------
-            mailServerProperties = System.getProperties();
             mailServerProperties.put("mail.smtp.port", "465");
             mailServerProperties.put("mail.smtp.ssl.enable", "true");
             mailServerProperties.put("mail.smtp.host", SMTP);
@@ -53,12 +36,6 @@ public class MailModel {
             mailServerProperties.put("mail.smtp.user", SENDER_MAIL);
             mailServerProperties.put("mail.smtp.password", PASSWORD);
             mailServerProperties.put("mail.mime.charset", "utf8");
-
-
-
-
-
-            //-------------- get Mail Session ------------------
 
             getMailSession = Session.getDefaultInstance(mailServerProperties);
             generateMailMessage = new MimeMessage(getMailSession);
@@ -69,7 +46,6 @@ public class MailModel {
             generateMailMessage.setContent(emailBody, "text/html");
             getMailSession.setDebug(true);
 
-            //-------------- Get Session and Send mail ------------------
             Transport transport = getMailSession.getTransport("smtp");
             transport.connect(SMTP, SENDER_MAIL, PASSWORD);
             transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
@@ -88,7 +64,6 @@ public class MailModel {
     public boolean sendActivationMail(String act) {
         try {
 
-            //-------------- setup Mail Server Properties ------------------
             mailServerProperties = System.getProperties();
             mailServerProperties.put("mail.smtp.port", "465");
             mailServerProperties.put("mail.smtp.ssl.enable", "true");
@@ -96,12 +71,6 @@ public class MailModel {
             mailServerProperties.put("mail.smtp.auth", "true");
             mailServerProperties.put("mail.smtp.user", SENDER_MAIL);
             mailServerProperties.put("mail.smtp.password", PASSWORD);
-
-
-
-
-            //-------------- get Mail Session ------------------
-
             getMailSession = Session.getDefaultInstance(mailServerProperties);
             generateMailMessage = new MimeMessage(getMailSession);
             generateMailMessage.setFrom(new InternetAddress(SENDER_MAIL));
@@ -370,13 +339,10 @@ public class MailModel {
             generateMailMessage.setText(emailBody,"UTF-8");
             generateMailMessage.setContent(emailBody, "text/html; charset=utf-8");
             getMailSession.setDebug(true);
-
-            //-------------- Get Session and Send mail ------------------
             Transport transport = getMailSession.getTransport("smtp");
             transport.connect(SMTP, SENDER_MAIL, PASSWORD);
             transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
             transport.close();
-
         } catch (AddressException ex) {
             ex.printStackTrace();
             return false;
@@ -387,6 +353,4 @@ public class MailModel {
         return true;
 
     }
-
-
 }

@@ -20,7 +20,7 @@
         <input type="text" name="kod" id="kod" placeholder="wpisz swój kod pocztowy" required class="box" maxlength="6">
         <input type="text" name="miasto" id="miasto" placeholder="wpisz swoją miejscowość" required class="box">
         <input type="submit" name="submit" value="Zarejestruj" class="btn">
-        <p>Masz już konto? <a href="login.jsp">Zaloguj się!</a></p>
+        <p>Masz już konto? <a href="${pageContext.request.contextPath}/login.jsp">Zaloguj się!</a></p>
     </form>
 </div>
 
