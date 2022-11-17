@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <nav class="navbar navbar-expand-lg bg-light sticky-top px-5">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="#" alt="Logo" width="30" height="24">
+        <a class="navbar-brand" href="index.jsp">
+            <img src="${pageContext.request.contextPath}/images/logo.PNG" alt="Logo" width="100" height="50">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,38 +44,27 @@
                         </svg>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end navbar-dropdown">
-                        <%
-                            //user logged
-                            if (true) {
-                        %>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelProfile.jsp">Profil</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelOrders.jsp">Zamówienia</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelReservations.jsp">Rezerwacje</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelInvoices.jsp">Faktury</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelOpinions.jsp">Opinie</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/userPanel/userPanelOrders.jsp">Wyloguj</a></li>
-                        <%
-                            }
-                            //admin logged
-                            else if (false) {
-                        %>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelOrders.jsp">Zamówienia</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelReservations.jsp">Rezerwacje</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelInvoices.jsp">Faktury</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelUsers.jsp">Panel Użytkowników</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelOpinions.jsp">Panel Opinii</a></li>
-                        <li><a class="dropdown-item" href="../../../Ksiegarnia_war_exploded/pages/adminPanel/adminPanelProducts.jsp">Panel produktów</a></li>
-                        <li><a class="dropdown-item" href="">Wyloguj</a></li>
-                        <%
-                            }
-                            //no one is logged
-                            else {
-                        %>
-                        <li><a class="dropdown-item" href="../Ksiegarnia_war_exploded/login.jsp">Logowanie</a></li>
-                        <li><a class="dropdown-item" href="../Ksiegarnia_war_exploded/register.jsp">Rejestracja</a></li>
-                        <%
-                            }
-                        %>
+                        <c:if test="${!empty LoginUser && LoginUser.rola =='user' }">
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/userPanel/userPanelProfile.jsp">Profil</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/userPanel/userPanelOrders.jsp">Zamówienia</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/userPanel/userPanelReservations.jsp">Rezerwacje</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/userPanel/userPanelInvoices.jsp">Faktury</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/userPanel/userPanelOpinions.jsp">Opinie</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Wyloguj</a></li>
+                        </c:if>
+                        <c:if test="${!empty LoginUser && LoginUser.rola =='admin' }">
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/adminPanel/adminPanelOrders.jsp">Zamówienia</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/adminPanel/adminPanelReservations.jsp">Rezerwacje</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/adminPanel/adminPanelInvoices.jsp">Faktury</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/adminPanel/adminPanelUsers.jsp">Panel Użytkowników</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/adminPanel/adminPanelOpinions.jsp">Panel Opinii</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/pages/adminPanel/adminPanelProducts.jsp">Panel produktów</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Wyloguj</a></li>
+                        </c:if>
+                        <c:if test="${empty LoginUser}">
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">Logowanie</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/register.jsp">Rejestracja</a></li>
+                        </c:if>
                     </ul>
             </ul>
         </div>

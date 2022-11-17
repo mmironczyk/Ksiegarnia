@@ -12,7 +12,7 @@
     <div>
         <%@include file="./userSidebar.jspf" %>
     </div>
-    <div id="adminPanelContent" class="flex-grow-1">
+    <div id="adminPanelContent" class="flex-grow-1 mx-auto">
         <section>
             <div class="container">
                 <div class="row">

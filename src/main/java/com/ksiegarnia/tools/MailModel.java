@@ -12,8 +12,8 @@ public class MailModel {
     private Properties mailServerProperties;
     private Session getMailSession;
     private MimeMessage generateMailMessage;
-    final private String SENDER_MAIL = "";
-    final private String PASSWORD = "";
+    final private String SENDER_MAIL = "bookzwami@onet.pl";
+    final private String PASSWORD = "%Bookzwami123";
     final private String SMTP = "smtp.poczta.onet.pl";
 
     private String to;

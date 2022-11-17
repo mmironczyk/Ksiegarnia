@@ -15,7 +15,7 @@ public class DbConnection {
     public DbConnection() {
         url = "jdbc:mariadb://localhost/bookstore";
         user = "root";
-        pass = "123123";
+        pass = "admin";
     }
 
     public Connection openConnection() {

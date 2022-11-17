@@ -84,7 +84,7 @@ public class UserDbModel {
         if (!search(bean.getLogin())) {
             try {
                 con = db.openConnection();
-                PreparedStatement pst1 = con.prepareStatement("INSERT into users (login,haslo,typ,email,kod)"
+                PreparedStatement pst1 = con.prepareStatement("INSERT into users (login,haslo,email,typ,kod)"
                         + "values (?,?,?,?,?)");
                 pst1.setString(1, bean.getLogin());
                 pst1.setString(2, SHA.encrypt(bean.getHaslo()));
