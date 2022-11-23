@@ -1,34 +1,43 @@
 package com.ksiegarnia.beans;
 
 public class Product {
-    private String name;
+    private String title;
     private double cost;
     private String image;
     private String description;
     private String date;
     private int amount;
-    private int productId;
-    private int category;
-    private int author;
 
-    public Product(String name, double cost, String image, String description, String date, int amount, int productId, int category, int author) {
-        this.name = name;
+
+
+    private int pages;
+    private int productId;
+    private String category;
+
+    private String author;
+
+    public Product(String title, double cost, String image, String description, String date, int amount, int pages, int productId, String category) {
+        this.title = title;
         this.cost = cost;
         this.image = image;
         this.description = description;
         this.date = date;
         this.amount = amount;
+        this.pages = pages;
         this.productId = productId;
         this.category = category;
-        this.author = author;
     }
 
-    public String getName() {
-        return name;
+    public Product() {
+
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public double getCost() {
@@ -79,19 +88,27 @@ public class Product {
         this.productId = productId;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
-    public int getAuthor() {
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(int author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 

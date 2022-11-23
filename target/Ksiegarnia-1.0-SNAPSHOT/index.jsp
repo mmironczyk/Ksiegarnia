@@ -76,7 +76,7 @@
                                 <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                                     <div class="bg-image hover-zoom ripple rounded ripple-surface">
                                         <img src="images/bbook.png" class="w-100" />
-                                        <a href="#!">
+                                        <a href="index.jsp">
                                             <div class="hover-overlay">
                                                 <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
                                             </div>
@@ -97,7 +97,6 @@
                                         <span>Tematyka</span>
                                     </div>
                                     <div class="mb-2 text-muted small">
-
                                     </div>
                                     <p class="text-truncate mb-4 mb-md-0">
                                         Opis.
