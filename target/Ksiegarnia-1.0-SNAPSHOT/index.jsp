@@ -26,6 +26,10 @@
             </div>
         </div>
     </div>
+    <div class="row" style="height:320px;margin: auto;">
+        <div class="col-md-4">
+
+
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -40,7 +44,7 @@
                     <p class="text-dark">Coś o niej.</p>
                 </div>
             </div>
-            <div class="carousel-item h-50">
+            <div class="carousel-item ">
                 <img src="images/book.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class="text-dark">Książka 2</h5>
@@ -63,6 +67,8 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
+    </div>
+        </div>
     </div>
     <section style="background-color: #eee;">
         <br>
@@ -110,7 +116,7 @@
                                     </div>
                                     <h6 class="text-success">Darmowa dostawa!</h6>
                                     <div class="d-flex flex-column mt-4">
-                                        <a class="btn btn-primary" href="./pages/productPage.jsp" role="button">Szczegóły</a>
+                                        <a class="btn btn-primary" href="Product?id=31" role="button">Szczegóły</a>
                                         <button class="btn btn-outline-primary btn-sm mt-2" type="button">Dodaj do koszyka</button>
                                     </div>
                                 </div>
@@ -162,7 +168,7 @@
                                     </div>
                                     <h6 class="text-success">Darmowa dostawa!</h6>
                                     <div class="d-flex flex-column mt-4">
-                                        <button class="btn btn-primary btn-sm" type="button">Szczegóły</button>
+                                        <a class="btn btn-primary" href="Product?id=32" role="button">Szczegóły</a>
                                         <button class="btn btn-outline-primary btn-sm mt-2" type="button">Dodaj do koszyka</button>
                                     </div>
                                 </div>

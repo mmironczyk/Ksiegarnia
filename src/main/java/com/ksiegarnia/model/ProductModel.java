@@ -124,6 +124,7 @@ public class ProductModel {
                 productObject.setPages(result.getInt("ilosc_stron"));
                 productObject.setDescription(result.getString("opis"));
                 productObject.setDate(result.getString("data_wydania"));
+                productObject.setAuthor(result.getString("autor"));
                 productObject.setImage(result.getString("okladka"));
                 productObject.setCategory(result.getString("gatunek"));
                 db.closeConnection();
@@ -204,7 +205,7 @@ public class ProductModel {
         ArrayList<Product> getItem = new ArrayList();
         try {
             con = db.openConnection();
-            pst = con.prepareStatement("SELECT * from product where id_ksiazki <> ? and gatunek= ? ORDER BY id_ksiazki ASC limit 6");
+            pst = con.prepareStatement("SELECT * from ksiazki where id_ksiazki <> ? and gatunek= ? ORDER BY id_ksiazki ASC limit 6");
             pst.setInt(1, productid);
             pst.setString(2, category);
             Product p;
