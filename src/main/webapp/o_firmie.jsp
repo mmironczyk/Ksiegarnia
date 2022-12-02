@@ -13,8 +13,8 @@
 </head>
 <body>
 <%@include file="fragment/navbar.jspf"%>
-<br><br><br>
-    <div class="container marketing">
+
+    <div class="container marketing" style="margin-top:80px;">
         <div class="row">
             <div class="col-lg-4">
             </div><!-- /.col-lg-4 -->
