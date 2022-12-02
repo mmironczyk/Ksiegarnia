@@ -114,7 +114,7 @@
                                                 }
                                             </style>
 
-                                            <form method="post" id="DO" action="">
+                                            <form method="post" id="DO" action="ChangePersonals">
                                                 <div class="row gx-3 mb-3">
                                                     <div class="col-md-6">
                                                         <label class="small mb-1" for="imie">Imię</label>
@@ -127,7 +127,7 @@
                                                 </div>
                                                 <button class="btn btn-success" type="submit">Zapisz zmiany</button>
                                             </form>
-                                            <form method="post" id="EM" action="">
+                                            <form method="post" id="EM" action="ChangeEmail">
                                                 <div class="row gx-3 mb-3">
                                                     <div class="col-md-6">
                                                         <label class="small mb-1" for="email">Adres email</label>
@@ -136,16 +136,20 @@
                                                 </div>
                                                 <button class="btn btn-success" type="submit">Zapisz zmiany</button>
                                             </form>
-                                            <form method="post" id="PS" action="">
+                                            <form method="post" id="PS" action="ChangePassword">
                                                 <div class="row gx-3 mb-3">
                                                     <div class="col-md-6">
-                                                        <label class="small mb-1" for="haslo">Hasło</label>
-                                                        <input class="form-control" id="haslo" name="haslo" required type="text" placeholder="Wpisz nowe hasło">
+                                                        <label class="small mb-1" for="haslostare">Podaj stare hasło</label>
+                                                        <input class="form-control" id="haslostare" name="haslostare" required type="password" placeholder="Wpisz stare hasło">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="small mb-1" for="haslo">Podaj nowe hasło</label>
+                                                        <input class="form-control" id="haslo" name="haslo" required type="password" placeholder="Wpisz nowe hasło">
                                                     </div>
                                                 </div>
                                                 <button class="btn btn-success" type="submit">Zapisz zmiany</button>
                                             </form>
-                                            <form method="post" id="AD" action="">
+                                            <form method="post" id="AD" action="ChangeAddres">
                                                 <div class="row gx-3 mb-3">
                                                     <div class="col-md-6">
                                                         <label class="small mb-1" for="miasto">Miasto</label>

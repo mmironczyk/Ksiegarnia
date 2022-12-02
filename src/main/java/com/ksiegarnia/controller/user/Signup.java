@@ -19,8 +19,6 @@ public class Signup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-
 
         String login = request.getParameter("login");
         System.out.println("TEST"+login);
