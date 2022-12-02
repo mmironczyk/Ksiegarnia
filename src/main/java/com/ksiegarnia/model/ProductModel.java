@@ -181,7 +181,7 @@ public class ProductModel {
         return ListProductByName;
     }
 
-    public ArrayList<Product> getAllProductByCategory(String category) {
+    public ArrayList<Product> getAllProductByCategoryId(String category) {
         ArrayList<Product> list = new ArrayList();
         try {
             con = db.openConnection();
