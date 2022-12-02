@@ -29,7 +29,6 @@ public class UserDbModel {
         return b;
     }
     public User signIn(String login, String password) {
-        System.out.println(SHA.encrypt(password));
         User userSignIn = null;
         try {
             if (search(login)) {
@@ -155,5 +154,43 @@ public class UserDbModel {
         {
             return false;
         }
+    }
+
+    public void zmiana_danych(String imie, String nazwisko, User user) throws SQLException {
+        con = db.openConnection();
+        PreparedStatement pst = con.prepareStatement("UPDATE klienci SET imie=?, nazwisko=? WHERE imie=? AND nazwisko=?");
+        pst.setString(1, imie);
+        pst.setString(2, nazwisko);
+        pst.setString(3, user.getImie());
+        pst.setString(4, user.getNazwisko());
+        pst.executeQuery();
+    }
+
+    public void zmiana_hasla(String haslo,String haslo2, User user) throws SQLException {
+        con = db.openConnection();
+        PreparedStatement pst = con.prepareStatement("UPDATE users SET haslo=? WHERE haslo=? AND login=?");
+        pst.setString(1, SHA.encrypt(haslo2));
+        pst.setString(2, SHA.encrypt(haslo));
+        pst.setString(3, user.getLogin());
+        pst.executeQuery();
+    }
+
+    public void zmiana_email(String email, User user) throws SQLException {
+        con = db.openConnection();
+        PreparedStatement pst = con.prepareStatement("UPDATE users SET email=? WHERE email=? AND login=?");
+        pst.setString(1, email);
+        pst.setString(2, user.getEmail());
+        pst.setString(3, user.getLogin());
+        pst.executeQuery();
+    }
+
+    public void zmiana_adresu(String miasto,String kod, String ulica, User user) throws SQLException {
+        con = db.openConnection();
+        PreparedStatement pst = con.prepareStatement("UPDATE klienci SET miejscowosc=? , kod_pocztowy=?, ulica=? WHERE login=?");
+        pst.setString(1, miasto);
+        pst.setString(2, kod);
+        pst.setString(3, ulica);
+        pst.setString(4, user.getLogin());
+        pst.executeQuery();
     }
 }
