@@ -15,6 +15,7 @@
 <%@include file="fragment/navbar.jspf"%>
 
 <div class="d-flex flex-column min-vh-100" style="margin-top:80px;">
+    <img src="images/404.png" alt="404 error" width="100%" height="100%">
 </div>
 
 <%@include file="fragment/footer.jspf"%>

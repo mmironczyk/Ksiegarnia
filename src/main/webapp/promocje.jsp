@@ -14,7 +14,7 @@
 <body>
 <%@include file="fragment/navbar.jspf"%>
 
-<div style="margin-top:80px;">
+<div class="d-flex flex-column min-vh-100" style="margin-top:80px;">
 
 </div>
 

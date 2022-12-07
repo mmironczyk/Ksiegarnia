@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body style="padding:0px; margin: 0px;">
+<body class="d-flex flex-column min-vh-100" style="padding:0px; margin: 0px;">
 <%@include file="fragment/navbar.jspf"%>
 
 <div style="margin-top:30px;">
@@ -22,7 +22,7 @@
                 <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
                     <h1 class="mb-2">Bookzwami</h1>
                     <div class="intro-text text-center text-md-left">
-                        <p class="mb-4">Strona, na której znajdziesz swoja wymarzoną ksiąkę! </p>
+                        <p class="mb-4">Strona, na której znajdziesz swoja wymarzoną książkę! </p>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="promocje.jsp"><img class="bd-placeholder-img" src="images/promocje.jpg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+                <a href="promocje.jsp"><img class="bd-placeholder-img" src="images/promocje.jpg" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
                 </a>
                     <div class="container">
                     <div class="carousel-caption text-start">
@@ -45,22 +45,22 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="bd-placeholder-img" src="images/book.png" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+                <img class="bd-placeholder-img" src="images/promocje2.png" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
 
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1 class="OutlineText">Doświadczenie</h1>
-                        <p class="OutlineText">Funkcjonujemy od 2022r.</p>
+                        <h1 class="OutlineText"></h1>
+                        <p class="OutlineText"></p>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="bd-placeholder-img" src="images/book.png" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+                <img class="bd-placeholder-img" src="images/promocje3.PNG" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
 
                 <div class="container">
                     <div class="carousel-caption text-end">
-                        <h1 class="OutlineText">Kilka sprzedanych egzemplarzy</h1>
-                        <p class="OutlineText">Już niedługo sprzedaż wzrośnie.</p>
+                        <h1 class="OutlineText"></h1>
+                        <p class="OutlineText"></p>
                     </div>
                 </div>
             </div>
