@@ -34,6 +34,17 @@
 
     </c:forEach>
 </c:if>
+    <c:if test="${empty requestScope.allProducts}">
+        <section id="form">
+            <div class="container">
+                <div class="row">
+                    <div class="alert alert-danger">
+                        <strong>Brak wyników do wyświetlenia</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </c:if>
     </div>
         </div>
         <div>

@@ -42,23 +42,18 @@ public class ProductModel {
     public boolean editProduct(Product product) {
         try {
             con = db.openConnection();
-            int i = 0;
-            pst = con.prepareStatement("update ksiazki set tytul=?,cena=?,ilosc_sztuk=?,ilosc_stron=?,data_wydania=?,opis=?,okladka=?,gatunek=? where id_ksiazki=?");
+            pst = con.prepareStatement("update ksiazki set tytul=?,cena=?,ilosc_sztuk=?,ilosc_stron=?,data_wydania=?,opis=?,gatunek=? where id_ksiazki=?");
             pst.setString(1, product.getTitle());
             pst.setDouble(2, product.getCost());
             pst.setInt(3, product.getAmount());
             pst.setInt(4, product.getPages());
             pst.setString(5, product.getDate());
             pst.setString(6, product.getDescription());
-            pst.setString(7, product.getImage());
-            pst.setString(8, product.getCategory());
-            pst.setInt(9, product.getProductId());
-            i = pst.executeUpdate();
+            pst.setString(7, product.getCategory());
+            pst.setInt(8, product.getProductId());
+            pst.executeUpdate();
             db.closeConnection();
-            if (i > 0) {
-                return true;
-            }
-
+            System.out.println("Edytowano");
         } catch (SQLException ex) {
             db.closeConnection();
             ex.printStackTrace();
@@ -67,13 +62,11 @@ public class ProductModel {
 
     }
 
-    public boolean deleteProduct(int id, String path) {
+    public boolean deleteProduct(int id,String path) {
         try {
             int i = 0;
             Product product = getProduct(id);
-            boolean deleteFile = com.ksiegarnia.tools.FileUpload.deleteFile(product.getImage(), path);
-            System.out.println(product.getImage());
-            System.out.println("osama" + deleteFile);
+            boolean deleteFile = com.ksiegarnia.tools.FileUpload.deleteFile(product.getImage(),path);
             if (deleteFile) {
                 con = db.openConnection();
                 pst = con.prepareStatement("delete from ksiazki where id_ksiazki=?");
@@ -331,4 +324,29 @@ public class ProductModel {
         }
         return  Hprice;
     }
+
+    public List<Product> Search(String title, int start , int limit) {
+        ArrayList<Product> list = new ArrayList();
+        try {
+            con = db.openConnection();
+            pst = con.prepareStatement("select * from ksiazki where tytul Like ? ORDER BY id_ksiazki DESC LIMIT ? , ?");
+            pst.setString(1, '%'+title+'%');
+            pst.setInt(2, start);
+            pst.setInt(3, limit);
+            Product p;
+            result = pst.executeQuery();
+            while (result.next()) {
+                p = new Product(result.getString("tytul"),result.getDouble("cena"),result.getString("okladka"),result.getString("opis"),
+                        result.getString("data_wydania"),result.getInt("ilosc_sztuk"),result.getInt("ilosc_stron"),result.getInt("id_ksiazki"),result.getString("gatunek"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            db.closeConnection();
+            ex.printStackTrace();
+        }
+        return list;
+    }
+
+
+
 }

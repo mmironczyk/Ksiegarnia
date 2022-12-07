@@ -14,11 +14,11 @@ public class Logout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getSession(false).invalidate();
-        response.sendRedirect("../index.jsp");
+        response.sendRedirect("index.jsp");
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getSession(false).invalidate();
-        response.sendRedirect("../index.jsp");
+        response.sendRedirect("index.jsp");
     }
 }

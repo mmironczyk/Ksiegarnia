@@ -12,10 +12,10 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
+<body style="padding:0px; margin: 0px;">
 <%@include file="fragment/navbar.jspf"%>
 
-<div>
+<div style="margin-top:30px;">
     <div class="site-blocks-cover" style="background-image: url(images/bookf.png);" data-aos="fade">
         <div class="container">
             <div class="row align-items-start align-items-md-center justify-content-end" style="height: 850px;">
@@ -36,12 +36,11 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="bd-placeholder-img" src="images/book.png" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
-
-                <div class="container">
+                <a href="promocje.jsp"><img class="bd-placeholder-img" src="images/promocje.jpg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+                </a>
+                    <div class="container">
                     <div class="carousel-caption text-start">
-                        <h1 class="OutlineText">Nasza strona</h1>
-                        <p class="OutlineText">Bardzo dobra.</p>
+                        <h1 class="OutlineText">Sprawdź promocje!</h1>
                     </div>
                 </div>
             </div>

@@ -35,12 +35,9 @@ public class FileUpload {
         return type.contains("image");
     }
 
-    public static boolean deleteFile(String photo, String path) {
-
-        if (photo.equalsIgnoreCase("upload/test.png") || photo.equalsIgnoreCase("upload/test.png")) {
-            return true;
-        }
-        File file = new File(path + photo);
+    public static boolean deleteFile(String photo,String path) {
+        String p = path+photo;
+        File file = new File(p);
         if (file.exists()) {
             boolean delete = file.delete();
             return true;
