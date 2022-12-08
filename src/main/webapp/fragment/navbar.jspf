@@ -19,7 +19,7 @@
                         <a class="nav-link" href="index.jsp">Strona głowna</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gatunki</a>
+                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gatunki</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Fantastyka">Fantastyka</a></li>
                             <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Sci-Fi">Sci-Fi</a></li>
