@@ -2,6 +2,8 @@ package com.ksiegarnia.model;
 
 import com.ksiegarnia.beans.User;
 import java.sql.*;
+import java.util.ArrayList;
+
 import com.ksiegarnia.tools.SHA;
 
 public class UserDbModel {
@@ -118,7 +120,7 @@ public class UserDbModel {
         User user = null ;
         try {
             con = db.openConnection();
-            PreparedStatement pst = con.prepareStatement("SELECT * from users where (id=?)");
+            PreparedStatement pst = con.prepareStatement("SELECT u.id, u.login, u.email, k.imie, k.nazwisko, k.miejscowosc, k.ulica, k.kod_pocztowy, k.nr_telefonu from users as u, klienci as k Where u.login=k.login and u.id=?;");
             pst.setInt(1, id);
             ResultSet result = pst.executeQuery();
             if (result.next()) {
@@ -128,8 +130,10 @@ public class UserDbModel {
                 user.setEmail(result.getString("email"));
                 user.setImie(result.getString("imie"));
                 user.setNazwisko(result.getString("nazwisko"));
-                user.setMiasto(result.getString("miasto"));
-                user.setAdres(result.getString("adres"));
+                user.setMiasto(result.getString("miejscowosc"));
+                user.setAdres(result.getString("ulica"));
+                user.setKod(result.getString("kod_pocztowy"));
+                user.setTelefon(result.getString("nr_telefonu"));
                 user.setHaslo("");
             }
             db.closeConnection();
@@ -155,6 +159,37 @@ public class UserDbModel {
             return false;
         }
     }
+
+    public ArrayList<User> getAllUsers() {
+        con = db.openConnection();
+        ArrayList<User> allUser = new ArrayList();
+        try {
+            PreparedStatement pst = con.prepareStatement("SELECT u.id, u.login, u.email, k.imie, k.nazwisko, k.miejscowosc, k.ulica, k.kod_pocztowy, k.nr_telefonu from users as u, klienci as k Where u.login=k.login;");
+            ResultSet result = pst.executeQuery();
+            User user = null ;
+            while (result.next()) {
+                user= new User();
+                user.setUserId(result.getInt("id"));
+                user.setLogin(result.getString("login"));
+                user.setEmail(result.getString("email"));
+                user.setImie(result.getString("imie"));
+                user.setNazwisko(result.getString("nazwisko"));
+                user.setMiasto(result.getString("miejscowosc"));
+                user.setAdres(result.getString("ulica"));
+                user.setKod(result.getString("kod_pocztowy"));
+                user.setTelefon(result.getString("nr_telefonu"));
+                user.setHaslo("");
+                allUser.add(user);
+            }
+            db.closeConnection();
+            return allUser;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            db.closeConnection();
+        }
+        return null;
+    }
+
 
     public void zmiana_danych(String imie, String nazwisko, User user) throws SQLException {
         con = db.openConnection();
@@ -193,4 +228,27 @@ public class UserDbModel {
         pst.setString(4, user.getLogin());
         pst.executeQuery();
     }
+
+    public void DeleteUser(User user) throws SQLException {
+        con = db.openConnection();
+        PreparedStatement pst = con.prepareStatement("DELETE FROM klienci WHERE login=?");
+        pst.setString(1, user.getLogin());
+        pst.executeQuery();
+        PreparedStatement pst2 = con.prepareStatement("DELETE FROM users WHERE id=?");
+        pst2.setInt(1, user.getUserId());
+        pst2.executeQuery();
+    }
+    public void ActivateUser(User user) throws SQLException {
+        con = db.openConnection();
+        PreparedStatement pst = con.prepareStatement("UPDATE users SET czy_aktywne=1 WHERE id=?");
+        pst.setInt(1, user.getUserId());
+        pst.executeQuery();
+    }
+    public void ClearBlock(User user) throws SQLException {
+        con = db.openConnection();
+        PreparedStatement pst = con.prepareStatement("UPDATE users SET blokada=0 WHERE id=?");
+        pst.setInt(1, user.getUserId());
+        pst.executeQuery();
+    }
+
 }
