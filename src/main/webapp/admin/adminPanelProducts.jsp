@@ -30,7 +30,7 @@
                     <tr class="cart_menu">
                         <td class="description">Tytuł</td>
                         <td class="price">Cena</td>
-                        <td class="quantity">Ilość</td>
+                        <td class="quantity">Liczba</td>
                         <td>Menu</td>
                     </tr>
                     </thead>
