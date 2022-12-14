@@ -4,7 +4,6 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="js/addtocart.js"></script>
     <title>Książki</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -25,9 +24,9 @@
                 <p class="mt-1 fw-bold">${product.title}</p>
                 <p class="fw-light mt-4 mb-0">${product.author}</p>
                 <p class="mt-1 text-danger mb-0">${product.cost} PLN</p>
-                <button class="btn btn-outline-danger mb-2">
-                    <a href="#" id="${product.productId}" class="text-danger fw-normal fs-8 add-to-cart">DODAJ DO KOSZYKA</a>
-                </button>
+                <a href="addCart?id=${product.productId}&qaunty=1" class="btn btn-outline-secondary mt-1">
+                    <span class="text-secondary fw-normal fs-9">Dodaj do koszyka</span>
+                </a>
                 <a href="Product?id=${product.productId}" class="btn btn-outline-secondary mt-1">
                     <span class="text-secondary fw-normal fs-9">Informacje</span>
                 </a>
@@ -63,7 +62,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-<script src="js/addtocart.js"></script>
 </body>
 </html>
 
