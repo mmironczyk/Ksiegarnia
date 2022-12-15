@@ -26,7 +26,7 @@ public class ShoppingCart extends HttpServlet {
 
         request.setAttribute("carts", carts);
 
-        String nextJSP = "/checkout.jsp";
+        String nextJSP = "/cart.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
     }
