@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<script src="js/addtocart.js"></script>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -83,12 +82,10 @@
                 </div>
                 <form class="mt-3">
                     <div id="decrease" class="quantity-button" onclick="decreaseValue()">-</div>
-                    <input type="number" id="number" value="1">
+                    <input type="number" id="amount" value="1">
                     <div id="increase" class="quantity-button" onclick="increaseValue()">+</div>
                 </form>
-                <button class="btn btn-outline-danger mt-5">
-                    <a href="#" id="${product.productId}" class="text-danger fw-light fs-3 add-to-cart">DODAJ DO KOSZYKA</a>
-                </button>
+                    <button  type="button" id="${product.productId}" class="btn btn-primary add-to-my mt-3 d-block">DODAJ DO KOSZYKA</button>
                 <button class="btn btn-outline-secondary mt-3 d-block">
                     <span class="text-secondary fw-light fs-5">REZERWUJ</span>
                 </button>
@@ -118,23 +115,63 @@
 
 <script>
     function decreaseValue() {
-        let value = parseInt(document.getElementById("number").value, 10);
+        let value = parseInt(document.getElementById("amount").value, 10);
         value = isNaN(value) ? 0 : value;
         value < 1 ? value = 1 : "";
         value--;
-        document.getElementById("number").value = value;
+        document.getElementById("amount").value = value;
     }
 
     function increaseValue() {
-        let value = parseInt(document.getElementById("number").value, 10);
+        let value = parseInt(document.getElementById("amount").value, 10);
         value = isNaN(value) ? 0 : value;
         value++;
-        document.getElementById("number").value = value;
+        document.getElementById("amount").value = value;
     }
 </script>
-<script src="js/addtocart.js"></script>
+
+
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.add-to-my').click(function () {
+            var id = $(this).attr('id');
+            var qaunty = $("#amount").val();
+            addProduct(id, amount);
+        });
+
+        function addProduct(id, amount) {
+            $.ajax({
+                url: 'addCart', //servlet url
+                type: 'GET',
+                data: {"id": id, "amount": amount},
+                success: (data) => {
+                    if (data.redirect) {
+                        // data.redirect contains the string URL to redirect to
+                        window.location.href = data.redirect;
+                    }else{
+                        $("#number").html(data);
+                        showNotification('product add to your cart','success');
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("error");
+                    if (thrownError.redirect.length) {
+                        window.location.replace(thrownError.redirect);
+                    } else {
+                        alert('There was an error processing your request, please try again');
+                    }
+                }
+            });
+        }
+
+    })
+</script>
 </body>
 </html>

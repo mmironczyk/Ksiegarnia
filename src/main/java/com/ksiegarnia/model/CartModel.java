@@ -169,7 +169,7 @@ public class CartModel extends DbConnection {
         ArrayList<ProductinCart> carts = new ArrayList<ProductinCart>();
         try {
             con = openConnection();
-            PreparedStatement pst = con.prepareStatement("SELECT c.id_koszyka,c.ilosc,k.tytul,k.cena,k.okladka,k.opis,k.id_ksiazki from koszyk as c, ksiazki as k where c.id_produkt=k.id_ksiazki AND c.id_klient=? ");
+            PreparedStatement pst = con.prepareStatement("SELECT c.id_koszyka,c.ilosc,k.tytul,k.cena,k.okladka,k.opis,k.gatunek,k.id_ksiazki from koszyk as c, ksiazki as k where c.id_produkt=k.id_ksiazki AND c.id_klient=? ");
             pst.setInt(1, userId);
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -178,8 +178,9 @@ public class CartModel extends DbConnection {
                 cartProduct.setAmount(rs.getInt("c.ilosc"));
                 cartProduct.setTitle(rs.getString("k.tytul"));
                 cartProduct.setCost(rs.getInt("k.cena"));
-                cartProduct.setImage(rs.getString("k.image"));
+                cartProduct.setImage(rs.getString("k.okladka"));
                 cartProduct.setDescription(rs.getString("k.opis"));
+                cartProduct.setCategory(rs.getString("k.gatunek"));
                 cartProduct.setProductId(rs.getInt("k.id_ksiazki"));
                 carts.add(cartProduct);
             }

@@ -24,9 +24,9 @@
                 <p class="mt-1 fw-bold">${product.title}</p>
                 <p class="fw-light mt-4 mb-0">${product.author}</p>
                 <p class="mt-1 text-danger mb-0">${product.cost} PLN</p>
-                <a href="addCart?id=${product.productId}&qaunty=1" class="btn btn-outline-secondary mt-1">
+                <button type="button" id="${product.productId}" class="btn btn-outline-secondary mt-1 add-to-cart">
                     <span class="text-secondary fw-normal fs-9">Dodaj do koszyka</span>
-                </a>
+                </button>
                 <a href="Product?id=${product.productId}" class="btn btn-outline-secondary mt-1">
                     <span class="text-secondary fw-normal fs-9">Informacje</span>
                 </a>
@@ -62,6 +62,48 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.add-to-cart').click(function () {
+            var id = $(this).attr('id');
+            addProduct(id, 1);
+        });
+
+        function addProduct(id, amount) {
+            $.ajax({
+                url: 'addCart', //servlet url
+                type: 'GET',
+                data: {"id": id, "amount": amount},
+                success: (data) => {
+                    if (data.redirect) {
+                        // data.redirect contains the string URL to redirect to
+                        window.location.href = data.redirect;
+                    }else{
+                        $("#number").html(data);
+                        showNotification('product add to your cart','success');
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert("error");
+                    if (thrownError.redirect.length) {
+                        window.location.replace(thrownError.redirect);
+                    } else {
+                        alert('There was an error processing your request, please try again');
+                    }
+                }
+            });
+        }
+
+    })
+</script>
+
 </body>
 </html>
 
