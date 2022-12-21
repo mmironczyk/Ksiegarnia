@@ -26,7 +26,7 @@
         <section>
             <h1 class="text-center mb-4 pb-2 fw-bold display-3">FAQ</h1>
             <p class="text-center mb-5">
-                Najczęsciej zadawane pytania przez pacjentów.
+                Najczęściej zadawane pytania przez klientów.
             </p>
 
             <div class="row">
@@ -35,8 +35,9 @@
                     <p>
                         Wszystkie dane są przechowywane bezpiecznie w serwerze na terytorium
                         Rzeczpospolitej Polskiej.
-                        Dane konsultacji/wywiadów medycznych są przechowywane w sposób niejawny i
+                        Dane o naszych klientach są przechowywane w sposób niejawny i
                         uniemożliwiający bezpośrednią identyfikację. Krytyczne dane użytkownika są przechowywane w postaci zaszyfrowanej.
+                        Wasze dane są z nami bezpieczne.
                     </p>
                 </div>
 
@@ -52,7 +53,7 @@
                         technicznej?
                     </h6>
                     <p>
-                        Oczywiście, bardzo starannie. Audyty bezpieczeństwa są w Klinika-pixel.pl regułą.
+                        Oczywiście, bardzo starannie. Audyty bezpieczeństwa są w BookzWami regułą.
                     </p>
                 </div>
 
@@ -61,10 +62,9 @@
                         informacji których udzielam?
                     </h6>
                     <p>
-                        Do danych z wywiadu medycznego tylko lekarz. Asystenci uzyskują dostęp do e-maila i numeru telefonu gdy tego wymaga
-                        wyjaśnienie rzeczy nie związanych z medyczną stroną konsultacji. Osoby dbające o techniczną stronę serwisu Klinika-Pixel.pl mają wtórny dostęp do
+                        Osoby dbające o techniczną stronę serwisu BookzWami.pl mają wtórny dostęp do
                         danych i wyłącznie z zakresie wynikającym z przeprowadzenia
-                        działań administracyjnych i utrzymania serwisu (kopie zapasowe, update).
+                        działań administracyjnych i utrzymania serwisu (kopie zapasowe, update). Administrator nie widzi waszego hasła.
                     </p>
                 </div>
 
@@ -72,7 +72,8 @@
                     <h6 class="mb-3 text-primary"><i class="fas fa-home text-primary pe-2"></i> Kiedy następuje płatność?
                     </h6>
                     <p>
-                        Po konsultacji, przed wystawieniem recepty. Jeśli nie chcesz recepty, nie musisz płacić za konsultację.
+
+                        Płatność następuje po dodaniu książki do koszyka oraz kliknięciu opcji "Przejdź do kasy".
                     </p>
                 </div>
 
