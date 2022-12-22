@@ -15,7 +15,7 @@
 <%@include file="fragment/navbar.jspf"%>
 
 <div style="margin-top:30px;">
-    <div class="site-blocks-cover" style="background-image: url(images/bookf.png);" data-aos="fade">
+    <div class="site-blocks-cover" style="background-image: url(images/bookf.png); background-repeat: no-repeat; height: 100%; width: 100%;" data-aos="fade">
         <div class="container">
             <div class="row align-items-start align-items-md-center justify-content-end" style="height: 850px;">
                 <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="width: 100%;">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -35,7 +35,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <a href="promocje.jsp"><img class="bd-placeholder-img" src="images/promocje.jpg" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+                <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje.jpg" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
                 </a>
                     <div class="container">
                     <div class="carousel-caption text-start">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="bd-placeholder-img" src="images/promocje2.png" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+                <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje2.png" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
 
                 <div class="container">
                     <div class="carousel-caption">
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="bd-placeholder-img" src="images/promocje3.PNG" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+                <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje3.PNG" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
 
                 <div class="container">
                     <div class="carousel-caption text-end">

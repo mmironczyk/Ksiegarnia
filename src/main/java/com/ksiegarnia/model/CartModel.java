@@ -177,7 +177,7 @@ public class CartModel extends DbConnection {
                 cartProduct.setCartId(rs.getInt("c.id_koszyka"));
                 cartProduct.setAmount(rs.getInt("c.ilosc"));
                 cartProduct.setTitle(rs.getString("k.tytul"));
-                cartProduct.setCost(rs.getInt("k.cena"));
+                cartProduct.setCost(rs.getFloat("k.cena"));
                 cartProduct.setImage(rs.getString("k.okladka"));
                 cartProduct.setDescription(rs.getString("k.opis"));
                 cartProduct.setCategory(rs.getString("k.gatunek"));
@@ -226,7 +226,7 @@ public class CartModel extends DbConnection {
             if (quantity < 2) {
                 return deleteCart(cartID);
             } else {
-
+                System.out.println(quantity);
                 con = openConnection();
                 PreparedStatement pst = null;
                 try {
@@ -252,29 +252,31 @@ public class CartModel extends DbConnection {
         Cart cart = getCart(cartID);
         if (cart != null) {
             int quantity = cart.getQuantity();
-
-            con = openConnection();
-            PreparedStatement pst = null;
-            try {
-                //System.out.println("my con" + con);
-                pst = con.prepareStatement("update koszyk set ilosc=? where id_koszyka=? ");
-                pst.setInt(1,cart.getQuantity()+1);
-                pst.setInt(2, cartID);
-                int executeUpdate = pst.executeUpdate();
-                closeConnection();
-                if (executeUpdate > 0) {
-                    return true;
+            if (quantity < 1) {
+                return deleteCart(cartID);
+            } else {
+                con = openConnection();
+                PreparedStatement pst = null;
+                try {
+                    //System.out.println("my con" + con);
+                    pst = con.prepareStatement("update koszyk set ilosc=? where id_koszyka=? ");
+                    pst.setInt(1, cart.getQuantity() + 1);
+                    pst.setInt(2, cartID);
+                    int executeUpdate = pst.executeUpdate();
+                    closeConnection();
+                    if (executeUpdate > 0) {
+                        return true;
+                    }
+                } catch (SQLException ex) {
+                    closeConnection();
+                    ex.printStackTrace();
                 }
-            } catch (SQLException ex) {
-                closeConnection();
-                ex.printStackTrace();
             }
+
         }
+            return false;
 
-
-        return false;
-
-    }
+        }
 
 }
 
