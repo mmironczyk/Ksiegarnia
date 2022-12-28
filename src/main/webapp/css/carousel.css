@@ -1,10 +1,10 @@
 .carousel-item {
-    height: 900px; //this can be whatever you want
+    height: 500px;
 }
 
 .carousel-inner {
-    height: 900px; //this can be whatever you want
+    height: 500px;
 }
 .carousel-inner>.active {
-    height: 900px; //this can be whatever you want
+    height: 500px;
 }

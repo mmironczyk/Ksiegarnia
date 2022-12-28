@@ -19,7 +19,7 @@
     <section class="h-100 gradient-custom">
         <div class="container py-5">
             <div class="row d-flex justify-content-left my-4">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="card mb-4">
                         <div class="card-header py-3">
                             <h5 class="mb-0">Koszyk</h5>
@@ -44,7 +44,7 @@
                                     <!-- Data -->
                                     <p><strong>${product.title}</strong></p>
                                     <p>Gatunek: ${product.category}</p>
-                                    <a href="${pageContext.request.contextPath}/DeleteFromCart?id=${product.cartId}" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                                    <a href="${pageContext.request.contextPath}/DeleteFromCart?id=${product.cartId}" onclick="return confirm('Usunąć wybrany produkt?')" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
                                             title="Usuń z koszyka">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
@@ -64,6 +64,7 @@
                                         </button>
 
                                         <input class="cart_quantity_input"
+                                               style="width: 100px;"
                                                type="number" name="quantity" id="I_${product.cartId}"
                                                value="${product.amount}" autocomplete="off"
                                                size="2" disabled>
@@ -94,15 +95,15 @@
                     </div>
                 </div>
             </div>
-                <div class="col-md-4 justify-content-right my-4">
+            <center>
+                <div class="col-md-12 justify-content-right my-4">
                     <div class="card mb-4">
                         <div class="card-header py-3">
                             <h5 class="mb-0">Podusmowanie</h5>
                         </div>
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
-                                <li
-                                        class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                     Produkty:
                                     <span id="total">${total} zł</span>
                                 </li>
@@ -110,8 +111,7 @@
                                     Dostawa:
                                     <span>GRATIS</span>
                                 </li>
-                                <li
-                                        class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                     <div>
                                         <strong>Razem</strong>
                                     </div>
@@ -125,6 +125,7 @@
                         </div>
                     </div>
                 </div>
+            </center>
             </div>
     </section>
 </div>
@@ -210,6 +211,7 @@
         }
     })
 </script>
+
 
 
 </body>
