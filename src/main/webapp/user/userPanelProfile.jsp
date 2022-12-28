@@ -216,9 +216,10 @@
                                                 }
                                             });
                                         </script>
+                                        </div>
                                     </main><BR>
                             </div>
-            </div></div></div>
+            </div>
         </section>
     </div>
 </div>

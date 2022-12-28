@@ -105,7 +105,7 @@
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/userPanelOrders.jsp">Zamówienia</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/userPanelReservations.jsp">Rezerwacje</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/userPanelInvoices.jsp">Faktury</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/userPanelOpinions.jsp">Opinie</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/ServletUserReview">Opinie</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Wyloguj</a></li>
                             <script type="text/javascript">var userID = '${LoginUser.userId}';</script>
                         </c:if>
@@ -114,7 +114,7 @@
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminPanelReservations.jsp">Rezerwacje</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminPanelInvoices.jsp">Faktury</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdUser">Panel Użytkowników</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminPanelOpinions.jsp">Panel Opinii</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdReview">Panel Opinii</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdProduct">Panel produktów</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Wyloguj</a></li>
                         </c:if>

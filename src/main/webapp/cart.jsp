@@ -57,18 +57,17 @@
                                 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                                     <!-- Quantity -->
                                     <div class="d-flex mb-4" style="max-width: 300px">
-                                        <button type="button" id="D_${product.cartId}" class="btn btn-primary px-3 me-2 cart_quantity_down" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <button type="button" id="D_${product.cartId}" class="btn btn-primary px-3 me-2 cart_quantity_down">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
                                             </svg>
                                         </button>
 
-                                        <div class="form-outline">
-                                            <input name="quantity" size="2" id="I_${product.cartId}" value="${product.amount}" type="number" disabled/>
-                                        </div>
-
-                                        <button type="button" id="U_${product.cartId}" class="btn btn-primary px-3 ms-2 cart_quantity_up"
-                                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <input class="cart_quantity_input"
+                                               type="number" name="quantity" id="I_${product.cartId}"
+                                               value="${product.amount}" autocomplete="off"
+                                               size="2" disabled>
+                                        <button type="button" id="U_${product.cartId}" class="btn btn-primary px-3 ms-2 cart_quantity_up">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
                                             </svg>
@@ -156,11 +155,10 @@
                 type: 'GET',
                 data: {"id": id},
                 success: (data) => {
-                    reCalculateDecrease(id);
                     if (data.redirect) {
                         window.location.href = data.redirect;
                     }else{
-                        $("#number").html(data);
+                        reCalculateDecrease(id);
                     }
                 }
             });
@@ -194,21 +192,21 @@
         }
         function reCalculateDecrease(id){
             var price = parseFloat($("#C_"+id).text());
+            $("#I_"+id).val($("#I_"+id).val()-1);
             var pecies = parseInt($("#I_"+id).val());
-            $("#I_"+id).val(pecies);
-            $("#T_"+id).text(pecies*price);
+            $("#T_"+id).text((pecies*price).toFixed(2));
             var total = parseFloat($("#total").text());
-            $("#total").text((total - price)+ " zł");
-            $("#total2").text((total - price)+ " zł");
+            $("#total").text((total - price).toFixed(2)+ " zł");
+            $("#total2").text((total - price).toFixed(2)+ " zł");
         }
         function reCalculateIncrease(id){
             var price = parseFloat($("#C_"+id).text());
-            var pecies = parseInt($("#I_"+id).val());
+            var pecies = parseInt($("#I_"+id).val()) + 1 ;
             $("#I_"+id).val(pecies);
-            $("#T_"+id).text(pecies*price);
+            $("#T_"+id).text((pecies*price).toFixed(2));
             var total = parseFloat($("#total").text());
-            $("#total").text((total + price)+ " zł");
-            $("#total2").text((total + price)+" zł");
+            $("#total").text((total + price).toFixed(2)+ " zł");
+            $("#total2").text((total + price).toFixed(2)+" zł");
         }
     })
 </script>
