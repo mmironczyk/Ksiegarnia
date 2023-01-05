@@ -113,7 +113,7 @@
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminPanelOrders.jsp">Zamówienia</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminPanelReservations.jsp">Rezerwacje</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminPanelInvoices.jsp">Faktury</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminDiscountCodes.jsp">Kody rabatowe</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdPromo">Kody rabatowe</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdUser">Panel Użytkowników</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdReview">Panel Opinii</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdProduct">Panel produktów</a></li>
