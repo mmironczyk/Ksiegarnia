@@ -17,6 +17,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="adminDiscountCodes.jsp" class="nav-link link-dark">
+                Kody rabatowe
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="ServletAdUser" class="nav-link link-dark">
                 Użytkownicy
             </a>
