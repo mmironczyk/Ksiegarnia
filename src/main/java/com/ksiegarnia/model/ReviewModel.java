@@ -9,9 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ReviewModel extends DbConnection {
-    ResultSet rs = null;
-    Connection con;
+    public class ReviewModel extends DbConnection {
+        ResultSet rs = null;
+        Connection con;
 
     DbConnection db = new DbConnection();
 

@@ -45,7 +45,7 @@ public class PromoCodeModel {
             if (rs.next()) {
                 code.setId(rs.getInt("id_rabatu"));
                 code.setCode(rs.getString("kod"));
-                code.setValue(rs.getDouble("wartosc_rabatu"));
+                code.setValue(rs.getFloat("wartosc_rabatu"));
                 code.setNumberofusage(rs.getInt("ilosc_uzyc"));
                 db.closeConnection();
                 return code;
@@ -56,6 +56,34 @@ public class PromoCodeModel {
         }
         return null;
     }
+
+    public PromoCode getCodeFromString(String s) {
+        PromoCode code = new PromoCode();
+        try {
+            con = db.openConnection();
+            PreparedStatement pst = null;
+            pst = con.prepareStatement("SELECT * FROM kody_rabatowe WHERE kod=?");
+            pst.setString(1, " "+s);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                code.setId(rs.getInt("id_rabatu"));
+                System.out.println(rs.getInt("id_rabatu"));
+                code.setCode(rs.getString("kod"));
+                System.out.println(rs.getString("kod"));
+                code.setValue(rs.getFloat("wartosc_rabatu"));
+                System.out.println(rs.getDouble("wartosc_rabatu"));
+                code.setNumberofusage(rs.getInt("ilosc_uzyc"));
+                System.out.println(rs.getInt("ilosc_uzyc"));
+                db.closeConnection();
+                return code;
+            }
+        } catch (Exception e) {
+            db.closeConnection();
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     public boolean deleteCode(int id) {
         try {
@@ -85,7 +113,7 @@ public class PromoCodeModel {
             PromoCode code;
             ResultSet result = pst.executeQuery();
             while (result.next()) {
-                code = new PromoCode(result.getInt("id_rabatu"),result.getString("kod"),result.getDouble("wartosc_rabatu"),result.getInt("ilosc_uzyc"));
+                code = new PromoCode(result.getInt("id_rabatu"),result.getString("kod"),result.getFloat("wartosc_rabatu"),result.getInt("ilosc_uzyc"));
                 list.add(code);
             }
         } catch (SQLException ex) {
