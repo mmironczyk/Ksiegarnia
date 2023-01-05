@@ -57,14 +57,14 @@
 
                             <!-- Text input -->
                             <div class="form-outline mb-4">
-                                <input type="text" id="form6Example4" class="form-control" />
-                                <label class="form-label" for="form6Example4">Adres email</label>
+                                <input type="email" id="form6Example5" class="form-control" />
+                                <label class="form-label" for="form6Example5">Adres email</label>
                             </div>
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="email" id="form6Example5" class="form-control" />
-                                <label class="form-label" for="form6Example5">Telefon</label>
+                                <input type="number" id="form6Example4" class="form-control" />
+                                <label class="form-label" for="form6Example4">Telefon</label>
                             </div>
 
                             <hr class="my-4" />

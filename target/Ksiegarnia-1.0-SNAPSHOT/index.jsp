@@ -37,7 +37,7 @@
             <div class="carousel-item active">
                 <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje.jpg" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
                 </a>
-                    <div class="container">
+                <div class="container">
                     <div class="carousel-caption text-start">
                         <h1 class="OutlineText">Sprawdź promocje!</h1>
                     </div>
