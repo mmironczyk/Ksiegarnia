@@ -24,6 +24,15 @@ public class checkPromo extends HttpServlet {
         if(code!=null){
             ServletContext context=getServletContext();
             context.setAttribute("pro",code.getValue());
+            context.setAttribute("msg","true");
+            response.sendRedirect("/Ksiegarnia_war_exploded/checkout");
+        }
+        else
+        {
+            float r = 0;
+            ServletContext context=getServletContext();
+            context.setAttribute("pro",r);
+            context.setAttribute("msg","false");
             response.sendRedirect("/Ksiegarnia_war_exploded/checkout");
         }
     }

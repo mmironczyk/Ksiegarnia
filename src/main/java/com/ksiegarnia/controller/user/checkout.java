@@ -33,9 +33,13 @@ public class checkout extends HttpServlet {
 
         ServletContext context=getServletContext();
         float s = (Float)context.getAttribute("pro");
+        String st;
+        st=(String)context.getAttribute("msg");
         System.out.println(s);
         request.setAttribute("value", c);
         request.setAttribute("rabat", s);
+        System.out.println(st);
+        if(st!=""){request.setAttribute("ms",st);}
         String nextJSP = "/checkout.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
