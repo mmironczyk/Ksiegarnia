@@ -14,11 +14,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.beans.User;
 
 @WebFilter(filterName = "Login",
-        urlPatterns = {"/pages/adminPanel/adminPanelInvoices.jsp", "/pages/adminPanel/adminPanelOpinions.jsp", "/pages/adminPanel/adminPanelOrders.jsp",
-                "/pages/adminPanel/adminPanelProducts.jsp", "/pages/adminPanel/adminPanelReservation.jsp", "/pages/adminPanel/adminPanelUsers.jsp", "/pages/adminPanel/adminSidebar.jspf",
-                "/pages/userPanel/userPanelInvoices.jsp", "/pages/userPanel/userPanelOpinions.jsp", "/pages/userPanel/userPanelOrders.jsp",
-                "/pages/userPanel/userPanelProfile.jsp", "/pages/userPanel//userPanelReservation.jsp","/pages/userPanel//userSidebar.jspf",
-                "/logout"})
+        urlPatterns = {"/admin/adminPanelInvoices.jsp", "/admin/adminPanelOpinions.jsp", "/admin/ActivateUser","/admin/AddBook" ,"/admin/AddCode" ,"/admin/ClearBlock" ,
+                "/admin/DeleteProduct" ,"/admin/DeletePromo" ,"/admin/DeleteUser" ,"/admin/ManageProduct" ,"/admin/ServletAdProduct" ,"/admin/ServletAdPromo" ,"/admin/ServletAdReview" ,
+                "/admin/ServletAdUser" ,"/user/ShoppingCart" ,"/ShoppingCart" ,"/user/AddCart","/user/AddReview","/user/DeleteFromCart","/user/ServletUserReview","/user/UsersCarts","/user/userPanelProfile.jsp","/logout"})
 public class LoginControl implements Filter {
 
     public LoginControl() {
@@ -34,7 +32,7 @@ public class LoginControl implements Filter {
         {
             chain.doFilter(request, response);
         } else {
-            String redirectUrl = "../../login.jsp";
+            String redirectUrl = "/Ksiegarnia_war_exploded/login.jsp";
             if (hreq.getHeader("x-requested-with") != null
                     && hreq.getHeader("x-requested-with").equalsIgnoreCase("XMLHttpRequest")) {
                 HttpServletResponse hres = (HttpServletResponse) response;

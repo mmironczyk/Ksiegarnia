@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
             <div class="col-md-5 mb-4">
                 <div class="card mb-4">
                     <div class="card-header py-3">
-                        <h5 class="mb-0">Dane do faktury</h5>
+                        <h5 class="mb-0 d-flex justify-content-center">Dane do faktury</h5>
                     </div>
                     <div class="card-body">
                         <form>
@@ -27,14 +28,14 @@
                             <div class="row mb-4">
                                 <div class="col">
                                     <div class="form-outline">
-                                        <input type="text" id="form6Example1" class="form-control" />
-                                        <label class="form-label" for="form6Example1">Imię</label>
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Imię</label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
-                                        <input type="text" id="form6Example2" class="form-control" />
-                                        <label class="form-label" for="form6Example2">Nazwisko</label>
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Nazwisko</label>
                                     </div>
                                 </div>
                             </div>
@@ -43,52 +44,85 @@
                             <div class="row mb-4">
                                 <div class="col">
                                     <div class="form-outline">
-                                        <input type="text" id="form6Example1" class="form-control" />
-                                        <label class="form-label" for="form6Example1">Miejscowość</label>
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Miejscowość</label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
-                                        <input type="text" id="form6Example2" class="form-control" />
-                                        <label class="form-label" for="form6Example2">Ulica</label>
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Ulica</label>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Text input -->
                             <div class="form-outline mb-4">
-                                <input type="email" id="form6Example5" class="form-control" />
-                                <label class="form-label" for="form6Example5">Adres email</label>
+                                <input type="email" class="form-control" />
+                                <label class="form-label">Adres email</label>
                             </div>
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="number" id="form6Example4" class="form-control" />
-                                <label class="form-label" for="form6Example4">Telefon</label>
+                                <input type="text" class="form-control" />
+                                <label class="form-label">Telefon</label>
                             </div>
 
                             <hr class="my-4" />
 
-                            <h5 class="mb-4">Metoda płatności</h5>
-
+                            <h5 class="mb-4 d-flex justify-content-center">Metoda płatności</h5>
+                            <div class="form-outline mb-4">
+                        </form>
+                                <form action="/Ksiegarnia_war_exploded/checkPromo" id="promo" name="promo" method="post">
+                                <label class="form-label">Masz kod rabatowy? Wpisz go poniżej.</label>
+                                <input type="text" id="kod" name="kod" class="form-control" /><BR>
+                                </form>
+                                <button type="submit" name="submit" form="promo" class="btn btn-primary btn-lg btn-block">
+                                    Sprawdź kod rabatowy
+                                </button>
+                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkoutForm3"
-                                       checked />
-                                <label class="form-check-label" for="checkoutForm3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"/>
+                                <label class="form-check-label">
                                     Gotówka
                                 </label>
+                                <br>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"/>
+                                <label class="form-check-label">
+                                    Przelew bankowy
+                                </label>
                             </div>
-                            <br>
+                            <hr class="my-4" />
+                            <h5 class="mb-4 d-flex justify-content-centerd-flex justify-content-center">Podsumowanie</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    <h6 class="mb-2 ">Razem:</h6>
+                                    <span id="1"><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${value}"/> </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    <h6 class="mb-2 ">Rabat:</h6>
+                                    <c:set var="rg" value="${rabat}"/>
+                                    <c:if test="${empty rabat}">
+                                        <c:set var="rg" value="${0}"/>
+                                    </c:if>
+                                    <span id="2"><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${(rg/100)*value}"/> </span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    <h6 class="mb-2 ">Do zapłaty:</h6>
+                                    <span id="3"><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${value-((rg/100)*value)}"/> </span>
+                                </li>
+
+                                <br>
+                            </ul>
                             <button class="btn btn-primary btn-lg btn-block" type="submit">
                                 Potwierdź
                             </button>
-                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
     <!-- Credit card form -->
-
 <%@include file="fragment/footer.jspf"%>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

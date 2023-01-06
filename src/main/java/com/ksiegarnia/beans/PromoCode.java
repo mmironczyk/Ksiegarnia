@@ -16,7 +16,7 @@ public class PromoCode {
         return code;
     }
 
-    public PromoCode(int id, String code, double value, int numberofusage) {
+    public PromoCode(int id, String code, float value, int numberofusage) {
         this.id = id;
         this.code = code;
         this.value = value;
@@ -27,11 +27,11 @@ public class PromoCode {
         this.code = code;
     }
 
-    public double getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(float value) {
         this.value = value;
     }
 
@@ -40,7 +40,7 @@ public class PromoCode {
     public PromoCode() {
     }
 
-    double value;
+    float value;
 
     public int getNumberofusage() {
         return numberofusage;

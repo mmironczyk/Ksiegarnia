@@ -20,7 +20,7 @@ public class AddCode extends HttpServlet {
             throws ServletException, IOException {
 
         String kod = request.getParameter("kod");
-        double rabat = Double.parseDouble(request.getParameter("wartosc"));
+        float rabat = Float.parseFloat(request.getParameter("wartosc"));
         int usage = 0;
         PromoCode code = new PromoCode();
         code.setCode(kod);

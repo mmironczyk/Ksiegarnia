@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,9 +80,9 @@
                                     <!-- Price -->
 
 
-                                        <strong>Cena za sztukę: </strong><a id="C_${product.cartId}">${product.cost}</a> zł<BR>
+                                        <strong>Cena za sztukę: </strong><a id="C_${product.cartId}"><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${product.cost}"/></a> <BR>
                                     <!-- Price -->
-                                    <strong>Cena ogółem: </strong><a id="T_${product.cartId}">${product.cost*product.amount}</a> zł
+                                    <strong>Cena ogółem: </strong><a id="T_${product.cartId}"><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${product.cost*product.amount}"/></a>
 
                                 </div>
                             </div>
@@ -101,11 +102,11 @@
                         <div class="card-header py-3">
                             <h5 class="mb-0">Podusmowanie</h5>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body"><form action="checkout" method="post">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                     Produkty:
-                                    <span id="total">${total} zł</span>
+                                    <span id="total"><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${total}"/> </span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                                     Dostawa:
@@ -115,14 +116,14 @@
                                     <div>
                                         <strong>Razem</strong>
                                     </div>
-                                    <span><strong id="total2">${total} zł</strong></span>
+                                    <span><strong id="total2"><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${total}"/> </strong></span>
                                 </li>
                             </ul>
-
-                            <a class="btn btn-primary btn-lg btn-block" href="checkout.jsp">
+                            <input type="hidden" id="vc" name="vc" value="${total}">
+                            <button class="btn btn-primary btn-lg btn-block">
                                 Przejdź do kasy
-                            </a>
-                        </div>
+                            </button>
+                        </form></div>
                     </div>
                 </div>
             </center>
@@ -195,19 +196,23 @@
             var price = parseFloat($("#C_"+id).text());
             $("#I_"+id).val($("#I_"+id).val()-1);
             var pecies = parseInt($("#I_"+id).val());
-            $("#T_"+id).text((pecies*price).toFixed(2));
+            $("#T_"+id).text((pecies*price));
             var total = parseFloat($("#total").text());
-            $("#total").text((total - price).toFixed(2)+ " zł");
-            $("#total2").text((total - price).toFixed(2)+ " zł");
+            $("#total").text((total - price)+ " zł");
+            $("#total2").text((total - price)+ " zł");
+            document.getElementById("vc").value = total - price;
+            window.location.reload();
         }
         function reCalculateIncrease(id){
             var price = parseFloat($("#C_"+id).text());
             var pecies = parseInt($("#I_"+id).val()) + 1 ;
             $("#I_"+id).val(pecies);
-            $("#T_"+id).text((pecies*price).toFixed(2));
+            $("#T_"+id).text((pecies*price));
             var total = parseFloat($("#total").text());
-            $("#total").text((total + price).toFixed(2)+ " zł");
-            $("#total2").text((total + price).toFixed(2)+" zł");
+            $("#total").text((total + price)+ " zł");
+            $("#total2").text((total + price)+" zł");
+            document.getElementById("vc").value = total + price;
+            window.location.reload();
         }
     })
 </script>

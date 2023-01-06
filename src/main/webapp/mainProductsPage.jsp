@@ -77,25 +77,22 @@
 
         function addProduct(id, amount) {
             $.ajax({
-                url: 'addCart', //servlet url
+                url: 'addCart',
                 type: 'GET',
                 data: {"id": id, "amount": amount},
                 success: (data) => {
                     if (data.redirect) {
-                        // data.redirect contains the string URL to redirect to
                         window.location.href = data.redirect;
                     }else{
                         $("#number").html(data);
-                        showNotification('product add to your cart','success');
                     }
-
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
-                    alert("error");
+                    window.location.href = "/Ksiegarnia_war_exploded/login.jsp";
                     if (thrownError.redirect.length) {
                         window.location.replace(thrownError.redirect);
                     } else {
-                        alert('There was an error processing your request, please try again');
+                        alert('Spróbuj ponownie!');
                     }
                 }
             });
