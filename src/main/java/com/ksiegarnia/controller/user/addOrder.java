@@ -40,12 +40,15 @@ public class addOrder extends HttpServlet {
             ord.setId_produktu(carts.get(x).getProductId());
             ord.setIlosc_produktu(carts.get(x).getAmount());
             ord.setNr_zamowienia(nr_zam);
+            ord.setCena_sztuka((float) carts.get(x).getCost());
             new OrderModel().addOrder(ord);
         }
+        float rabat = Float.parseFloat(request.getParameter("ra"));
         Payment payment = new Payment();
         payment.setId_klienta(online.getUserId());
         payment.setNr_zamowienia(nr_zam);
         payment.setKwota(Float.parseFloat(request.getParameter("kwota")));
+        payment.setRabat(rabat);
         new PaymentModel().addPayment(payment);
 
         new CartModel().deleteUserCart(Integer.parseInt(request.getParameter("id")));

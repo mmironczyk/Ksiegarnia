@@ -4,6 +4,15 @@ public class Order {
 
     int id_zamowienia;
 
+    public float getCena_sztuka() {
+        return cena_sztuka;
+    }
+
+    public void setCena_sztuka(float cena_sztuka) {
+        this.cena_sztuka = cena_sztuka;
+    }
+
+    float cena_sztuka;
     public int getId_zamowienia() {
         return id_zamowienia;
     }

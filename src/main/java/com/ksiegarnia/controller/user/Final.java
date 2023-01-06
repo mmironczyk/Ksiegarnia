@@ -40,12 +40,17 @@ public class Final extends HttpServlet {
         user.setTelefon(request.getParameter("telefon"));
         user.setEmail(request.getParameter("email"));
 
+        PromoCodeModel model = new PromoCodeModel();
+        PromoCode code = model.getCodeFromString(kod);
+
+
         float kwota = Float.parseFloat(request.getParameter("kwota"));
         float rabat = Float.parseFloat(request.getParameter("rabat"));
         request.setAttribute("usr",user);
         request.setAttribute("kw",kwota);
         request.setAttribute("rb",rabat);
         request.setAttribute("nr_z",nr_zam);
+        request.setAttribute("rab",code.getValue());
         request.setAttribute("carts", carts);
         String nextJSP = "/final.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);

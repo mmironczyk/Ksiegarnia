@@ -116,7 +116,7 @@
         var opt =
                 {
                   margin:       1,
-                  filename:     "test.pdf",
+                  filename:     "${nr_z}.pdf",
                   image:        { type: "jpeg", quality: 0.98 },
                   html2canvas:  { scale: 2 },
                   jsPDF:        { unit: "mm", format: "a4", orientation: "portrait" }
@@ -131,78 +131,79 @@
 <%@include file="fragment/navbar.jspf" %>
 <BR><BR><BR><BR>
 <div id="dvContainer">
-<div id="content">
-  <div class="invoice-box">
-    <table>
-      <tr class="top">
-        <td colspan="2">
-          <table>
-            <tr>
-              <td>
-                Faktura dla zamówienia: ${nr_z} <br/>
-              </td>
+  <div id="content">
+    <div class="invoice-box">
+      <table>
+        <tr class="top">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td>
+                  Faktura dla zamówienia: ${nr_z} <br/>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="informacje">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td>
+                  Klinika Pixel<br />
+                  Kanałowa 2<br />
+                  Obra, 64-211 Wolsztyn
+                </td>
+                <td>
+                  ${usr.imie} ${usr.nazwisko}<br/>
+                  ${usr.adres} ${usr.miasto}<br />
+                  ${usr.telefon}<br />
+                  ${usr.email}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="heading">
+          <td>Płatność</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="details">
+          <td>Rodzaj płatności</td>
+        </tr>
+        <tr class="heading">
+          <td>Książka</td>
+          <td>Ilość</td>
+          <td>Cena za szt.</td>
+          <td>Cena całk.</td>
+        </tr>
+        <c:set var="total" value="${0}"/>
+        <c:if test="${!empty requestScope.carts}">
+          <c:forEach items="${requestScope.carts}" var="product">
+            <tr><td>${product.title}</td>
+              <td>${product.amount}</td>
+              <td><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${product.cost}"/></td>
+              <td><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${product.cost*product.amount}"/></td>
             </tr>
-          </table>
-        </td>
-      </tr>
-      <tr class="informacje">
-        <td colspan="2">
-          <table>
-            <tr>
-              <td>
-                Klinika Pixel<br />
-                Kanałowa 2<br />
-                Obra, 64-211 Wolsztyn
-              </td>
-              <td>
-                ${usr.imie} ${usr.nazwisko}<br/>
-                ${usr.adres} ${usr.miasto}<br />
-                ${usr.telefon}<br />
-                ${usr.email}
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      <tr class="heading">
-        <td>Płatność</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr class="details">
-        <td>Rodzaj płatności</td>
-      </tr>
-      <tr class="heading">
-        <td>Książka</td>
-        <td>Ilość</td>
-        <td>Cena za szt.</td>
-        <td>Cena całk.</td>
-      </tr>
-      <c:if test="${!empty requestScope.carts}">
-      <c:forEach items="${requestScope.carts}" var="product">
-      <tr><td>${product.title}</td>
-      <td>${product.amount}</td>
-        <td><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${product.cost}"/></td>
-        <td><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${product.cost*product.amount}"/></td>
-      </tr>
+            <c:set var="total" value="${total+(product.cost*product.amount)}"/>
+          </c:forEach>
+        </c:if>
+        <tr>
+          <td></td><td></td><td></td><td><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${total}"/></td>
+        </tr>
+        <tr></tr>
+        <tr class="total">
+          <td></td>
+          <td>Rabat: <fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${(rabat/100)*total}"/><br>Łącznie: <fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${total-((rabat/100)*total)}"/></td>
+          <td></td>
+          <td></td>
 
-      </c:forEach>
-      </c:if>
-      <tr>
-        <td></td><td></td><td></td><td><fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${kw}"/></td>
-      </tr>
-      <tr></tr>
-      <tr class="total">
-        <td></td>
-        <td>Rabat: <fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${rb}"/><br>Łącznie: <fmt:formatNumber type="CURRENCY" maxFractionDigits="2" value="${kw-rb}"/></td>
-        <td></td>
-        <td></td>
-
-      </tr>
-    </table>
+        </tr>
+      </table>
+    </div>
   </div>
-</div>
 </div>
 
 <div class="text-center" style="padding:20px;">
@@ -218,28 +219,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
-
-<script>
-
-  $(document).ready(function () {
-    order(${LoginUser.getUserId()},${kw-rb},${nr_z},${rab});
-
-    function order(id,kwota,nr_za,ra) {
-      $.ajax({
-        url: 'addOrder',
-        type: 'POST',
-        data: {"id": id, "kwota":kwota,"nr_za":nr_za,"ra":ra},
-        success: (data) => {
-          if (data.redirect) {
-            window.location.href = data.redirect;
-          } else {
-          }
-        }
-      });
-    }
-  })
-
-</script>
 
 </body>
 </html>

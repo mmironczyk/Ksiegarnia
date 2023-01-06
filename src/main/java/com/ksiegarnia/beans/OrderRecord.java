@@ -3,6 +3,7 @@ package com.ksiegarnia.beans;
 public class OrderRecord {
 
     int id_zamowienia;
+    float cena_sztuka;
 
     public int getId_zamowienia() {
         return id_zamowienia;

@@ -21,11 +21,12 @@ public class OrderModel {
         try {
             con = db.openConnection();
             PreparedStatement pst = null;
-            pst = con.prepareStatement("INSERT INTO zamowienia(id_klienta,nr_zamowienia,id_produktu,ilosc_produktu) VALUES (?,?,?,?)");
+            pst = con.prepareStatement("INSERT INTO zamowienia(id_klienta,nr_zamowienia,id_produktu,ilosc_produktu,cena_sztuka) VALUES (?,?,?,?,?)");
             pst.setInt(1, ord.getId_klienta());
             pst.setString(2, ord.getNr_zamowienia());
             pst.setInt(3, ord.getId_produktu());
             pst.setInt(4, ord.getIlosc_produktu());
+            pst.setFloat(5, ord.getCena_sztuka());
             int executeUpdate = pst.executeUpdate();
             pst.close();
             db.closeConnection();

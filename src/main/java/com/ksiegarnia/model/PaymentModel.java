@@ -20,10 +20,11 @@ public class PaymentModel {
         try {
             con = db.openConnection();
             PreparedStatement pst = null;
-            pst = con.prepareStatement("INSERT INTO platnosci(id_klienta,nr_zamowienia,kwota) VALUES (?,?,?)");
+            pst = con.prepareStatement("INSERT INTO platnosci(id_klienta,nr_zamowienia,kwota,rabat_procent) VALUES (?,?,?,?)");
             pst.setInt(1, pay.getId_klienta());
             pst.setString(2, pay.getNr_zamowienia());
             pst.setFloat(3, pay.getKwota());
+            pst.setFloat(4, pay.getRabat());
             int executeUpdate = pst.executeUpdate();
             pst.close();
             db.closeConnection();

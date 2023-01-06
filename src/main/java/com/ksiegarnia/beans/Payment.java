@@ -4,6 +4,16 @@ public class Payment {
 
     int id_platnosci;
 
+    public float getRabat() {
+        return rabat;
+    }
+
+    public void setRabat(float rabat) {
+        this.rabat = rabat;
+    }
+
+    float rabat;
+
     public int getId_platnosci() {
         return id_platnosci;
     }
