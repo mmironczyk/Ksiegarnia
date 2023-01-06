@@ -8,7 +8,7 @@
 </head>
 <body>
 <%@include file="../fragment/navbar.jspf" %>
-<div class="d-flex flex-row">
+<div class="d-flex flex-row" style="margin-top:75px;">
     <div>
         <%@include file="userSidebar.jspf" %>
     </div>

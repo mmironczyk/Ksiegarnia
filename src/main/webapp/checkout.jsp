@@ -65,12 +65,13 @@
                             </div>
                                 <form action="/Ksiegarnia_war_exploded/checkPromo" id="promo" name="promo" method="post">
                                 <label class="form-label">Masz kod rabatowy? Wpisz go poniżej.</label>
-                                <input type="text" id="kod" name="kod" class="form-control" /><BR>
+                                <input type="text" id="kod" name="kod" value="${ko}" class="form-control" /><BR>
                                 </form>
                                 <button type="submit" name="submit" form="promo" class="btn btn-primary btn-lg btn-block">
                                     Sprawdź kod rabatowy
                                 </button>
                              </div>
+                            <input type="text" id="kod1" name="kod1" value="${ko}" hidden form="final"/>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="typ1" value="Gotówka" form="final" />
                                 <label class="form-check-label">

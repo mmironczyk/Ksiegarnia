@@ -33,10 +33,12 @@ public class checkout extends HttpServlet {
 
         ServletContext context=getServletContext();
         float s = (Float)context.getAttribute("pro");
-        String st;
+        String st,ko;
         st=(String)context.getAttribute("msg");
+        ko=(String)context.getAttribute("k");
         System.out.println(s);
         request.setAttribute("value", c);
+        request.setAttribute("ko", ko);
         request.setAttribute("rabat", s);
         System.out.println(st);
         if(st!=""){request.setAttribute("ms",st);}

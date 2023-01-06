@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
+import org.apache.commons.lang3.RandomStringUtils;
 
 
 @WebServlet("/Final")
@@ -29,8 +30,9 @@ public class Final extends HttpServlet {
         ArrayList<ProductinCart> carts = new ArrayList<ProductinCart>();
         CartModel cartModel = new CartModel();
         carts = cartModel.getProductFromCart(online.getUserId());
-
-
+        String nr_zam = givenUsingApache_whenGeneratingRandomNumericString_thenCorrect();
+        String kod = request.getParameter("kod1");
+        System.out.println(kod);
         user.setImie(request.getParameter("imie"));
         user.setNazwisko(request.getParameter("nazwisko"));
         user.setMiasto(request.getParameter("miejscowosc"));
@@ -43,9 +45,20 @@ public class Final extends HttpServlet {
         request.setAttribute("usr",user);
         request.setAttribute("kw",kwota);
         request.setAttribute("rb",rabat);
+        request.setAttribute("nr_z",nr_zam);
         request.setAttribute("carts", carts);
         String nextJSP = "/final.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
+
+
     }
+
+    public String givenUsingApache_whenGeneratingRandomNumericString_thenCorrect() {
+        String generatedString = RandomStringUtils.randomNumeric(12);
+        System.out.println(generatedString);
+        return generatedString;
+    }
+
+
 }

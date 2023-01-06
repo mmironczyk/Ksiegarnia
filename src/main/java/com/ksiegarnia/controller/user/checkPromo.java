@@ -24,6 +24,7 @@ public class checkPromo extends HttpServlet {
         if(code!=null){
             ServletContext context=getServletContext();
             context.setAttribute("pro",code.getValue());
+            context.setAttribute("k",s);
             context.setAttribute("msg","true");
             response.sendRedirect("/Ksiegarnia_war_exploded/checkout");
         }
@@ -32,6 +33,7 @@ public class checkPromo extends HttpServlet {
             float r = 0;
             ServletContext context=getServletContext();
             context.setAttribute("pro",r);
+            context.setAttribute("k",s);
             context.setAttribute("msg","false");
             response.sendRedirect("/Ksiegarnia_war_exploded/checkout");
         }
