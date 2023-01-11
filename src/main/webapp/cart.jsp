@@ -63,7 +63,7 @@
                                                 <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
                                             </svg>
                                         </button>
-
+ 
                                         <input class="cart_quantity_input"
                                                style="width: 100px;"
                                                type="number" name="quantity" id="I_${product.cartId}"
@@ -196,23 +196,37 @@
             var price = parseFloat($("#C_"+id).text());
             $("#I_"+id).val($("#I_"+id).val()-1);
             var pecies = parseInt($("#I_"+id).val());
+
             $("#T_"+id).text((pecies*price));
             var total = parseFloat($("#total").text());
             $("#total").text((total - price)+ " zł");
             $("#total2").text((total - price)+ " zł");
             document.getElementById("vc").value = total - price;
             window.location.reload();
+
+            $("#T_"+id).text((pecies*price).toFixed(2));
+            var total = parseFloat($("#total").text());
+            $("#total").text((total - price).toFixed(2)+ " zł");
+            $("#total2").text((total - price).toFixed(2)+ " zł");
+
         }
         function reCalculateIncrease(id){
             var price = parseFloat($("#C_"+id).text());
             var pecies = parseInt($("#I_"+id).val()) + 1 ;
             $("#I_"+id).val(pecies);
+
             $("#T_"+id).text((pecies*price));
             var total = parseFloat($("#total").text());
             $("#total").text((total + price)+ " zł");
             $("#total2").text((total + price)+" zł");
             document.getElementById("vc").value = total + price;
             window.location.reload();
+
+            $("#T_"+id).text((pecies*price).toFixed(2));
+            var total = parseFloat($("#total").text());
+            $("#total").text((total + price).toFixed(2)+ " zł");
+            $("#total2").text((total + price).toFixed(2)+" zł");
+
         }
     })
 </script>

@@ -14,6 +14,7 @@
 <nav aria-label="Books page" class="text-center mx-auto" style="max-width: 1200px; margin-top:80px;">
     <div class="d-flex justify-content-center flex-wrap">
 <c:if test="${!empty requestScope.allProducts}">
+
     <c:forEach items="${requestScope.allProducts}" var="product">
 
         <div class="d-flex flex-column my-4 border border-light mx-4" style="width: 225px; height: 440px">
