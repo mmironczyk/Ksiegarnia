@@ -32,7 +32,6 @@ public class Final extends HttpServlet {
         carts = cartModel.getProductFromCart(online.getUserId());
         String nr_zam = givenUsingApache_whenGeneratingRandomNumericString_thenCorrect();
         String kod = request.getParameter("kod1");
-        System.out.println(kod);
         user.setImie(request.getParameter("imie"));
         user.setNazwisko(request.getParameter("nazwisko"));
         user.setMiasto(request.getParameter("miejscowosc"));
@@ -47,6 +46,7 @@ public class Final extends HttpServlet {
         float kwota = Float.parseFloat(request.getParameter("kwota"));
         float rabat = Float.parseFloat(request.getParameter("rabat"));
         request.setAttribute("usr",user);
+        request.setAttribute("k_rab",kod);
         request.setAttribute("kw",kwota);
         request.setAttribute("rb",rabat);
         request.setAttribute("nr_z",nr_zam);

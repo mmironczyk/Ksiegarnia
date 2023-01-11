@@ -13,6 +13,20 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>
+  <script>
+    function order(id,kwota,nr_za,ra,kodrabatowy) {
+      $.ajax({
+        url: 'addOrder',
+        type: 'POST',
+        data: {"id": id, "kwota":kwota,"nr_za":nr_za,"ra":ra,"kodrabatowy":kodrabatowy},
+        success: (data) => {
+          if (data.redirect) {
+            window.location.href = data.redirect;
+          } else {
+          }
+        }
+      })}
+  </script>
 
 
 
@@ -127,7 +141,7 @@
   </script>
 
 </head>
-<body>
+<body onload="order(${LoginUser.getUserId()},${kw-rb},${nr_z},${rab},'${k_rab}')">
 <%@include file="fragment/navbar.jspf" %>
 <BR><BR><BR><BR>
 <div id="dvContainer">
@@ -172,6 +186,9 @@
       </tr>
       <tr class="details">
         <td>Rodzaj płatności</td>
+      </tr>
+      <tr class="details">
+        <td>Kod rabatowy: ${k_rab}</td>
       </tr>
       <tr class="heading">
         <td>Książka</td>
@@ -219,27 +236,7 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 
-<script>
 
-  $(document).ready(function () {
-    order(${LoginUser.getUserId()},${kw-rb},${nr_z},${rab});
-
-    function order(id,kwota,nr_za,ra) {
-      $.ajax({
-        url: 'addOrder',
-        type: 'POST',
-        data: {"id": id, "kwota":kwota,"nr_za":nr_za,"ra":ra},
-        success: (data) => {
-          if (data.redirect) {
-            window.location.href = data.redirect;
-          } else {
-          }
-        }
-      });
-    }
-  })
-
-</script>
 
 </body>
 </html>

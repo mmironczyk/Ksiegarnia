@@ -215,12 +215,12 @@ public class ProductModel {
         System.out.println(getItem.size());
         return getItem;
     }
-    public boolean updateProductAmount(Product product) throws SQLException {
+    public boolean zakup(int liczba, int id) throws SQLException {
         con = db.openConnection();
         int i = 0;
-        pst = con.prepareStatement("update ksiazki set ilosc_sztuk=? where id_ksiazki=?");
-        pst.setInt(1, product.getAmount());
-        pst.setInt(2, product.getProductId());
+        pst = con.prepareStatement("update ksiazki set ilosc_sztuk=ilosc_sztuk-? where id_ksiazki=?");
+        pst.setInt(1, liczba);
+        pst.setInt(2, id);
         i = pst.executeUpdate();
         db.closeConnection();
         if (i > 0) {

@@ -56,7 +56,21 @@ public class PromoCodeModel {
         }
         return null;
     }
-
+    public void addUsage(String s)
+    {
+        PromoCode code = new PromoCode();
+        try {
+            con = db.openConnection();
+            PreparedStatement pst = null;
+            pst = con.prepareStatement("UPDATE kody_rabatowe SET ilosc_uzyc=ilosc_uzyc+1 WHERE kod=?");
+            pst.setString(1, " "+s);
+            int executeUpdate = pst.executeUpdate();
+            db.closeConnection();
+        } catch (Exception e) {
+            db.closeConnection();
+            e.printStackTrace();
+        }
+    }
     public PromoCode getCodeFromString(String s) {
         PromoCode code = new PromoCode();
         try {

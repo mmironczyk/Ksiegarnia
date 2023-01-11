@@ -1,10 +1,7 @@
 package com.ksiegarnia.controller.user;
 
 import com.ksiegarnia.beans.*;
-import com.ksiegarnia.model.CartModel;
-import com.ksiegarnia.model.OrderModel;
-import com.ksiegarnia.model.PaymentModel;
-import com.ksiegarnia.model.PromoCodeModel;
+import com.ksiegarnia.model.*;
 import jakarta.faces.context.FacesContext;
 import jakarta.jms.Session;
 import jakarta.servlet.*;
@@ -12,6 +9,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,6 +23,7 @@ public class addOrder extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession(true);
+        System.out.println("addOrder");
         User online = (User) session.getAttribute("LoginUser");
         User user = new User();
         user.setUserId(online.getUserId());
@@ -33,7 +32,9 @@ public class addOrder extends HttpServlet {
         carts = cartModel.getProductFromCart(online.getUserId());
         Order ord = new Order();
         String nr_zam = request.getParameter("nr_za");
+        String kod = request.getParameter("kodrabatowy");
         System.out.println(nr_zam);
+
         for(int x=0;x<carts.size();x++)
         {
             ord.setId_klienta(online.getUserId());
@@ -42,6 +43,11 @@ public class addOrder extends HttpServlet {
             ord.setNr_zamowienia(nr_zam);
             ord.setCena_sztuka((float) carts.get(x).getCost());
             new OrderModel().addOrder(ord);
+            try {
+                new ProductModel().zakup(carts.get(x).getAmount(),carts.get(x).getProductId());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
         float rabat = Float.parseFloat(request.getParameter("ra"));
         Payment payment = new Payment();
@@ -50,10 +56,9 @@ public class addOrder extends HttpServlet {
         payment.setKwota(Float.parseFloat(request.getParameter("kwota")));
         payment.setRabat(rabat);
         new PaymentModel().addPayment(payment);
+        new PromoCodeModel().addUsage(kod);
 
         new CartModel().deleteUserCart(Integer.parseInt(request.getParameter("id")));
 
     }
-
-
 }
