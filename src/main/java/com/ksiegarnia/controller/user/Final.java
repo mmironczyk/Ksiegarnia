@@ -52,7 +52,7 @@ public class Final extends HttpServlet {
         request.setAttribute("nr_z",nr_zam);
         request.setAttribute("rab",code.getValue());
         request.setAttribute("carts", carts);
-        String nextJSP = "/final.jsp";
+        String nextJSP = "/zamowienia.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
 

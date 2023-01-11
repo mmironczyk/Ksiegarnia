@@ -63,7 +63,7 @@
                                                 <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
                                             </svg>
                                         </button>
- 
+
                                         <input class="cart_quantity_input"
                                                style="width: 100px;"
                                                type="number" name="quantity" id="I_${product.cartId}"

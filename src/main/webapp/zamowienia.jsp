@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.apidelv.com/libs/awesome-functions/awesome-functions.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function order(id,kwota,nr_za,ra,kodrabatowy) {
+            $.ajax({
+                url: 'addOrder',
+                type: 'POST',
+                data: {"id": id, "kwota":kwota,"nr_za":nr_za,"ra":ra,"kodrabatowy":kodrabatowy},
+                success: (data) => {
+                    if (data.redirect) {
+                        window.location.href = data.redirect;
+                    } else {
+                    }
+                }
+            })}
+    </script>
 </head>
-<body>
+<body onload="order(${LoginUser.getUserId()},${kw-rb},${nr_z},${rab},'${k_rab}')">
 <%@include file="fragment/navbar.jspf"%>
 <div style="margin-top:80px;">
     <div class="d-flex aligns-items-center justify-content-center" style="padding-top: 80px">
@@ -27,7 +45,7 @@
 <br><br>
 <hr style="height:2px;border-width:0;color:gray;background-color:gray">
 <div class="d-flex aligns-items-center justify-content-center">
-    <a>Twoje zamówienie nr. 0000 jest w trakcie realizacji.</a>
+    <a>Twoje zamówienie nr. ${nr_z} jest w trakcie realizacji.</a>
 </div>
 <div class="d-flex aligns-items-center justify-content-center" style="height: 300px">
     <a>Swoje zamówienia możesz sprawdzić w zakładce "zamówienia". </a>

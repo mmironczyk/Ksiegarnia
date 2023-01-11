@@ -89,9 +89,9 @@
                     <input type="number" id="amount" value="1">
                     <div id="increase" class="quantity-button" onclick="increaseValue()">+</div>
                 </form>
-                    <button  type="button" id="${product.productId}" class="btn btn-primary add-to-my mt-3 d-block">DODAJ DO KOSZYKA</button>
+                    <button  type="button" id="${product.productId}" class="btn btn-primary add-to-cart mt-3 d-block">DODAJ DO KOSZYKA</button>
                 <button class="btn btn-outline-secondary mt-3 d-block">
-                    <span class="text-secondary fw-light fs-5">REZERWUJ</span>
+                    <button  type="button" id="${product.productId}" class="btn btn-primary reservation mt-3 d-block">REZERWUJ</button>
                 </button>
             </div>
         </div>
@@ -199,38 +199,60 @@
 
 <script>
     $(document).ready(function () {
-        $('.add-to-my').click(function () {
+        $('.add-to-cart').click(function () {
             var id = $(this).attr('id');
             var qaunty = $("#amount").val();
-            addProduct(id, amount);
+            addProduct(id, qaunty);
+        });
+        $('.reservation').click(function () {
+            var id = $(this).attr('id');
+            var qaunty = $("#amount").val();
+            reserve(id, qaunty);
         });
 
         function addProduct(id, amount) {
             $.ajax({
-                url: 'addCart', //servlet url
+                url: 'addCart',
                 type: 'GET',
                 data: {"id": id, "amount": amount},
                 success: (data) => {
                     if (data.redirect) {
-                        // data.redirect contains the string URL to redirect to
                         window.location.href = data.redirect;
                     }else{
                         $("#number").html(data);
-                        showNotification('product add to your cart','success');
                     }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    window.location.href = "/Ksiegarnia_war_exploded/login.jsp";
+                    if (thrownError.redirect.length) {
+                        window.location.replace(thrownError.redirect);
+                    } else {
+                        alert('Spróbuj ponownie!');
+                    }
+                }
+            });
+        }
 
+        function reserve(id, amount) {
+            $.ajax({
+                url: 'addReservation',
+                type: 'GET',
+                data: {"id": id, "amount": amount},
+                success: (data) => {
+                    if (data.redirect) {
+                        window.location.href = data.redirect;
+                    }else{
+                    }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     alert("error");
                     if (thrownError.redirect.length) {
                         window.location.replace(thrownError.redirect);
                     } else {
-                        alert('There was an error processing your request, please try again');
                     }
                 }
             });
         }
-
     })
 </script>
 </body>
