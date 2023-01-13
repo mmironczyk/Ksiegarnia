@@ -1,5 +1,5 @@
 package com.ksiegarnia.beans;
-
+/** klasa reprezentująca produkty w koszyku */
 public class ProductinCart {
     public ProductinCart(int cartId, int userId, String title, double cost, String image, String description, String date, int amount, int pages, int productId, String category, String author) {
         this.cartId = cartId;
@@ -18,76 +18,147 @@ public class ProductinCart {
 
     private int cartId;
         private int userId;
-
+    /** funkcja zwracająca id koszyka
+     * @return int id
+     * */
     public int getCartId() {
         return cartId;
     }
+    /** funkcja ustawiająca id koszyka
+     * @param int cartId id koszyka
+     * */
     public void setCartId(int cartId) {
         this.cartId = cartId;
     }
+    /** funkcja zwracająca id usera
+     * @return int userId
+     * */
     public int getUserId() {
         return userId;
     }
+    /** funkcja ustawiająca id usera
+     * @param int userId id usera
+     * */
     public void setUserId(int userId) {
         this.userId = userId;
     }
+    /** funkcja zwracająca tytul
+     * @return String title
+     * */
     public String getTitle() {
         return title;
     }
+    /** funkcja ustawiająca tytul
+     * @param String title tytul
+     * */
     public void setTitle(String title) {
         this.title = title;
     }
+    /** funkcja zwracająca koszt
+     * @return double cost
+     * */
     public double getCost() {
         return cost;
     }
+    /** funkcja ustawiająca koszt
+     * @param double cost koszt
+     * */
     public void setCost(double cost) {
         this.cost = cost;
     }
+    /** funkcja zwracająca zdjecie
+     * @return String image
+     * */
     public String getImage() {
         return image;
     }
+    /** funkcja ustawiająca zdjecie
+     * @param String image zdjecie
+     * */
     public void setImage(String image) {
         this.image = image;
     }
+    /** funkcja zwracająca opis
+     * @return String description
+     * */
     public String getDescription() {
         return description;
     }
+    /** funkcja ustawiająca opis
+     * @param String description opis
+     * */
     public void setDescription(String description) {
         this.description = description;
     }
+    /** funkcja zwracająca date
+     * @return String date
+     * */
     public String getDate() {
         return date;
     }
+    /** funkcja ustawiająca date
+     * @param String date data
+     * */
     public void setDate(String date) {
         this.date = date;
     }
+    /** funkcja zwracająca ilosc
+     * @return int amount
+     * */
     public int getAmount() {
         return amount;
     }
+    /** funkcja ustawiająca ilosc
+     * @param int amount ilosc
+     * */
     public void setAmount(int amount) {
         this.amount = amount;
     }
+    /** funkcja zwracająca strony
+     * @return int pages
+     * */
     public int getPages() {
         return pages;
     }
+    /** funkcja ustawiająca strony
+     * @param int pages strony
+     * */
     public void setPages(int pages) {
         this.pages = pages;
     }
+    /** funkcja zwracająca id produktu
+     * @return int productId
+     * */
     public int getProductId() {
         return productId;
     }
+    /** funkcja ustawiająca id produktu
+     * @param int productId id produktu
+     * */
     public void setProductId(int productId) {
         this.productId = productId;
     }
+    /** funkcja zwracająca kategorie
+     * @return String category
+     * */
     public String getCategory() {
         return category;
     }
+    /** funkcja ustawiająca kategorie
+     * @param String category kategoria
+     * */
     public void setCategory(String category) {
         this.category = category;
     }
+    /** funkcja zwracająca autora
+     * @return String author
+     * */
     public String getAuthor() {
         return author;
     }
+    /** funkcja ustawiająca autora
+     * @param String author autor
+     * */
     public void setAuthor(String author) {
         this.author = author;
     }

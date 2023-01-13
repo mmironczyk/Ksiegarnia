@@ -1,5 +1,5 @@
 package com.ksiegarnia.beans;
-
+/** klasa reprezentująca opinie */
 import com.ksiegarnia.model.UserDbModel;
 
 public class Review {
@@ -21,51 +21,75 @@ public class Review {
 
     public Review() {
     }
-
+    /** funkcja zwracająca id opinii
+     * @return int reviewId
+     * */
     public int getReviewId() {
         return reviewId;
     }
-
+    /** funkcja ustawiająca id opinii
+     * @param int reviewId id opinii
+     * */
     public void setReviewId(int reviewId) {
         this.reviewId = reviewId;
     }
-
+    /** funkcja zwracająca id usera
+     * @return int userId
+     * */
     public int getUserId() {
         return userId;
     }
-
+    /** funkcja ustawiająca id usera
+     * @param int userId id usera
+     * */
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
+    /** funkcja zwracająca id produktu
+     * @return int productId
+     * */
     public int getProductId() {
         return productId;
     }
-
+    /** funkcja ustawiająca id produktu
+     * @param int productId id produktu
+     * */
     public void setProductId(int productId) {
         this.productId = productId;
     }
-
+    /** funkcja zwracająca tekst opinii
+     * @return String reviewText
+     * */
     public String getReviewText() {
         return reviewText;
     }
-
+    /** funkcja ustawiająca tekst opinii
+     * @param String reviewText tekst opinii
+     * */
     public void setReviewText(String reviewText) {
         this.reviewText = reviewText;
     }
-
+    /** funkcja zwracająca zdjecie opinii
+     * @return String reviewImage
+     * */
     public String getReviewImage() {
         return reviewImage;
     }
-
+    /** funkcja ustawiająca zdjecie opinii
+     * @param String reviewImage zdjecie opinii
+     * */
     public void setReviewImage(String reviewImage) {
         this.reviewImage = reviewImage;
     }
-
+    /** funkcja zwracająca link opinii
+     * @return String link
+     * */
     public String getLink() {
         return link;
     }
-
+    /** funkcja ustawiająca link opinii
+     * @param String link lind opinii
+     * */
     public void setLink(String link) {
         this.link = link;
     }
