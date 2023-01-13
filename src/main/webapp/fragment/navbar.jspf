@@ -103,16 +103,13 @@
                         <c:if test="${!empty LoginUser && LoginUser.rola =='user' }">
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/userPanelProfile.jsp">Profil</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/userHistory">Zamówienia</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/userPanelReservations.jsp">Rezerwacje</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/userPanelInvoices.jsp">Faktury</a></li>
+                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/ShowReservation">Rezerwacje</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/user/ServletUserReview">Opinie</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Wyloguj</a></li>
                             <script type="text/javascript">var userID = '${LoginUser.userId}';</script>
                         </c:if>
                         <c:if test="${!empty LoginUser && LoginUser.rola =='admin' }">
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/Orders">Zamówienia</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminPanelReservations.jsp">Rezerwacje</a></li>
-                        <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/adminPanelInvoices.jsp">Faktury</a></li>
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdPromo">Kody rabatowe</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdUser">Panel Użytkowników</a></li>
                         <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/ServletAdReview">Panel Opinii</a></li>

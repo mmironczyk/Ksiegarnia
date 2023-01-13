@@ -38,7 +38,10 @@ public class OrderModel {
         }
         return false;
     }
-
+/** <p>Funkcja zwracająca wszystkie zamówienia danego użytkownika z bazy danych</p>
+ *  @param id id użytkownika
+ *
+ * */
     public ArrayList<OrderRecord> allOrders(int id)
     {
         ArrayList<OrderRecord> list = new ArrayList();

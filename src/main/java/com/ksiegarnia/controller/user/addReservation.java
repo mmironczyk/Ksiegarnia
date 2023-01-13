@@ -2,6 +2,7 @@ package com.ksiegarnia.controller.user;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
 
 import com.ksiegarnia.beans.Reservation;
 import com.ksiegarnia.model.ReservationModel;
@@ -29,6 +30,11 @@ public class addReservation extends HttpServlet{
             res.setUserId(user.getUserId());
             res.setQuantity(quanty);
             res.setExpire_date(data);
+            try {
+            reservationModel.zarezerwuj(res.getQuantity(),res.getProductId());
+            } catch (SQLException e) {
+            throw new RuntimeException(e);
+            }
             reservationModel.addReservation(res);
-        }
+            }
     }
