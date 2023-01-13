@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * klasa obsługująca dodawanie opinii przez użytkownika
+ */
 @WebServlet(name = "AddReview", urlPatterns = {"/AddReview"})
 @MultipartConfig
 public class AddReview extends HttpServlet {

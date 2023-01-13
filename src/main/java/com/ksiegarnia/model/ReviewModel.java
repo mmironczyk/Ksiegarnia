@@ -9,12 +9,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-    public class ReviewModel extends DbConnection {
+/**
+ * klasa reprezentująca model opinii
+ */
+public class ReviewModel extends DbConnection {
         ResultSet rs = null;
         Connection con;
 
     DbConnection db = new DbConnection();
 
+    /**
+     * funkcja pobierająca nowo-stworzoną opinię i dodawająca ją do bazy danych
+     * funkcja zwraca boolean, który opisuje czy operacja została przeprowadzona pomyślnie
+     * @param review
+     * @return Boolean
+     */
     public boolean addReview(Review review) {
         try {
             con = db.openConnection();
@@ -37,7 +46,13 @@ import java.util.ArrayList;
         }
         return false;
     }
-
+    /**
+     * funkcja pobiera obiekt opinii z nowymi danymi i przeprowadza operację
+     * UPDATE na opinii o tym samym ID z bazy danych
+     * funkcja zwraca boolean, który opisuje czy operacja została przeprowadzona pomyślnie
+     * @param review
+     * @return Boolean
+     */
     public boolean editReview(Review review) {
         try {
             con = db.openConnection();
@@ -56,6 +71,14 @@ import java.util.ArrayList;
         return false;
     }
 
+    /**
+     * funkcja pobiera ID opinii oraz ścieżkę do zdjęcia, które mogło zostać do niej podane
+     * i usuwa je
+     * funkcja zwraca boolean, który opisuje czy operacja została przeprowadzona pomyślnie
+     * @param id
+     * @param path
+     * @return Boolean
+     */
     public boolean deleteReview(int id, String path) {
         try {
             Review review = getReview(id);
@@ -77,6 +100,11 @@ import java.util.ArrayList;
         return false;
     }
 
+    /**
+     * funkcja zwracająca wybraną opinię (o wskazanym ID) z bazy danych
+     * @param id
+     * @return Review
+     */
     public Review getReview(int id) {
         Review review = new Review();
         try {
@@ -103,6 +131,11 @@ import java.util.ArrayList;
         return null;
     }
 
+    /**
+     * funkcja pobierająca wszystkie metody utworzone przez danego użytkownika (o wskazanym userID)
+     * @param userID
+     * @return ArrayList
+     */
     public ArrayList<Review> getUserReviews(int userID) {
         try {
             con = db.openConnection();
@@ -131,6 +164,11 @@ import java.util.ArrayList;
         }
     }
 
+    /**
+     * funkcja pobierająca wszystkie opinie dla danego produktu (o wskazanym pID)
+     * @param pID
+     * @return ArrayList
+     */
     public ArrayList<Review> getProductReviews(int pID) {
         try {
             con = db.openConnection();
@@ -159,6 +197,10 @@ import java.util.ArrayList;
         }
     }
 
+    /**
+     * funkcja pobierająca wszytskie opinie będąca w bazie danych
+     * @return ArrayList
+     */
     public ArrayList<Review> getAllReviews() {
         try {
             con = db.openConnection();

@@ -12,6 +12,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+/**
+ * klasa odpowiadająca za obsługę usuwania istniejącej opinii
+ */
 @WebServlet(name = "DeleteReview", urlPatterns = {"/user/DeleteReview", "/admin/DeleteReview"})
 @MultipartConfig
 public class DeleteReview extends HttpServlet {

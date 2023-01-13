@@ -13,6 +13,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+/**
+ * klasa odpowiadająca za zarządzanie/przekierowanie do edycji
+ * wybranej opinii
+ */
 @WebServlet(name = "ManageReview", urlPatterns = {"/user/ManageReview", "/admin/ManageReview"})
 @MultipartConfig
 public class ManageReview extends HttpServlet {

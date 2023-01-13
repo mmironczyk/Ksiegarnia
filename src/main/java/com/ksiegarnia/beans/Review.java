@@ -94,6 +94,9 @@ public class Review {
         this.link = link;
     }
 
+    /**
+     * funkcja ustawiająca odpowiedni format dla linku do youtube
+     */
     public String linkToIFrameLink() {
         String iLink = this.link;
         if (iLink.contains("https://www.youtube.com/embed/")) {

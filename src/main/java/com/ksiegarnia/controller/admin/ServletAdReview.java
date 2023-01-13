@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * klasa pobierająca wszystkie istniejące opinie i przekazująca je do panelu admina
+ */
 @WebServlet("/admin/ServletAdReview")
 public class ServletAdReview extends HttpServlet {
 
