@@ -14,7 +14,21 @@
 <body>
 <%@include file="fragment/navbar.jspf"%>
 
-<div class="d-flex flex-column min-vh-100" style="margin-top:80px;">
+<div class="d-flex flex-column min-vh-100" style="margin-top:80px; background:black">
+
+    <div class="d-flex justify-content-center" style="margin-top:50px;">
+        <h1 style="color: #eeeeee">BLACK FRIDAY</h1>
+    </div>
+    <div class="d-flex justify-content-center" style="margin-top:10px; width: 88%">
+        <img src="images/oczy.png" style="height: 60px; width:80px"/>
+    </div>
+    <div class="d-flex justify-content-center">
+        <h4 style="color: #eeeeee">Skorzystaj z kodu:</h4>
+        <h4 style="color:black">&nbsp;BLACKFRIDAY&nbsp;</h4>
+        <h4 style="color: #eeeeee">aby otrzymać</h4>
+        <h4 style="color:red">&nbsp;50%&nbsp;</h4>
+        <h4 style="color: #eeeeee">zniżki na zakupy!</h4>
+    </div>
 
 </div>
 

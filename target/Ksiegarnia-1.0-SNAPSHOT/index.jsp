@@ -15,14 +15,10 @@
 <%@include file="fragment/navbar.jspf"%>
 
 <div style="margin-top:30px;">
-    <div class="site-blocks-cover" style="background-image: url(images/bookf.png); background-repeat: no-repeat; height: 100%; width: 100%;" data-aos="fade">
+    <div class="site-blocks-cover" style="background-image: url(images/bookf2.png); background-repeat: no-repeat; height: 100%; width: 100%;" data-aos="fade">
         <div class="container">
             <div class="row align-items-start align-items-md-center justify-content-end" style="height: 850px;">
                 <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-                    <h1 class="mb-2">Bookzwami</h1>
-                    <div class="intro-text text-center text-md-left">
-                        <p class="mb-4">Strona, na której znajdziesz swoja wymarzoną książkę! </p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -31,7 +27,6 @@
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -44,18 +39,9 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje2.png" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+                <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje4.png" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1 class="OutlineText"></h1>
-                        <p class="OutlineText"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje3.PNG" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
-                <div class="container">
-                    <div class="carousel-caption text-end">
                         <h1 class="OutlineText"></h1>
                         <p class="OutlineText"></p>
                     </div>
