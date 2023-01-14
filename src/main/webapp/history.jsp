@@ -150,9 +150,9 @@
             <table>
               <tr>
                 <td>
-                  Klinika Pixel<br />
-                  Kanałowa 2<br />
-                  Obra, 64-211 Wolsztyn
+                  Bookzwami Sp. z.o.o.<br />
+                  ul. Powstańców 5<br />
+                  60-123 Sosnowiec
                 </td>
                 <td>
                   ${usr.imie} ${usr.nazwisko}<br/>
@@ -171,7 +171,7 @@
           <td></td>
         </tr>
         <tr class="details">
-          <td>Rodzaj płatności</td>
+          <td>Rodzaj płatności: Płatność gotówką</td>
         </tr>
         <tr class="heading">
           <td>Książka</td>

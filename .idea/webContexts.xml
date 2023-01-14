@@ -12,6 +12,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/pages/adminPanel/adminPanelProducts.jsp" value="file://$PROJECT_DIR$/src/main/webapp/pages/adminPanel" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/pages/adminPanel/adminSidebar.jspf" value="file://$PROJECT_DIR$/src/main/webapp/pages/adminPanel" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/pages/productPage.jsp" value="file://$PROJECT_DIR$/src/main/webapp/pages" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/productPage.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/success.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/user/userPanelProfile.jsp" value="file://$PROJECT_DIR$/src/main/webapp/user" />
       </map>

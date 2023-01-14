@@ -21,16 +21,16 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gatunki</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Fantastyka">Fantastyka</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Sci-Fi">Sci-Fi</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Romans">Romans</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Powieść_historyczna">Powieść historyczna</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Horror">Horror</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Kryminał">Kryminał</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Biografia">Biografia</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Powieść_młodzieżowa">Powieść młodzieżowa</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Literatura_dziecięca">Literatura dziecięca</a></li>
-                            <li><a class="dropdown-item" href="/Ksiegarnia_war_exploded/Shop?c=Inne">Inne</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Fantastyka">Fantastyka</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Sci-Fi">Sci-Fi</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Romans">Romans</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Powieść_historyczna">Powieść historyczna</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Horror">Horror</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Kryminał">Kryminał</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Biografia">Biografia</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Powieść_młodzieżowa">Powieść młodzieżowa</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop?c=Literatura_dziecięca">Literatura dziecięca</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/Shop">Wszystkie</a></li>
                             <%/*
                             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="http://google.com">Google</a>
                                 <ul class="dropdown-menu">
@@ -54,13 +54,13 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="promocje.jsp">Promocje</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/promocje.jsp">Promocje</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="faq.jsp">FAQ</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/faq.jsp">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="o_firmie.jsp">O nas</a>
+                        <a class="nav-link" href="${pageContext.request.contextPath}/o_firmie.jsp">O nas</a>
                     </li>
                 </ul>
             </div>

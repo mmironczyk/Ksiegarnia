@@ -19,7 +19,7 @@
                 <p>Bookzwami SP. Z O.O.</p>
                 <p>ul. Powstańców 5</p>
                 <p>60-123 Sosnowiec</p>
-                <a href="dokumenty/Regulamin.pdf" class="text-white text-decoration-none">Polityka prywatności</a>
+                <a href="${pageContext.request.contextPath}/Regulamin.pdf" class="text-white text-decoration-none">Polityka prywatności</a>
             </div>
             <div class="col-4" align="center">
                 <p></p>

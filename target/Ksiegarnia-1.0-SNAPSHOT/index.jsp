@@ -45,7 +45,6 @@
             </div>
             <div class="carousel-item">
                 <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje2.png" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
-
                 <div class="container">
                     <div class="carousel-caption">
                         <h1 class="OutlineText"></h1>
@@ -55,7 +54,6 @@
             </div>
             <div class="carousel-item">
                 <a href="promocje.jsp"/><img class="bd-placeholder-img" src="images/promocje3.PNG" width="100%" height="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
-
                 <div class="container">
                     <div class="carousel-caption text-end">
                         <h1 class="OutlineText"></h1>
@@ -74,6 +72,7 @@
         </button>
     </div>
     <section style="background-color: #eee;">
+   </a>
         <br>
         <h2 class="mx-auto mt-0 mb-0 text-center pt-0 pb-0 text-black">Polecane Książki</h2>
         <div class="container py-5">

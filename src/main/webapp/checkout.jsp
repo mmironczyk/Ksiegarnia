@@ -19,50 +19,11 @@
             <div class="col-md-5 mb-4">
                 <div class="card mb-4">
                     <div class="card-header py-3">
-                        <h5 class="mb-0 d-flex justify-content-center">Dane do faktury</h5>
+                        <h5 class="mb-0 d-flex justify-content-center">Rabat</h5>
                     </div>
                     <div class="card-body">
                         <form action="/Ksiegarnia_war_exploded/Final" id="final" name="final" method="post"></form>
-                            <div class="row mb-4">
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <input type="text" class="form-control" id="imie" name="imie" form="final" />
-                                        <label class="form-label">Imię</label>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <input type="text" class="form-control" id="nazwisko" name="nazwisko" form="final" />
-                                        <label class="form-label">Nazwisko</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <input type="text" class="form-control" id="miejscowosc" name="miejscowosc" form="final"/>
-                                        <label class="form-label">Miejscowość</label>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <input type="text" class="form-control" id="ulica" name="ulica" form="final" />
-                                        <label class="form-label">Ulica</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <input type="email" class="form-control" id="email" name="email" form="final" />
-                                <label class="form-label">Adres email</label>
-                            </div>
-                            <div class="form-outline mb-4">
-                                <input type="text" class="form-control" id="telefon" name="telefon" form="final"  />
-                                <label class="form-label">Telefon</label>
-                            </div>
-                            <hr class="my-4" />
-                            <h5 class="mb-4 d-flex justify-content-center">Metoda płatności</h5>
-                            <div class="form-outline mb-4">
-                            </div>
+
                                 <form action="/Ksiegarnia_war_exploded/checkPromo" id="promo" name="promo" method="post">
                                 <label class="form-label">Masz kod rabatowy? Wpisz go poniżej.</label>
                                 <input type="text" id="kod" name="kod" value="${ko}" class="form-control" /><BR>

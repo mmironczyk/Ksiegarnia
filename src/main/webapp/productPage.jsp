@@ -90,9 +90,7 @@
                     <div id="increase" class="quantity-button" onclick="increaseValue()">+</div>
                 </form>
                     <button  type="button" id="${product.productId}" class="btn btn-primary add-to-cart mt-3 d-block">DODAJ DO KOSZYKA</button>
-                <button class="btn btn-outline-secondary mt-3 d-block">
                     <button  type="button" id="${product.productId}" class="btn btn-primary reservation mt-3 d-block">REZERWUJ</button>
-                </button>
             </div>
         </div>
     </div>
@@ -202,12 +200,28 @@
         $('.add-to-cart').click(function () {
             var id = $(this).attr('id');
             var qaunty = $("#amount").val();
-            addProduct(id, qaunty);
+            if(qaunty<=${product.amount})
+            {
+                addProduct(id, qaunty);
+            }
+            else
+            {
+                alert("Brak wystarczającej liczby książek w magazynie!");
+            }
+
         });
         $('.reservation').click(function () {
             var id = $(this).attr('id');
             var qaunty = $("#amount").val();
-            reserve(id, qaunty);
+            if(qaunty<=${product.amount})
+            {
+                reserve(id, qaunty);
+            }
+            else
+            {
+                alert("Brak wystarczającej liczby książek w magazynie!");
+            }
+
         });
 
         function addProduct(id, amount) {
@@ -232,16 +246,17 @@
                 }
             });
         }
-
         function reserve(id, amount) {
             $.ajax({
                 url: 'addReservation',
                 type: 'GET',
                 data: {"id": id, "amount": amount},
                 success: (data) => {
+                    window.location.reload();
                     if (data.redirect) {
                         window.location.href = data.redirect;
-                    }else{
+                    }
+                    else{
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {

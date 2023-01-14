@@ -25,6 +25,7 @@
                 <p class="mt-1 fw-bold">${product.title}</p>
                 <p class="fw-light mt-4 mb-0">${product.author}</p>
                 <p class="mt-1 text-danger mb-0">${product.cost} PLN</p>
+                <input hidden type="number" id="S_${product.productId}" name="S_${product.productId}" value="${product.amount}"/>
                 <button type="button" id="${product.productId}" class="btn btn-outline-secondary mt-1 add-to-cart">
                     <span class="text-secondary fw-normal fs-9">Dodaj do koszyka</span>
                 </button>
@@ -73,7 +74,15 @@
     $(document).ready(function () {
         $('.add-to-cart').click(function () {
             var id = $(this).attr('id');
-            addProduct(id, 1);
+            var qaunty = $("#S_"+id).val();
+            if(qaunty>0)
+            {
+                addProduct(id, 1);
+            }
+            else
+            {
+                alert("Brak wystarczającej liczby książek w magazynie!");
+            }
         });
 
         function addProduct(id, amount) {
