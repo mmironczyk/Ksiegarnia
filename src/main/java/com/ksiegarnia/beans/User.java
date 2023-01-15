@@ -22,7 +22,7 @@ public class User implements Cloneable{
         return login;
     }
     /** funkcja ustawiająca login usera
-     * @param String login login usera
+     * @param  login login usera
      * */
     public void setLogin(String login) {
         this.login = login;
@@ -34,7 +34,7 @@ public class User implements Cloneable{
         return imie;
     }
     /** funkcja ustawiająca imie usera
-     * @param String imie imie usera
+     * @param  imie imie usera
      * */
     public void setImie(String imie) {
         this.imie = imie;
@@ -46,7 +46,7 @@ public class User implements Cloneable{
         return nazwisko;
     }
     /** funkcja ustawiająca nazwisko usera
-     * @param String nazwisko nazwisko usera
+     * @param  nazwisko nazwisko usera
      * */
     public void setNazwisko(String nazwisko) {
         this.nazwisko = nazwisko;
@@ -58,7 +58,7 @@ public class User implements Cloneable{
         return miasto;
     }
     /** funkcja ustawiająca miasto usera
-     * @param String miasto miasto usera
+     * @param miasto miasto usera
      * */
     public void setMiasto(String miasto) {
         this.miasto = miasto;
@@ -70,7 +70,7 @@ public class User implements Cloneable{
         return email;
     }
     /** funkcja ustawiająca emial usera
-     * @param String email email usera
+     * @param email email usera
      * */
     public void setEmail(String email) {
         this.email = email;
@@ -82,7 +82,7 @@ public class User implements Cloneable{
         return haslo;
     }
     /** funkcja ustawiająca haslo usera
-     * @param String haslo haslo usera
+     * @param haslo haslo usera
      * */
     public void setHaslo(String haslo) {
         this.haslo = haslo;
@@ -94,7 +94,7 @@ public class User implements Cloneable{
         return adres;
     }
     /** funkcja ustawiająca adres usera
-     * @param String adres adres usera
+     * @param address adres usera
      * */
     public void setAdres(String address) {
         this.adres = address;
@@ -106,7 +106,7 @@ public class User implements Cloneable{
         return userId;
     }
     /** funkcja ustawiająca id usera
-     * @param int userId id usera
+     * @param userId id usera
      * */
     public void setUserId(int userId) {
         this.userId = userId;
@@ -118,7 +118,7 @@ public class User implements Cloneable{
         return kod_pocztowy;
     }
     /** funkcja ustawiająca kod
-     * @param String kod_pocztowy kod pocztowy
+     * @param  kod_pocztowy kod pocztowy
      * */
     public void setKod(String kod_pocztowy) {
         this.kod_pocztowy = kod_pocztowy;
@@ -130,7 +130,7 @@ public class User implements Cloneable{
         return telefon;
     }
     /** funkcja ustawiająca telefon
-     * @param String telefon telefon
+     * @param  telefon telefon
      * */
     public void setTelefon(String telefon) {
         this.telefon = telefon;
@@ -142,7 +142,7 @@ public class User implements Cloneable{
         return rola;
     }
     /** funkcja ustawiająca role
-     * @param String rola rola
+     * @param  rola rola
      * */
     public void setRola(String rola) {
         this.rola = rola;

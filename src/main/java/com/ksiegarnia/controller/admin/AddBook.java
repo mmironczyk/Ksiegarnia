@@ -13,10 +13,14 @@ import com.ksiegarnia.beans.Product;
 import com.ksiegarnia.model.ProductModel;
 import com.ksiegarnia.tools.FileUpload;
 
+/** Servlet odpowiedzialny za dodawanie nowych książek z poziomu panelu administratora do bazy danych */
 @WebServlet(name = "AddProduct", urlPatterns = {"/admin/AdminProduct"})
 @MultipartConfig
 public class AddBook extends HttpServlet {
 
+    /** Funkcja sprawdzająca id książki wybranej z poziomu panelu administratora
+     * @see com.ksiegarnia.model.ProductModel#getProduct
+     * */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -33,6 +37,11 @@ public class AddBook extends HttpServlet {
         }
     }
 
+    /** Funkcja dodająca książki z poziomu panelu administratora
+     * @see com.ksiegarnia.model.ProductModel#addProduct 
+     * @see com.ksiegarnia.beans.Product
+     * @see com.ksiegarnia.tools.FileUpload#uploadImage
+     * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -78,18 +87,6 @@ public class AddBook extends HttpServlet {
         if (request.getParameter("id") != null && !request.getParameter("id").trim().equals("")) {
             int id = Integer.parseInt(request.getParameter("id"));
             productObj.setProductId(id);
-            if (new ProductModel().editProduct(productObj)) {
-                request.getSession().setAttribute("AlertMessage", "Zaktualizowano wybraną pozycję");
-                request.getSession().setAttribute("AlertType", "success");
-                response.sendRedirect("ServletAdProduct");
-                return;
-            } else {
-                request.getSession().setAttribute("AlertMessage", "Nie udało się zaktualizować wybranej pozycji");
-                request.getSession().setAttribute("AlertType", "danger");
-                response.sendRedirect("ServletAdProduct");
-                return;
-            }
-        } else {
             if (new ProductModel().addProduct(productObj)) {
                 request.getSession().setAttribute("AlertMessage", "Dodano pozycję");
                 request.getSession().setAttribute("AlertType", "success");

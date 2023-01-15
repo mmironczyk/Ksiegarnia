@@ -12,11 +12,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
+/** Servlet odpowiedzialny za usuwanie użytkowników z poziomu panelu administratora */
 @WebServlet(name = "DeleteUser", urlPatterns = {"/admin/DeleteUser"})
 @MultipartConfig
 public class DeleteUser extends HttpServlet {
 
+    /** Usuwa wybranego użytkownika z bazy danych poprzez otrzymany parametr id danego użytkownika.
+     * @see com.ksiegarnia.model.UserDbModel#getUser
+     * @see com.ksiegarnia.model.UserDbModel#DeleteUser
+     * */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

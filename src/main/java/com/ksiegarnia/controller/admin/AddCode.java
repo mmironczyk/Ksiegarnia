@@ -10,11 +10,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
+/** Servlet odpowiedzialny za generowanie kodów rabatowych z poziomu panelu administratora */
 @WebServlet(name = "AddCode", urlPatterns = {"/admin/AddCode"})
 @MultipartConfig
 public class AddCode extends HttpServlet {
 
+    /** Funkcja odczytuje dane z formularza (kod i wartość procentową), po czym tworzy obiekt PromoCode zapisywany do bazy danych 
+     * @see com.ksiegarnia.model.PromoCodeModel#addCode 
+     * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

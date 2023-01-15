@@ -12,11 +12,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
+/** Servlet odpowiedzialny za aktywację użytkowników z poziomu panelu administratora
+ * */
 @WebServlet(name = "ActivateUser", urlPatterns = {"/admin/ActivateUser"})
 @MultipartConfig
 public class ActivateUser extends HttpServlet {
 
+
+    /** Funkcja aktywująca użytkownika na bazie jego id.
+     * @see com.ksiegarnia.model.UserDbModel#ActivateUser(User user)
+     * */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

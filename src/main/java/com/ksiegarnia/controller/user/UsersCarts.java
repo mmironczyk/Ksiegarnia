@@ -8,11 +8,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.model.CartModel;
 
+/** Servlet zwracający koszyki (produkty w koszyku) dla zalogowanego użytkownika */
 @WebServlet("/UsersCarts")
 public class UsersCarts extends HttpServlet {
 
     CartModel cartModel;
 
+    /** Funkcja zwraca liczbę koszyków dla zalogowanego użytkownika.*/
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

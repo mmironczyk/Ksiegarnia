@@ -13,11 +13,15 @@ import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
 
 
+/** Servlet odpowiedzialny za przekazanie wszystkich kodów rabatowych z bazy danych do panelu administratora */
 @WebServlet("/admin/ServletAdPromo")
 public class ServletAdPromo extends HttpServlet {
 
     List<PromoCode> allCodes = new ArrayList<PromoCode>();
 
+    /** Wyszukuje wszystkie kody rabatowe z bazy danych. Przekazuje dane do /admin/adminPanelPromoCodes.jsp.
+     * @see com.ksiegarnia.model.PromoCodeModel#getAllCodes
+     * */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PromoCodeModel model = new PromoCodeModel();
         allCodes = model.getAllCodes();

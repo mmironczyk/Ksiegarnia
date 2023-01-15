@@ -11,11 +11,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
+/** Servlet odpowiedzialny za usuwanie kodów rabatowych z poziomu panelu administratora */
 @WebServlet(name = "DeletePromo", urlPatterns = {"/admin/DeletePromo"})
 @MultipartConfig
 public class DeletePromo extends HttpServlet {
 
+    /** Usuwa wybrany kod rabatowy z bazy danych poprzez otrzymany parametr id danego kodu rabatowego.
+     * @see com.ksiegarnia.model.PromoCodeModel#getCode
+     * @see com.ksiegarnia.model.PromoCodeModel#deleteCode
+     * */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
