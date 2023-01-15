@@ -39,31 +39,31 @@ public class Cart {
         return productId;
     }
     /** funkcja ustawiająca id koszyka
-     * @param int cartId id koszyka
+     * @param cartId id koszyka
      * */
     public void setCartId(int cartId) {
         this.cartId = cartId;
     }
     /** funkcja ustawiająca id usera
-     * @param int userId id usera
+     * @param userId id usera
      * */
     public void setUserId(int userId) {
         this.userId = userId;
     }
     /** funkcja ustawiająca id produktu
-     * @param int productId id produktu
+     * @param productId id produktu
      * */
     public void setProductId(int productId) {
         this.productId = productId;
     }
-    /** funkcja ustawiająca ilosc
-     * @param int quantity ilosc
+    /** funkcja ustawiająca ilość danego produktu w koszyku
+     * @param quantity ilość danego produktu w koszyku
      * */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     /** funkcja zwracająca ilosc
-     * @return int quantity
+     * @return ilość danego produktu w koszyku
      * */
     public int getQuantity() {
         return quantity;

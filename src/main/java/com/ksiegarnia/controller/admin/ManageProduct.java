@@ -13,10 +13,14 @@ import com.ksiegarnia.beans.Product;
 import com.ksiegarnia.model.ProductModel;
 import jakarta.servlet.http.Part;
 
+/** Servlet odpowiedzialny za edycję produktów z poziomu panelu administratora */
 @WebServlet(name = "ManageProduct", urlPatterns = {"/admin/ManageProduct"})
 @MultipartConfig
 public class ManageProduct extends HttpServlet {
 
+    /** Wyszukuje wybraną książkę poprzez otrzymany parametr id wybranej książki.
+     * @see com.ksiegarnia.model.ProductModel#getProduct
+     * */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,7 +35,10 @@ public class ManageProduct extends HttpServlet {
             request.getRequestDispatcher("productedit.jsp").forward(request, response);
         }
     }
-
+    /** Modyfikuje wybraną książkę.
+     * @see com.ksiegarnia.model.ProductModel#editProduct
+     * @see com.ksiegarnia.beans.Product
+     * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,7 +65,6 @@ public class ManageProduct extends HttpServlet {
         productObj.setAuthor(author);
 
         new ProductModel().editProduct(productObj);
-        System.out.println("EDYCJA"+gatunek);
         response.sendRedirect("ServletAdProduct");
 
     }

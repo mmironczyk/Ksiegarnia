@@ -28,7 +28,7 @@ public class Review {
         return reviewId;
     }
     /** funkcja ustawiająca id opinii
-     * @param int reviewId id opinii
+     * @param reviewId id opinii
      * */
     public void setReviewId(int reviewId) {
         this.reviewId = reviewId;
@@ -40,7 +40,7 @@ public class Review {
         return userId;
     }
     /** funkcja ustawiająca id usera
-     * @param int userId id usera
+     * @param userId id usera
      * */
     public void setUserId(int userId) {
         this.userId = userId;
@@ -52,7 +52,7 @@ public class Review {
         return productId;
     }
     /** funkcja ustawiająca id produktu
-     * @param int productId id produktu
+     * @param productId id produktu
      * */
     public void setProductId(int productId) {
         this.productId = productId;
@@ -64,7 +64,7 @@ public class Review {
         return reviewText;
     }
     /** funkcja ustawiająca tekst opinii
-     * @param String reviewText tekst opinii
+     * @param reviewText tekst opinii
      * */
     public void setReviewText(String reviewText) {
         this.reviewText = reviewText;
@@ -76,7 +76,7 @@ public class Review {
         return reviewImage;
     }
     /** funkcja ustawiająca zdjecie opinii
-     * @param String reviewImage zdjecie opinii
+     * @param reviewImage zdjecie opinii
      * */
     public void setReviewImage(String reviewImage) {
         this.reviewImage = reviewImage;
@@ -88,7 +88,7 @@ public class Review {
         return link;
     }
     /** funkcja ustawiająca link opinii
-     * @param String link lind opinii
+     * @param link lind opinii
      * */
     public void setLink(String link) {
         this.link = link;

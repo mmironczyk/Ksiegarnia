@@ -10,9 +10,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+/** Servlet logowania użytkownika. */
 @WebServlet(name = "Signin", urlPatterns = {"/Signin"})
 public class Signin extends HttpServlet {
+/** Funkcja służąca do zalogowania się na stronę przez użytkownika.
+ * Sprawdza, czy w bazie danych znajdują się poprawne dane podane w procesie rejestracji.
+ * Wyświetla stosowne komunikaty w przypadku braku użytkownika lub wprowadzeniu błędnych danych.
+ * @see com.ksiegarnia.model.UserDbModel#signIn */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

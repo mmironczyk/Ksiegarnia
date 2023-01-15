@@ -11,7 +11,7 @@ public class OrderRecord {
         return id_zamowienia;
     }
     /** funkcja ustawiająca id zamowienia
-     * @param int id_zamowienia id zamowienia
+     * @param id_zamowienia id zamowienia
      * */
     public void setId_zamowienia(int id_zamowienia) {
         this.id_zamowienia = id_zamowienia;
@@ -23,7 +23,7 @@ public class OrderRecord {
         return id_klienta;
     }
     /** funkcja ustawiająca id klienta
-     * @param int id_klienta id klienta
+     * @param id_klienta id klienta
      * */
     public void setId_klienta(int id_klienta) {
         this.id_klienta = id_klienta;
@@ -35,7 +35,7 @@ public class OrderRecord {
         return nr_zamowienia;
     }
     /** funkcja ustawiająca nr zamowienia
-     * @param String nr_zamowienia numer zamowienia
+     * @param nr_zamowienia numer zamowienia
      * */
     public void setNr_zamowienia(String nr_zamowienia) {
         this.nr_zamowienia = nr_zamowienia;
@@ -47,7 +47,7 @@ public class OrderRecord {
         return id_produktu;
     }
     /** funkcja ustawiająca id produktu
-     * @param int id_produktu id produktu
+     * @param id_produktu id produktu
      * */
     public void setId_produktu(int id_produktu) {
         this.id_produktu = id_produktu;
@@ -59,7 +59,7 @@ public class OrderRecord {
         return ilosc_produktu;
     }
     /** funkcja ustawiająca ilosc produktów
-     * @param int ilosc_produktu ilosc produktów
+     * @param ilosc_produktu ilosc produktów
      * */
     public void setIlosc_produktu(int ilosc_produktu) {
         this.ilosc_produktu = ilosc_produktu;
@@ -77,7 +77,7 @@ public class OrderRecord {
         return kwota;
     }
     /** funkcja ustawiająca kwote
-     * @param float kwota kwota
+     * @param kwota kwota
      * */
     public void setKwota(float kwota) {
         this.kwota = kwota;

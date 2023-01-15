@@ -12,11 +12,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
+/** Servlet odpowiedzialny za usuwanie blokady konta z poziomu panelu administratora */
 @WebServlet(name = "ClearBlock", urlPatterns = {"/admin/ClearBlock"})
 @MultipartConfig
 public class ClearBlock extends HttpServlet {
 
+    /** Usuwa blokadę konta poprzez otrzymany parametr id danego użytkownika 
+     * @see com.ksiegarnia.model.UserDbModel#ClearBlock
+     * @see com.ksiegarnia.model.UserDbModel#getUser
+     * */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
