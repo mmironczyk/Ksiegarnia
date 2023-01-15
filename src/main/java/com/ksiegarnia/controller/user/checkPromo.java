@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-
+/** servlet obsługujący sprawdzenie kodu promocyjnego */
 import com.ksiegarnia.beans.PromoCode;
 import com.ksiegarnia.model.PromoCodeModel;
 import jakarta.faces.context.FacesContext;
@@ -16,6 +16,9 @@ import jakarta.servlet.annotation.WebServlet;
 @WebServlet("/checkPromo")
 public class checkPromo extends HttpServlet {
 
+    /** funkcja sprawdzająca czy podany kod rabatowy jest poprawny
+     *  @see com.ksiegarnia.model.PromoCodeModel#getCodeFromString
+     * */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PromoCodeModel model = new PromoCodeModel();
         String s = request.getParameter("kod");

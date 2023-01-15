@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-
+/** servlet obsługujący zmiane imienia i nazwiska użytkownika */
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.UserDbModel;
 import jakarta.servlet.*;
@@ -15,7 +15,9 @@ public class ChangePersonals extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
+    /** funkcja która pozwala na zmiane nazwiska oraz imienia w ustawieniach
+     * @see com.ksiegarnia.model.UserDbModel#zmiana_danych 
+     * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

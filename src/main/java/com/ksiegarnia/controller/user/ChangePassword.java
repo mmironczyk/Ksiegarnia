@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-
+/** servlet obsługujący zmiane hasła przez użytkownika */
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.UserDbModel;
 import jakarta.servlet.*;
@@ -15,7 +15,9 @@ public class ChangePassword extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
+    /** funkcja pozwalająca na zmianę hasła przez użytkownika na nowe
+     * @see com.ksiegarnia.model.UserDbModel#zmiana_hasla
+     * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
