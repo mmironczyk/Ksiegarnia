@@ -10,14 +10,17 @@ import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
 import com.ksiegarnia.beans.Product;
 import com.ksiegarnia.model.ProductModel;
-
+/** Servlet zwracający listę produktów, zapisując do tabeli.*/
 @WebServlet("/Shop")
 public class Shop extends HttpServlet {
 
     List<Product> allProducts = new ArrayList<Product>();
-
+/** Funkcja zwracająca listę produktów. 
+ * @see com.ksiegarnia.model.ProductModel#getProduct
+ * @see com.ksiegarnia.model.ProductModel#getAllProduct 
+ * @see com.ksiegarnia.model.ProductModel#Search 
+ * @see com.ksiegarnia.model.ProductModel#getAllProductByCategory */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         ProductModel productModel = new ProductModel();
         String szukanie = request.getParameter("szukanie");
         //-------------- handle paging ------------------
@@ -25,14 +28,11 @@ public class Shop extends HttpServlet {
         int totalPerPage = 9;
         int start;
         String cate="";
-
         System.out.println(szukanie);
-
         if (request.getParameter("page") != null) {
             pageid = Integer.parseInt(request.getParameter("page"));
         }
         start = (pageid - 1 )*totalPerPage;
-
         if(szukanie != null)
         {
             allProducts = productModel.Search(szukanie,start,totalPerPage);

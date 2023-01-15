@@ -14,10 +14,13 @@ import java.util.ArrayList;
 
 import jakarta.servlet.annotation.WebServlet;
 
-
+/** Servlet historii. */
 @WebServlet("/History")
 public class History extends HttpServlet {
-
+/** Funkcja służąca do zapisywania danych po finalizacji zamówienia.
+ * @see com.ksiegarnia.model.HistoryModel#jakiRabat
+ * @see com.ksiegarnia.model.HistoryModel#Jakiklient
+ * @see com.ksiegarnia.model.ProductModel#getProduct */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nr_zamowienia=request.getParameter("n");
         ArrayList<Product> pr = new ArrayList<>();
@@ -45,8 +48,4 @@ public class History extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
     }
-
-
-
-
 }

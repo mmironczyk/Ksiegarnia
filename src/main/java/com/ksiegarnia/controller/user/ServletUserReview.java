@@ -16,7 +16,8 @@ import java.util.List;
 
 /**
  * klasa pobierająca wszystkie istniejące opinie dla danego ID usera
- * i przekazująca je do panelu użytkownika 
+ * i przekazująca je do panelu użytkownika
+ * @see com.ksiegarnia.model.ReviewModel#getReview 
  */
 @WebServlet("/user/ServletUserReview")
 public class ServletUserReview extends HttpServlet {

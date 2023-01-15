@@ -9,9 +9,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.CartModel;
 
-
+/** Servlet odpowedzialny za zwiększanie ilości produktów znajdujących się w koszyku. */
 @WebServlet("/IncreseAmount")
 public class IncreseAmount extends HttpServlet {
+    /** Funkcja zwiększająca ilość produktów w koszyku.
+     * @see com.ksiegarnia.model.CartModel#increaseQuantity */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

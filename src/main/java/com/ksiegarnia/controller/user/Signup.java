@@ -12,10 +12,12 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
+/** Servlet rejestracji użytkownika. */
 @WebServlet(name = "Signup", urlPatterns = {"/Signup"})
 public class Signup extends HttpServlet {
-
+/** Funkcja rejestrująca użytkownika poprzez wprowadzone dane znajdujące się w utworzonych zmiennych.
+ *  Sprawdza, czy dane zostały podane poprawnie i wyświetla odpowienie komunikaty.
+ *  @see com.ksiegarnia.model.UserDbModel#signUp */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -57,6 +59,7 @@ public class Signup extends HttpServlet {
             getServletContext().getRequestDispatcher("/failed.jsp").forward(request, response);
         }
     }
+    /** Funkcja generująca losowy ciąg znaków, służąca jako kod aktywacyjny */
     public String givenUsingApache_whenGeneratingRandomAlphanumericString_thenCorrect() {
         String generatedString = RandomStringUtils.randomAlphanumeric(20);
         System.out.println(generatedString);

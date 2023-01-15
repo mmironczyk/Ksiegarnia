@@ -13,11 +13,13 @@ import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 
+/** Servlet zwracający historię zamówień użytkownika, zapisując do tabeli. */
 @WebServlet("/user/userHistory")
 public class userHistory extends HttpServlet {
 
     List<OrderRecord> allOrders = new ArrayList<OrderRecord>();
-
+    /** Funkcja tworząca historię zamówień zalogowanego użytkownika, zapisując do tabeli produkty wybrane w procesie zamawiania.
+     * @see com.ksiegarnia.model.OrderModel#allOrders */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         User online = (User) session.getAttribute("LoginUser");
