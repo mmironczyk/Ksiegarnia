@@ -1,6 +1,6 @@
 
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący dodanie do koszyka rzeczy z rezerwacji */
+
 import java.io.IOException;
 
 import com.ksiegarnia.model.ReservationModel;
@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.beans.Cart;
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.CartModel;
-
+/** servlet obsługujący dodanie do koszyka rzeczy z rezerwacji */
 @WebServlet("/user/AddCartFromReservation")
 public class AddCartFromReservation extends HttpServlet {
     @Override

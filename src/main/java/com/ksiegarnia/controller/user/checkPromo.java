@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący sprawdzenie kodu promocyjnego */
+
 import com.ksiegarnia.beans.PromoCode;
 import com.ksiegarnia.model.PromoCodeModel;
 import jakarta.faces.context.FacesContext;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
 
-
+/** servlet obsługujący sprawdzenie kodu promocyjnego */
 @WebServlet("/checkPromo")
 public class checkPromo extends HttpServlet {
 

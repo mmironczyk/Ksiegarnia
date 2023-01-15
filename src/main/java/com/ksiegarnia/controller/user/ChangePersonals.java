@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący zmiane imienia i nazwiska użytkownika */
+
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.UserDbModel;
 import jakarta.servlet.*;
@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
+/** servlet obsługujący zmiane imienia i nazwiska użytkownika */
 @WebServlet(name = "ChangePersonals", value = "/user/ChangePersonals")
 public class ChangePersonals extends HttpServlet {
     @Override

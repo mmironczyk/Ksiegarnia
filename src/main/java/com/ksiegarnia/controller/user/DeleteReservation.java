@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący usuwanie rezerwacji */
+
 import java.io.IOException;
 
 import com.ksiegarnia.model.ReservationModel;
@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+/** servlet obsługujący usuwanie rezerwacji */
 @WebServlet("/user/DeleteReservation")
 public class DeleteReservation extends HttpServlet {
 

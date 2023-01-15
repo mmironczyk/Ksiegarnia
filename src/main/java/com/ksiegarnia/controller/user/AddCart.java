@@ -1,6 +1,6 @@
 
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący dodanie przedmiotu do koszyka */
+
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,11 +10,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.beans.Cart;
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.CartModel;
-/** funkcja pozwalająca na dodanie przedmiotów do koszyka
- * @see com.ksiegarnia.model.CartModel#addCart
- * */
+
+/** servlet obsługujący dodanie przedmiotu do koszyka */
 @WebServlet("/addCart")
 public class AddCart extends HttpServlet {
+    /** funkcja pozwalająca na dodanie przedmiotów do koszyka
+     * @see com.ksiegarnia.model.CartModel#addCart
+     * */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

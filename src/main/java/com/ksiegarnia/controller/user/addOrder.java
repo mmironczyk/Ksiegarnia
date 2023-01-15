@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący dodanie zamówienia przez użytkownika */
+
 import com.ksiegarnia.beans.*;
 import com.ksiegarnia.model.*;
 import jakarta.faces.context.FacesContext;
@@ -15,8 +15,7 @@ import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import org.apache.commons.lang3.RandomStringUtils;
-
-
+/** servlet obsługujący dodanie zamówienia przez użytkownika */
 @WebServlet("/addOrder")
 public class addOrder extends HttpServlet {
     /** funkcja pozwalająca na dodanie zamówienia przez użytkownika

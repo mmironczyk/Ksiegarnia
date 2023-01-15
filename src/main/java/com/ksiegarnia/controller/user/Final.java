@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący końcowe zamówienie */
+
 import com.ksiegarnia.beans.ProductinCart;
 import com.ksiegarnia.beans.PromoCode;
 import com.ksiegarnia.beans.User;
@@ -18,7 +18,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import org.apache.commons.lang3.RandomStringUtils;
 
-
+/** servlet obsługujący końcowe zamówienie */
 @WebServlet("/Final")
 public class Final extends HttpServlet {
 

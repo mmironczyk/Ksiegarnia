@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący zmiane hasła przez użytkownika */
+
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.UserDbModel;
 import jakarta.servlet.*;
@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
+/** servlet obsługujący zmiane hasła przez użytkownika */
 @WebServlet(name = "ChangePassword", value = "/user/ChangePassword")
 public class ChangePassword extends HttpServlet {
     @Override

@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący usuwanie z koszyka */
+
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.model.CartModel;
-
+/** servlet obsługujący usuwanie z koszyka */
 @WebServlet("/DeleteFromCart")
 public class DeleteFromCart extends HttpServlet {
     /** funkcja usuwająca przedmioty z koszyka

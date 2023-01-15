@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-/** servlet obsługujący zmiane addresu przez użytkownika (miasto,kod,ulica) */
+
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.UserDbModel;
 import jakarta.servlet.*;
@@ -8,7 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
+/** servlet obsługujący zmiane addresu przez użytkownika (miasto,kod,ulica) */
 @WebServlet(name = "ChangeAddres", value = "/user/ChangeAddres")
 public class ChangeAddres extends HttpServlet {
     @Override
