@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-
+/** servlet obsługujący zmiane addresu przez użytkownika (miasto,kod,ulica) */
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.UserDbModel;
 import jakarta.servlet.*;
@@ -15,7 +15,9 @@ public class ChangeAddres extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
+    /** funkcja pozwalająca na zmianę adresu przez użytkownika (miasto,kod,ulica)
+     * @see com.ksiegarnia.model.UserDbModel#zmiana_adresu
+     * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

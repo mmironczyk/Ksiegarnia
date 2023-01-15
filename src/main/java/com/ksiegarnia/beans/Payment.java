@@ -10,7 +10,7 @@ public class Payment {
         return rabat;
     }
     /** funkcja ustawiająca rabat
-     * @param float rabat rabat
+     * @param rabat rabat
      * */
     public void setRabat(float rabat) {
         this.rabat = rabat;
@@ -24,7 +24,7 @@ public class Payment {
         return id_platnosci;
     }
     /** funkcja ustawiająca id platoności
-     * @param int id_platnosci id platnosci
+     * @param id_platnosci id platnosci
      * */
     public void setId_platnosci(int id_platnosci) {
         this.id_platnosci = id_platnosci;
@@ -36,7 +36,7 @@ public class Payment {
         return id_klienta;
     }
     /** funkcja ustawiająca id klienta
-     * @param int id_klienta id klienta
+     * @param id_klienta id klienta
      * */
     public void setId_klienta(int id_klienta) {
         this.id_klienta = id_klienta;
@@ -47,8 +47,8 @@ public class Payment {
     public String getNr_zamowienia() {
         return nr_zamowienia;
     }
-    /** funkcja ustawiająca id klienta
-     * @param int id_klienta id klienta
+    /** funkcja ustawiająca nr zamówienia
+     * @param nr_zamowienia nr zamówienia
      * */
     public void setNr_zamowienia(String nr_zamowienia) {
         this.nr_zamowienia = nr_zamowienia;
@@ -60,7 +60,7 @@ public class Payment {
         return kwota;
     }
     /** funkcja ustawiająca kwote
-     * @param float kwota kwota
+     * @param kwota kwota
      * */
     public void setKwota(float kwota) {
         this.kwota = kwota;

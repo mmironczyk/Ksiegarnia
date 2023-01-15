@@ -18,7 +18,7 @@ public class Reservation {
         return reservationId;
     }
     /** funkcja ustawiająca id rezerwacji
-     * @param int reservationId id rezerwacji
+     * @param reservationId id rezerwacji
      * */
     public void setReservationId(int reservationId) {
         this.reservationId = reservationId;
@@ -30,7 +30,7 @@ public class Reservation {
         return userId;
     }
     /** funkcja ustawiająca id usera
-     * @param int userId id usera
+     * @param userId id usera
      * */
     public void setUserId(int userId) {
         this.userId = userId;
@@ -41,8 +41,8 @@ public class Reservation {
     public int getProductId() {
         return productId;
     }
-    /** funkcja ustawiająca id koszyka
-     * @param int cartId id koszyka
+    /** funkcja ustawiająca id produktu
+     * @param productId id koszyka
      * */
     public void setProductId(int productId) {
         this.productId = productId;
@@ -54,7 +54,7 @@ public class Reservation {
         return quantity;
     }
     /** funkcja ustawiająca ilosc
-     * @param int quantity ilosc
+     * @param quantity ilosc
      * */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -66,7 +66,7 @@ public class Reservation {
         return expire_date;
     }
     /** funkcja ustawiająca date wygaśnięcia
-     * @param Date expire_date data wygasniecia
+     * @param expire_date data wygasniecia
      * */
     public void setExpire_date(Date expire_date) {
         this.expire_date = Date.valueOf(expire_date.toLocalDate().plusDays(7));

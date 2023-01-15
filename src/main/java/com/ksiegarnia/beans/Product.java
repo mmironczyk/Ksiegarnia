@@ -38,7 +38,7 @@ public class Product {
         return title;
     }
     /** funkcja ustawiająca tytul
-     * @param String title tytul
+     * @param title tytul
      * */
     public void setTitle(String title) {
         this.title = title;
@@ -50,7 +50,7 @@ public class Product {
         return cost;
     }
     /** funkcja ustawiająca koszt
-     * @param double cost koszt
+     * @param cost koszt
      * */
     public void setCost(double cost) {
         this.cost = cost;
@@ -62,7 +62,7 @@ public class Product {
         return image;
     }
     /** funkcja ustawiająca zdjecie
-     * @param String image zdjecie
+     * @param image zdjecie
      * */
     public void setImage(String image) {
         this.image = image;
@@ -74,7 +74,7 @@ public class Product {
         return description;
     }
     /** funkcja ustawiająca opis
-     * @param String description opis
+     * @param description opis
      * */
     public void setDescription(String description) {
         this.description = description;
@@ -86,7 +86,7 @@ public class Product {
         return date;
     }
     /** funkcja ustawiająca date
-     * @param String date data
+     * @param date data
      * */
     public void setDate(String date) {
         this.date = date;
@@ -98,7 +98,7 @@ public class Product {
         return amount;
     }
     /** funkcja ustawiająca ilosc
-     * @param int amount ilosc
+     * @param amount ilosc
      * */
     public void setAmount(int amount) {
         this.amount = amount;
@@ -110,7 +110,7 @@ public class Product {
         return productId;
     }
     /** funkcja ustawiająca id produktu
-     * @param int productId id produktu
+     * @param productId id produktu
      * */
     public void setProductId(int productId) {
         this.productId = productId;
@@ -122,7 +122,7 @@ public class Product {
         return category;
     }
     /** funkcja ustawiająca kategorie
-     * @param String category kategoria
+     * @param category kategoria
      * */
     public void setCategory(String category) {
         this.category = category;
@@ -134,7 +134,7 @@ public class Product {
         return pages;
     }
     /** funkcja ustawiająca strony
-     * @param int pages strony
+     * @param pages strony
      * */
     public void setPages(int pages) {
         this.pages = pages;
@@ -146,7 +146,7 @@ public class Product {
         return author;
     }
     /** funkcja ustawiająca autora
-     * @param String author autor
+     * @param author autor
      * */
     public void setAuthor(String author) {
         this.author = author;

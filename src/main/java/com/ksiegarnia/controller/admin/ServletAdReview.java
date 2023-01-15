@@ -21,7 +21,9 @@ import java.util.List;
 public class ServletAdReview extends HttpServlet {
 
     List<Review> allReviews = new ArrayList<>();
-
+    /** Wyszukuje wszystkie opinie z bazy danych i przekazuje je do panelu admina. Przekazuje dane do /admin/adminPanelOpinions.jsp.
+     * @see com.ksiegarnia.model.ReviewModel#getAllReviews
+     * */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ReviewModel reviewModel = new ReviewModel();

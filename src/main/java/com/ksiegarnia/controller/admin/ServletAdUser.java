@@ -11,12 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
 import com.ksiegarnia.model.UserDbModel;
-
+/** Servlet odpowiedzialny za przekazanie wszystkich użytkowników z bazy danych do panelu administratora */
 @WebServlet("/admin/ServletAdUser")
 public class ServletAdUser extends HttpServlet {
 
     List<User> allUsers = new ArrayList<User>();
 
+    /** Wyszukuje wszystkich użytkowników z bazy danych. Przekazuje dane do /admin/adminPanelUsers.jsp.
+     * @see com.ksiegarnia.model.UserDbModel#getAllUsers
+     * */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("TEST");
         UserDbModel userModel = new UserDbModel();

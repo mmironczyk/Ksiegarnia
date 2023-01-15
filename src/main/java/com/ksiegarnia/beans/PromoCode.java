@@ -10,7 +10,7 @@ public class PromoCode {
         return id;
     }
     /** funkcja ustawiająca id kodu
-     * @param int id id
+     * @param id id
      * */
     public void setId(int id) {
         this.id = id;
@@ -39,7 +39,7 @@ public class PromoCode {
         return value;
     }
     /** funkcja ustawiająca wartosc kodu
-     * @param float value wartosc kodu
+     * @param value wartosc kodu
      * */
     public void setValue(float value) {
         this.value = value;
@@ -58,7 +58,7 @@ public class PromoCode {
         return numberofusage;
     }
     /** funkcja ustawiająca liczbe uzyc
-     * @param int numberofusage
+     * @param numberofusage
      * */
     public void setNumberofusage(int numberofusage) {
         this.numberofusage = numberofusage;
