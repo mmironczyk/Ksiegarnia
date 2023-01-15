@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-
+/** servlet obsługujący dodanie zamówienia przez użytkownika */
 import com.ksiegarnia.beans.*;
 import com.ksiegarnia.model.*;
 import jakarta.faces.context.FacesContext;
@@ -19,7 +19,14 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 @WebServlet("/addOrder")
 public class addOrder extends HttpServlet {
-
+    /** funkcja pozwalająca na dodanie zamówienia przez użytkownika
+     * @see com.ksiegarnia.model.CartModel#getProductFromCart
+     * @see com.ksiegarnia.model.ProductModel#zakup
+     * @see com.ksiegarnia.model.OrderModel#allOrders 
+     * @see com.ksiegarnia.model.PaymentModel#addPayment
+     * @see com.ksiegarnia.model.PromoCodeModel#addUsage 
+     * @see com.ksiegarnia.model.CartModel#deleteUserCart  
+     * */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession(true);

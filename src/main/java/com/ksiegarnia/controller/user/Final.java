@@ -1,5 +1,5 @@
 package com.ksiegarnia.controller.user;
-
+/** servlet obsługujący końcowe zamówienie */
 import com.ksiegarnia.beans.ProductinCart;
 import com.ksiegarnia.beans.PromoCode;
 import com.ksiegarnia.beans.User;
@@ -22,6 +22,11 @@ import org.apache.commons.lang3.RandomStringUtils;
 @WebServlet("/Final")
 public class Final extends HttpServlet {
 
+
+    /** funkcja generujaca końcowe zamowienie 
+     * @see com.ksiegarnia.model.CartModel#getProductFromCart 
+     * @see com.ksiegarnia.model.PromoCodeModel#getCodeFromString 
+     * */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         User online = (User) session.getAttribute("LoginUser");
@@ -58,7 +63,7 @@ public class Final extends HttpServlet {
 
 
     }
-
+    /** funkcja generujaca losowy ciąg liczbowy służacy jako numer zamówienia */
     public String givenUsingApache_whenGeneratingRandomNumericString_thenCorrect() {
         String generatedString = RandomStringUtils.randomNumeric(12);
         System.out.println(generatedString);

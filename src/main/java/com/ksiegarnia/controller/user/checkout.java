@@ -12,11 +12,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.io.IOException;
-
+/** servlet obsługujący podsumowanie zamówienia */
 @WebServlet(name = "checkout", urlPatterns = {"/checkout"})
 public class checkout extends HttpServlet {
     float c;
-
+    /** funkcja pobierajaca cene z koszyka i podstawia do podsumwoania */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -29,6 +29,7 @@ public class checkout extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
     }
+    /** funkcja pobiera zwrócona wartość rabatu z servletu checkpromo i uzupełnia brakujące wartości  */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         ServletContext context=getServletContext();
