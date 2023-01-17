@@ -6,7 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+
+/** Model dla historii zamówień i płatności */
 public class HistoryModel {
     ResultSet result;
     PreparedStatement pst = null;
@@ -14,6 +15,11 @@ public class HistoryModel {
     private int nRecords ;
     Connection con;
 
+    /** Funkcja wyszukująca wszystkie produkty dotyczące danego zamówienia z bazy danych
+     * @param nr Numer Zamówienia
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>Product</b>.
+     * @see com.ksiegarnia.beans.Product
+     * */
     public ArrayList<Product> listaprod(String nr)
     {
         ArrayList<Product> list = new ArrayList();
@@ -37,6 +43,11 @@ public class HistoryModel {
         System.out.println(list.size());
         return list;
     }
+
+    /** Funkcja wyszukująca właściciela danego zamówienia z bazy danych
+     * @param nr Numer Zamówienia
+     * @return Funkcja zwraca <b>id</b> właściciela danego zamówienia
+     * */
     public int Jakiklient(String nr) {
         int id=0;
         try {
@@ -54,6 +65,10 @@ public class HistoryModel {
         return id;
     }
 
+    /** Funkcja wyszukująca rabat dla danego zamówienia z bazy danych
+     * @param nr Numer Zamówienia
+     * @return Funkcja zwraca <b>wartość rabatu</b> dla danego zamówienia
+     * */
     public float jakiRabat(String nr)
     {
         float rabat=0;

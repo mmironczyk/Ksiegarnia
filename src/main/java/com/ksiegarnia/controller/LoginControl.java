@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.beans.User;
 
+/** Filtr ograniczający dostęp do fragmentów serwisu dla niezalogowanych użytkowników*/
 @WebFilter(filterName = "Login",
         urlPatterns = {"/admin/adminPanelInvoices.jsp", "/admin/adminPanelOpinions.jsp", "/admin/ActivateUser","/admin/AddBook" ,"/admin/AddCode" ,"/admin/ClearBlock" ,
                 "/admin/DeleteProduct" ,"/admin/DeletePromo" ,"/admin/DeleteUser" ,"/admin/ManageProduct" ,"/admin/ServletAdProduct" ,"/admin/ServletAdPromo" ,"/admin/ServletAdReview" ,
