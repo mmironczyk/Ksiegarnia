@@ -1,17 +1,13 @@
 package com.ksiegarnia.controller.user;
 
-import com.ksiegarnia.beans.Product;
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.HistoryModel;
-import com.ksiegarnia.model.ProductModel;
 import com.ksiegarnia.model.UserDbModel;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-
 import jakarta.servlet.annotation.WebServlet;
 
 /** Servlet historii. */
