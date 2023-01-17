@@ -10,13 +10,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import jakarta.servlet.annotation.WebServlet;
 
-/** Servlet historii. */
+/** Servlet odpowiedzialny za generowanie etykiety transportowej. */
 @WebServlet("/Shipping")
 public class Shipping extends HttpServlet {
-    /** Funkcja służąca do zapisywania danych po finalizacji zamówienia.
-     * @see com.ksiegarnia.model.HistoryModel#jakiRabat
+    /** Funkcja służąca do utworzenia etykiety transportowej z danych wyciągnietych z bazy danych.
+     * @see com.ksiegarnia.beans.User
      * @see com.ksiegarnia.model.HistoryModel#Jakiklient
-     * @see com.ksiegarnia.model.ProductModel#getProduct */
+     * @see com.ksiegarnia.model.UserDbModel#getUser
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nr_zamowienia=request.getParameter("n");
         User u = new User();

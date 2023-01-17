@@ -23,7 +23,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class Final extends HttpServlet {
 
 
-    /** funkcja generujaca końcowe zamowienie 
+    /** funkcja generujaca końcowe zamowienie oraz udostępnia dane do sporządzenia faktury
      * @see com.ksiegarnia.model.CartModel#getProductFromCart 
      * @see com.ksiegarnia.model.PromoCodeModel#getCodeFromString 
      * */
@@ -43,11 +43,8 @@ public class Final extends HttpServlet {
         user.setAdres(request.getParameter("ulica"));
         user.setTelefon(request.getParameter("telefon"));
         user.setEmail(request.getParameter("email"));
-
         PromoCodeModel model = new PromoCodeModel();
         PromoCode code = model.getCodeFromString(kod);
-
-
         float kwota = Float.parseFloat(request.getParameter("kwota"));
         float rabat = Float.parseFloat(request.getParameter("rabat"));
         request.setAttribute("usr",user);
@@ -60,8 +57,6 @@ public class Final extends HttpServlet {
         String nextJSP = "/zamowienia.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
-
-
     }
     /** funkcja generujaca losowy ciąg liczbowy służacy jako numer zamówienia */
     public String givenUsingApache_whenGeneratingRandomNumericString_thenCorrect() {
@@ -69,6 +64,4 @@ public class Final extends HttpServlet {
         System.out.println(generatedString);
         return generatedString;
     }
-
-
 }

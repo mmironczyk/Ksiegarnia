@@ -11,11 +11,11 @@ import jakarta.servlet.http.HttpServletResponse;
 /** servlet obsługujący usuwanie rezerwacji */
 @WebServlet("/user/DeleteReservation")
 public class DeleteReservation extends HttpServlet {
-
-    /** funkcja usuwająca rezerwacje 
-     * @see com.ksiegarnia.model.ReservationModel#deleteReservation 
-     * */
     ReservationModel res;
+
+    /** funkcja usuwająca rezerwacje
+     * @see com.ksiegarnia.model.ReservationModel#deleteReservation
+     * */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         res = new ReservationModel();

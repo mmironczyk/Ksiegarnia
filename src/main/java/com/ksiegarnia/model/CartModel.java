@@ -19,9 +19,7 @@ public class CartModel extends DbConnection {
      * @see com.ksiegarnia.beans.Cart
      * */
     public ArrayList<Cart> getUserCart(int userId) {
-
         try {
-
             con = openConnection();
             ArrayList<Cart> array = new ArrayList<>();
             PreparedStatement pst = null;
@@ -53,18 +51,13 @@ public class CartModel extends DbConnection {
      * @see com.ksiegarnia.beans.Cart
      * */
     public boolean addCart(Cart cart) {
-
         try {
             int search = search(cart.getProductId(), cart.getUserId());
-            System.out.println("Serach -- " + search);
             if (search != 0) {
-                System.out.println("In edit");
                 return editQantity(search + cart.getQuantity(), cart.getUserId(), cart.getProductId());
             }
-            System.out.println("Not Edit");
             con = openConnection();
             PreparedStatement pst = null;
-            System.out.println("my con" + con);
             pst = con.prepareStatement("insert into koszyk (id_koszyka,id_klient,id_produkt,ilosc)Values (?,?,?,?)");
             pst.setInt(1, cart.getCartId());
             pst.setInt(2, cart.getUserId());
@@ -88,8 +81,7 @@ public class CartModel extends DbConnection {
         con = openConnection();
         PreparedStatement pst = null;
         try {
-            //System.out.println("my con" + con);
-            pst = con.prepareStatement("delete From koszyk where id_koszyka=?");
+            pst = con.prepareStatement("delete from koszyk where id_koszyka=?");
             pst.setInt(1, cartID);
             int executeUpdate = pst.executeUpdate();
             closeConnection();
@@ -100,7 +92,6 @@ public class CartModel extends DbConnection {
             ex.printStackTrace();
         }
         return false;
-
     }
     /** Funkcja usuwająca wszystkie produkty z koszyka danego użytkownika
      * @param userID id danego użytkownika
@@ -110,7 +101,6 @@ public class CartModel extends DbConnection {
         con = openConnection();
         PreparedStatement pst = null;
         try {
-            //System.out.println("my con" + con);
             pst = con.prepareStatement("delete From koszyk where id_klient=?");
             pst.setInt(1, userID);
             int executeUpdate = pst.executeUpdate();
@@ -131,7 +121,6 @@ public class CartModel extends DbConnection {
     private int search(int pID, int usrID) {
         int qu = 0;
         try {
-
             con = openConnection();
             PreparedStatement pst = con.prepareStatement("SELECT * from koszyk where (id_produkt=?) and (id_klient=?)");
             pst.setInt(1, pID);
@@ -145,9 +134,7 @@ public class CartModel extends DbConnection {
             closeConnection();
             ex.printStackTrace();
         }
-
         return qu;
-
     }
     /** Funkcja edytująca ilość
      * @param quantity ilość danego produktu
@@ -157,19 +144,16 @@ public class CartModel extends DbConnection {
      * */
     private boolean editQantity(int quantity, int usrID, int productID) {
         try {
-
             con = openConnection();
             PreparedStatement pst = con.prepareStatement("Update koszyk set ilosc=? where id_klient=? and id_produkt=? ");
             pst.setInt(1, quantity);
             pst.setInt(2, usrID);
             pst.setInt(3, productID);
-
             int x = pst.executeUpdate();
             closeConnection();
             if (x > 0) {
                 return true;
             }
-
         } catch (SQLException ex) {
             ex.printStackTrace();
             closeConnection();
@@ -182,14 +166,11 @@ public class CartModel extends DbConnection {
      * @see com.ksiegarnia.beans.Cart
      * */
     public int getNubmberOfCartsForUser(int usrID) {
-
         int count = 0;
         ArrayList<Cart> userCart = getUserCart(usrID);
         for (int i = 0; i < userCart.size(); i++) {
             count += userCart.get(i).getQuantity();
-            System.out.println("size ==" + userCart.size());
         }
-        System.out.println("Quantity ==  " + count);
         return count;
     }
     /** Funkcja zwracająca wszystkie produkty w koszyku danego użytkownika
@@ -218,7 +199,6 @@ public class CartModel extends DbConnection {
             }
             closeConnection();
             return carts;
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -231,11 +211,9 @@ public class CartModel extends DbConnection {
     private Cart getCart(int cartID) {
         Cart qu = null;
         try {
-
             con = openConnection();
             PreparedStatement pst = con.prepareStatement("SELECT * from koszyk where id_koszyka=?");
             pst.setInt(1, cartID);
-
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 qu = new Cart();
@@ -249,9 +227,7 @@ public class CartModel extends DbConnection {
             closeConnection();
             ex.printStackTrace();
         }
-
         return qu;
-
     }
     /** Funkcja zmniejszająca ilość
      * @param cartID id koszuka
@@ -265,7 +241,6 @@ public class CartModel extends DbConnection {
             if (quantity < 2) {
                 return deleteCart(cartID);
             } else {
-                System.out.println(quantity);
                 con = openConnection();
                 PreparedStatement pst = null;
                 try {
@@ -282,9 +257,7 @@ public class CartModel extends DbConnection {
                 }
             }
         }
-
         return false;
-
     }
     /** Funkcja zwiększająca ilość
      * @param cartID id koszuka
@@ -301,7 +274,6 @@ public class CartModel extends DbConnection {
                 con = openConnection();
                 PreparedStatement pst = null;
                 try {
-                    //System.out.println("my con" + con);
                     pst = con.prepareStatement("update koszyk set ilosc=? where id_koszyka=? ");
                     pst.setInt(1, cart.getQuantity() + 1);
                     pst.setInt(2, cartID);
@@ -315,12 +287,9 @@ public class CartModel extends DbConnection {
                     ex.printStackTrace();
                 }
             }
-
         }
             return false;
-
         }
-
 }
 
 

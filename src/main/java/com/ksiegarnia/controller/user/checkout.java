@@ -16,7 +16,7 @@ import java.io.IOException;
 @WebServlet(name = "checkout", urlPatterns = {"/checkout"})
 public class checkout extends HttpServlet {
     float c;
-    /** funkcja pobierajaca cene z koszyka i podstawia do podsumwoania */
+    /** funkcja pobierajaca cene z koszyka i podstawia do podsumowania */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

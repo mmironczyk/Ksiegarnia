@@ -6,8 +6,9 @@ import jakarta.mail.Transport;
 import jakarta.mail.internet.AddressException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
-
 import java.util.Properties;
+
+/** Klasa związana z wysyłaniem e-maili */
 public class MailModel {
     private Properties mailServerProperties;
     private Session getMailSession;
@@ -26,41 +27,11 @@ public class MailModel {
         this.emailBody = emailBody;
     }
 
-    public boolean sendMail() {
-        try {
-
-            mailServerProperties.put("mail.smtp.port", "465");
-            mailServerProperties.put("mail.smtp.ssl.enable", "true");
-            mailServerProperties.put("mail.smtp.host", SMTP);
-            mailServerProperties.put("mail.smtp.auth", "true");
-            mailServerProperties.put("mail.smtp.user", SENDER_MAIL);
-            mailServerProperties.put("mail.smtp.password", PASSWORD);
-            mailServerProperties.put("mail.mime.charset", "utf8");
-
-            getMailSession = Session.getDefaultInstance(mailServerProperties);
-            generateMailMessage = new MimeMessage(getMailSession);
-            generateMailMessage.setFrom(new InternetAddress(SENDER_MAIL));
-            generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            generateMailMessage.setSubject("","utf-8");
-            emailBody += "";
-            generateMailMessage.setContent(emailBody, "text/html");
-            getMailSession.setDebug(true);
-
-            Transport transport = getMailSession.getTransport("smtp");
-            transport.connect(SMTP, SENDER_MAIL, PASSWORD);
-            transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
-            transport.close();
-
-        } catch (AddressException ex) {
-            ex.printStackTrace();
-            return false;
-        } catch (MessagingException ex) {
-            ex.printStackTrace();
-            return false;
-        }
-        return true;
-
-    }
+    /** Funkcja wysyła wiadomość z przyciskiem do aktywacji konta na podany adres email
+     * @param act wygenerowany kod aktywacyjny przypisany do konta podczas rejestracji
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wysłać wiadomość, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.controller.user.Signup
+     * */
     public boolean sendActivationMail(String act) {
         try {
 
@@ -316,7 +287,7 @@ public class MailModel {
                     "          <!-- start unsubscribe -->\n" +
                     "          <tr>\n" +
                     "            <td align=\"center\" bgcolor=\"#e9ecef\" style=\"padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;\">\n" +
-                    "              <p style=\"margin: 0;\">Księgarnia BookzWami, 64-200 Wolsztyn, Kanałowa 2</p>\n" +
+                    "              <p style=\"margin: 0;\">Księgarnia BookzWami, ul. Powstańców 5 60-123 Sosnowiec</p>\n" +
                     "            </td>\n" +
                     "          </tr>\n" +
                     "          <!-- end unsubscribe -->\n" +
@@ -351,6 +322,5 @@ public class MailModel {
             return false;
         }
         return true;
-
     }
 }

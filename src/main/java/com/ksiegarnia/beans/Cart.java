@@ -6,8 +6,7 @@ public class Cart {
     private int productId;
     private int quantity;
 
-    public Cart() {
-    }
+    public Cart() {}
 
     public Cart(int cartId)
     {

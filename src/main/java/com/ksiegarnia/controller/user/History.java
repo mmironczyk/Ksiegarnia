@@ -14,13 +14,15 @@ import java.util.ArrayList;
 
 import jakarta.servlet.annotation.WebServlet;
 
-/** Servlet historii. */
+/** Servlet historii zamówień. */
 @WebServlet("/History")
 public class History extends HttpServlet {
-/** Funkcja służąca do zapisywania danych po finalizacji zamówienia.
+/** Przekazuje na stronę listę zamówień danego użytkownika stanowiących historię oraz udostępnia dane do sporządzenia faktury
+ * @see com.ksiegarnia.beans.Product
+ * @see com.ksiegarnia.model.UserDbModel#getUser
  * @see com.ksiegarnia.model.HistoryModel#jakiRabat
  * @see com.ksiegarnia.model.HistoryModel#Jakiklient
- * @see com.ksiegarnia.model.ProductModel#getProduct */
+ * @see com.ksiegarnia.model.ProductModel */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nr_zamowienia=request.getParameter("n");
         ArrayList<Product> pr = new ArrayList<>();

@@ -3,6 +3,10 @@ package com.ksiegarnia.beans;
 public class Payment {
 
     int id_platnosci;
+    float rabat;
+    int id_klienta;
+    String nr_zamowienia;
+    float kwota;
     /** funkcja zwracająca rabat
      * @return float rabat
      * */
@@ -15,8 +19,6 @@ public class Payment {
     public void setRabat(float rabat) {
         this.rabat = rabat;
     }
-
-    float rabat;
     /** funkcja zwracająca id_platnosci
      * @return int id_platnosci
      * */
@@ -65,14 +67,8 @@ public class Payment {
     public void setKwota(float kwota) {
         this.kwota = kwota;
     }
-
-    int id_klienta;
-    String nr_zamowienia;
-    float kwota;
-
     public Payment() {
     }
-
     public Payment(int id_platnosci, int id_klienta, String nr_zamowienia, float kwota) {
         this.id_platnosci = id_platnosci;
         this.id_klienta = id_klienta;

@@ -12,7 +12,6 @@ public class HistoryModel {
     ResultSet result;
     PreparedStatement pst = null;
     DbConnection db = new DbConnection();
-    private int nRecords ;
     Connection con;
 
     /** Funkcja wyszukująca wszystkie produkty dotyczące danego zamówienia z bazy danych

@@ -1,6 +1,20 @@
 package com.ksiegarnia.beans;
 /** klasa reprezentująca produkty w koszyku */
 public class ProductinCart {
+
+    private int cartId;
+    private int userId;
+    private String title;
+    private double cost;
+    private String image;
+    private String description;
+    private String date;
+    private int amount;
+    private int pages;
+    private int productId;
+    private String category;
+    private String author;
+
     public ProductinCart(int cartId, int userId, String title, double cost, String image, String description, String date, int amount, int pages, int productId, String category, String author) {
         this.cartId = cartId;
         this.userId = userId;
@@ -16,8 +30,6 @@ public class ProductinCart {
         this.author = author;
     }
 
-    private int cartId;
-        private int userId;
     /** funkcja zwracająca id koszyka
      * @return int id
      * */
@@ -162,15 +174,5 @@ public class ProductinCart {
     public void setAuthor(String author) {
         this.author = author;
     }
-    private String title;
-        private double cost;
-        private String image;
-        private String description;
-        private String date;
-        private int amount;
-        private int pages;
-        private int productId;
-        private String category;
-        private String author;
         public ProductinCart(){}
     }

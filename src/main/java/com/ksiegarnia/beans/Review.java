@@ -1,7 +1,7 @@
 package com.ksiegarnia.beans;
-/** klasa reprezentująca opinie */
-import com.ksiegarnia.model.UserDbModel;
 
+
+/** klasa reprezentująca opinie */
 public class Review {
     private int reviewId;
     private int userId;
@@ -19,8 +19,7 @@ public class Review {
         this.link = link;
     }
 
-    public Review() {
-    }
+    public Review() {}
     /** funkcja zwracająca id opinii
      * @return int reviewId
      * */
@@ -69,14 +68,14 @@ public class Review {
     public void setReviewText(String reviewText) {
         this.reviewText = reviewText;
     }
-    /** funkcja zwracająca zdjecie opinii
+    /** funkcja zwracająca zdjęcie opinii
      * @return String reviewImage
      * */
     public String getReviewImage() {
         return reviewImage;
     }
     /** funkcja ustawiająca zdjecie opinii
-     * @param reviewImage zdjecie opinii
+     * @param reviewImage zdjęcie opinii
      * */
     public void setReviewImage(String reviewImage) {
         this.reviewImage = reviewImage;
@@ -88,14 +87,14 @@ public class Review {
         return link;
     }
     /** funkcja ustawiająca link opinii
-     * @param link lind opinii
+     * @param link link do opinii
      * */
     public void setLink(String link) {
         this.link = link;
     }
 
-    /**
-     * funkcja ustawiająca odpowiedni format dla linku do youtube
+    /** funkcja ustawiająca odpowiedni format dla linku do youtube
+     * @return zwraca link do filmiku w prawidłowym formacie
      */
     public String linkToIFrameLink() {
         String iLink = this.link;

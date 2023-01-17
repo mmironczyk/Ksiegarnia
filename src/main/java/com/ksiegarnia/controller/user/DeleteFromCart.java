@@ -10,10 +10,11 @@ import com.ksiegarnia.model.CartModel;
 /** servlet obsługujący usuwanie z koszyka */
 @WebServlet("/DeleteFromCart")
 public class DeleteFromCart extends HttpServlet {
-    /** funkcja usuwająca przedmioty z koszyka
-     * @see com.ksiegarnia.model.CartModel#deleteCart  
-     */
     CartModel cartModel;
+
+    /** funkcja usuwająca przedmioty z koszyka
+     * @see com.ksiegarnia.model.CartModel#deleteCart
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         cartModel = new CartModel();

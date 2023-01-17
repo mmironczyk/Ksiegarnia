@@ -3,20 +3,23 @@ package com.ksiegarnia.beans;
 public class Order {
 
     int id_zamowienia;
-    /** funkcja zwracająca cene za sztuke
+    int id_klienta;
+    String nr_zamowienia;
+    int id_produktu;
+    int ilosc_produktu;
+    float cena_sztuka;
+    /** funkcja zwracająca cenę za sztukę
      * @return float cena_sztuka
      * */
     public float getCena_sztuka() {
         return cena_sztuka;
     }
-    /** funkcja ustawiająca cene za sztuke
-     * @param cena_sztuka cena za sztuke
+    /** funkcja ustawiająca cenę za sztukę
+     * @param cena_sztuka cena za sztukę
      * */
     public void setCena_sztuka(float cena_sztuka) {
         this.cena_sztuka = cena_sztuka;
     }
-
-    float cena_sztuka;
     /** funkcja zwracająca id zamówienia
      * @return int id_zamowienia
      * */
@@ -78,10 +81,7 @@ public class Order {
         this.ilosc_produktu = ilosc_produktu;
     }
 
-    int id_klienta;
-    String nr_zamowienia;
-    int id_produktu;
-    int ilosc_produktu;
+
 
     public Order() {
     }

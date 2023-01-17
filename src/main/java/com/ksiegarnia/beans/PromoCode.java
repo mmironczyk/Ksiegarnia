@@ -3,6 +3,19 @@ package com.ksiegarnia.beans;
 public class PromoCode {
 
     int id;
+    String code;
+    float value;
+    int numberofusage;
+
+    public PromoCode(int id, String code, float value, int numberofusage) {
+        this.id = id;
+        this.code = code;
+        this.value = value;
+        this.numberofusage = numberofusage;
+    }
+
+    public PromoCode() {}
+
     /** funkcja zwracająca id kodu
      * @return int id
      * */
@@ -21,14 +34,6 @@ public class PromoCode {
     public String getCode() {
         return code;
     }
-
-    public PromoCode(int id, String code, float value, int numberofusage) {
-        this.id = id;
-        this.code = code;
-        this.value = value;
-        this.numberofusage = numberofusage;
-    }
-
     public void setCode(String code) {
         this.code = code;
     }
@@ -44,13 +49,6 @@ public class PromoCode {
     public void setValue(float value) {
         this.value = value;
     }
-
-    String code;
-
-    public PromoCode() {
-    }
-
-    float value;
     /** funkcja zwracająca liczbe użyć
      * @return int numerofusage
      * */
@@ -63,8 +61,4 @@ public class PromoCode {
     public void setNumberofusage(int numberofusage) {
         this.numberofusage = numberofusage;
     }
-
-    int numberofusage;
-
-
 }

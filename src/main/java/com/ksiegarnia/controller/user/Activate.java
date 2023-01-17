@@ -9,10 +9,13 @@ import java.io.IOException;
 import java.sql.SQLException;
 import jakarta.servlet.annotation.WebServlet;
 
+/** servlet obsługujący aktywację nowych użytkowników */
 @WebServlet("/Activate")
 public class Activate extends HttpServlet {
 
-
+    /** funkcja pozwalająca na aktywowanie użytkownika z podanym kodem aktywacyjnym
+     * @see com.ksiegarnia.model.UserDbModel#aktywuj 
+     * */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String s = request.getParameter("r");
         Boolean test=false;

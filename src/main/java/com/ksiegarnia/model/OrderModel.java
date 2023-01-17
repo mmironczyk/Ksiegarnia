@@ -2,21 +2,23 @@ package com.ksiegarnia.model;
 
 import com.ksiegarnia.beans.Order;
 import com.ksiegarnia.beans.OrderRecord;
-import com.ksiegarnia.beans.Product;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
+/** Model do obsługi zamówień */
 public class OrderModel {
 
     ResultSet rs = null;
     Connection con;
-
     DbConnection db = new DbConnection();
 
+    /** Funkcja dodająca zamówienie do bazy danych
+     * @param ord Obiekt klasy Order zawierający zamówienie
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.Order
+     * */
     public boolean addOrder(Order ord) {
         try {
             con = db.openConnection();
@@ -38,10 +40,11 @@ public class OrderModel {
         }
         return false;
     }
-/** <p>Funkcja zwracająca wszystkie zamówienia danego użytkownika z bazy danych</p>
- *  @param id id użytkownika
- *
- * */
+    /** Funkcja zwracająca ArrayList-ę wszystkich zamówień danego użytkownika
+     * @param id id danego użytkownika
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>OrderRecord</b> reprezentującą historię zamówień konkretnego użytkownika
+     * @see com.ksiegarnia.beans.OrderRecord
+     * */
     public ArrayList<OrderRecord> allOrders(int id)
     {
         ArrayList<OrderRecord> list = new ArrayList();
@@ -63,7 +66,10 @@ public class OrderModel {
         }
         return list;
     }
-
+    /** Funkcja zwracająca ArrayList-ę wszystkich zamówień wszystkich użytkowników. Przeznaczona dla Admina.
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>OrderRecord</b> reprezentującą historię zamówień wszystkich użytkowników
+     * @see com.ksiegarnia.beans.OrderRecord
+     * */
     public ArrayList<OrderRecord> allOrdersAdmin()
     {
         ArrayList<OrderRecord> list = new ArrayList();
@@ -84,6 +90,4 @@ public class OrderModel {
         }
         return list;
     }
-
-
 }

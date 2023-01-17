@@ -14,7 +14,7 @@ import com.ksiegarnia.beans.ProductinCart;
 /** Servlet koszyka. */
 @WebServlet("/ShoppingCart")
 public class ShoppingCart extends HttpServlet {
-/** Funkcja tworzy listę produktów i wyświetla je w koszyku zalogowanego użytkownika.
+/** Funkcja przekazuje listę produktów i umieszcza je w koszyku zalogowanego użytkownika.
  * @see com.ksiegarnia.model.CartModel#getProductFromCart */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<ProductinCart> carts = new ArrayList<ProductinCart>();

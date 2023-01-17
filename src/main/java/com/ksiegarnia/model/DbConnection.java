@@ -1,11 +1,10 @@
 package com.ksiegarnia.model;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/** Klasa związana z obsługą połączenia z bazą danych */
 public class DbConnection {
     Connection con = null;
     final private String url;
@@ -18,18 +17,11 @@ public class DbConnection {
         pass = "123123";
     }
 
+    /** Funkcja otwiera połączenia z bazą danych przy pomocy sterownika MariaDB Connector */
     public Connection openConnection() {
         try {
-
             Class.forName("org.mariadb.jdbc.Driver");
-
-            //connect to DB
-            con = DriverManager.getConnection(
-                    url,
-                    user,
-                    pass);
-
-            System.out.println(con);
+            con = DriverManager.getConnection(url, user, pass);
             return con;
         }
         catch (ClassNotFoundException | SQLException e) {
@@ -37,15 +29,15 @@ public class DbConnection {
         }
         return null;
     }
-
+    /** Funkcja zamyka połączenia z bazą danych
+     * @return Funkcja zwraca <b>true</b> jeśli poprawnie zamknięto połączenie, w przeciwnym razie zwraca <b>false</b>.
+     * */
     public boolean closeConnection() {
         try {
-
             con.close();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-
         }
         return false;
     }

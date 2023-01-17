@@ -4,14 +4,20 @@ public class OrderRecord {
 
     int id_zamowienia;
     float cena_sztuka;
+    int id_klienta;
+    String nr_zamowienia;
+    int id_produktu;
+    int ilosc_produktu;
+    float kwota;
+
     /** funkcja zwracająca id zamówienia
      * @return int id_zamowienia
      * */
     public int getId_zamowienia() {
         return id_zamowienia;
     }
-    /** funkcja ustawiająca id zamowienia
-     * @param id_zamowienia id zamowienia
+    /** funkcja ustawiająca id zamówienia
+     * @param id_zamowienia id zamówienia
      * */
     public void setId_zamowienia(int id_zamowienia) {
         this.id_zamowienia = id_zamowienia;
@@ -28,14 +34,14 @@ public class OrderRecord {
     public void setId_klienta(int id_klienta) {
         this.id_klienta = id_klienta;
     }
-    /** funkcja zwracająca numer zamowienia
+    /** funkcja zwracająca numer zamówienia
      * @return int nr_zamowienia
      * */
     public String getNr_zamowienia() {
         return nr_zamowienia;
     }
-    /** funkcja ustawiająca nr zamowienia
-     * @param nr_zamowienia numer zamowienia
+    /** funkcja ustawiająca nr zamówienia
+     * @param nr_zamowienia numer zamówienia
      * */
     public void setNr_zamowienia(String nr_zamowienia) {
         this.nr_zamowienia = nr_zamowienia;
@@ -65,25 +71,18 @@ public class OrderRecord {
         this.ilosc_produktu = ilosc_produktu;
     }
 
-    int id_klienta;
-    String nr_zamowienia;
-    int id_produktu;
-    int ilosc_produktu;
-
-    /** funkcja zwracająca kwote
+    /** funkcja zwracająca kwotę
      * @return float kwota
      * */
     public float getKwota() {
         return kwota;
     }
-    /** funkcja ustawiająca kwote
+    /** funkcja ustawiająca kwotę
      * @param kwota kwota
      * */
     public void setKwota(float kwota) {
         this.kwota = kwota;
     }
-
-    float kwota;
 
     public OrderRecord(int id_zamowienia,String nr_zamowienia, float kwota)
     {
@@ -91,7 +90,6 @@ public class OrderRecord {
         this.nr_zamowienia=nr_zamowienia;
         this.kwota=kwota;
     }
-
     public OrderRecord(int id_zamowienia, int id_klienta, String nr_zamowienia, int id_produktu, int ilosc_produktu, float kwota) {
         this.id_zamowienia = id_zamowienia;
         this.id_klienta = id_klienta;
@@ -100,7 +98,6 @@ public class OrderRecord {
         this.ilosc_produktu = ilosc_produktu;
         this.kwota = kwota;
     }
-
     public OrderRecord() {
     }
 }

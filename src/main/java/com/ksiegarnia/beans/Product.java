@@ -7,9 +7,6 @@ public class Product {
     private String description;
     private String date;
     private int amount;
-
-
-
     private int pages;
     private int productId;
     private String category;
@@ -151,10 +148,4 @@ public class Product {
     public void setAuthor(String author) {
         this.author = author;
     }
-
-
-
-
-
-
 }

@@ -11,11 +11,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import jakarta.servlet.annotation.WebServlet;
-/** Servlet zererwacji. */
+/** Servlet wyświetlający rezerwacje danego użytkownika. */
 @WebServlet("/user/ShowReservation")
 public class ShowReservation extends HttpServlet {
-/** Funkcja zarządzająca rezerwacjami.
- *  Wyświetla listę rezerwacji zalogowanego użytkownika.
+/** Przekazuję na stronę listę rezerwacji zalogowanego użytkownika.
  *  @see com.ksiegarnia.model.ReservationModel#allReservations */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("LoginUser");

@@ -1,8 +1,7 @@
 package com.ksiegarnia.beans;
-/** klasa reprezentująca rezerwacje */
 import java.sql.Date;
-import java.time.LocalDate;
 
+/** klasa reprezentująca rezerwacje */
 public class Reservation {
 
     private int reservationId;
@@ -65,16 +64,14 @@ public class Reservation {
     public Date getExpire_date() {
         return expire_date;
     }
-    /** funkcja ustawiająca date wygaśnięcia
+    /** funkcja ustawiająca datę wygaśnięcia. Automatycznie dodaje do podanej daty 7 dni.
      * @param expire_date data wygasniecia
      * */
     public void setExpire_date(Date expire_date) {
         this.expire_date = Date.valueOf(expire_date.toLocalDate().plusDays(7));
     }
-
     public Reservation() {
     }
-
     public Reservation(int reservationId, int userId, int productId, int quantity, Date expire_date) {
         this.reservationId = reservationId;
         this.userId = userId;
@@ -82,8 +79,4 @@ public class Reservation {
         this.quantity = quantity;
         this.expire_date = expire_date;
     }
-
-
-
-
 }
