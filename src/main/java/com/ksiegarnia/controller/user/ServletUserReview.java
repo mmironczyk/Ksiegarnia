@@ -15,15 +15,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * klasa pobierająca wszystkie istniejące opinie dla danego ID usera
- * i przekazująca je do panelu użytkownika
- * @see com.ksiegarnia.model.ReviewModel#getReview 
+ * servlet pobierający wszystkie istniejące opinie dla danego IDUser
+ * i przekazujący je do panelu użytkownika
  */
 @WebServlet("/user/ServletUserReview")
 public class ServletUserReview extends HttpServlet {
 
     List<Review> allReviews = new ArrayList<>();
 
+    /** funkcja pozwalająca na pobranie opinii danego użytkownika
+     * @see com.ksiegarnia.model.ReviewModel#getUserReviews
+     */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ReviewModel reviewModel = new ReviewModel();

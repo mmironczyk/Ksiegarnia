@@ -15,13 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * klasa pobierająca wszystkie istniejące opinie i przekazująca je do panelu admina
+ * servlet pobierający wszystkie istniejące opinie i przekazujący je do panelu admina
  */
 @WebServlet("/admin/ServletAdReview")
 public class ServletAdReview extends HttpServlet {
 
     List<Review> allReviews = new ArrayList<>();
-    /** Wyszukuje wszystkie opinie z bazy danych i przekazuje je do panelu admina. Przekazuje dane do /admin/adminPanelOpinions.jsp.
+    /** funkcja wyszukująca wszystkie opinie z bazy danych i przekazuje je do panelu admina (/admin/adminPanelOpinions.jsp)
      * @see com.ksiegarnia.model.ReviewModel#getAllReviews
      * */
     @Override

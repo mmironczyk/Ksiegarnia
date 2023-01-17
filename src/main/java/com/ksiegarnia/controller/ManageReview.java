@@ -14,8 +14,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * klasa odpowiadająca za zarządzanie/przekierowanie do edycji
- * wybranej opinii
+ * servlet odpowiadający za zarządzanie/przekierowanie do edycji wybranej opinii
+ * (treść, link do filmu na YouTube)
  */
 @WebServlet(name = "ManageReview", urlPatterns = {"/user/ManageReview", "/admin/ManageReview"})
 @MultipartConfig
@@ -43,6 +43,10 @@ public class ManageReview extends HttpServlet {
         }
     }
 
+    /**
+     * funkcja pozwalająca na edycję wybranej opinii
+     * @see com.ksiegarnia.model.ReviewModel#editReview
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

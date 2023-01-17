@@ -20,12 +20,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * klasa obsługująca dodawanie opinii przez użytkownika
+ * servlet obsługujący dodawanie opinii przez użytkownika
  */
 @WebServlet(name = "AddReview", urlPatterns = {"/AddReview"})
 @MultipartConfig
 public class AddReview extends HttpServlet {
 
+    /** funkcja pozwalająca na dodanie opinii przez użytkownika
+     * @see com.ksiegarnia.model.ReviewModel#addReview(Review)
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

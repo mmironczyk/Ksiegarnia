@@ -20,9 +20,8 @@ public class ReviewModel extends DbConnection {
 
     /**
      * funkcja pobierająca nowo-stworzoną opinię i dodawająca ją do bazy danych
-     * funkcja zwraca boolean, który opisuje czy operacja została przeprowadzona pomyślnie
-     * @param review
-     * @return Boolean
+     * @param review - dodawana opinia
+     * @return Boolean - opisuje czy operacja została przeprowadzona pomyślnie
      */
     public boolean addReview(Review review) {
         try {
@@ -47,11 +46,9 @@ public class ReviewModel extends DbConnection {
         return false;
     }
     /**
-     * funkcja pobiera obiekt opinii z nowymi danymi i przeprowadza operację
-     * UPDATE na opinii o tym samym ID z bazy danych
-     * funkcja zwraca boolean, który opisuje czy operacja została przeprowadzona pomyślnie
-     * @param review
-     * @return Boolean
+     * funkcja pobiera obiekt opinii z nowymi danymi i przeprowadza operację UPDATE na opinii o tym samym ID
+     * @param review - opinia zastępująca starą o tym samym ID
+     * @return Boolean - opisuje czy operacja została przeprowadzona pomyślnie
      */
     public boolean editReview(Review review) {
         try {
@@ -72,12 +69,11 @@ public class ReviewModel extends DbConnection {
     }
 
     /**
-     * funkcja pobiera ID opinii oraz ścieżkę do zdjęcia, które mogło zostać do niej podane
-     * i usuwa je
+     * funkcja pobiera ID opinii oraz ścieżkę do załączonego zdjęcia i usuwa je
      * funkcja zwraca boolean, który opisuje czy operacja została przeprowadzona pomyślnie
-     * @param id
-     * @param path
-     * @return Boolean
+     * @param id - id opinii do usunięcia
+     * @param path - ścieżka do zdjęcia załączonego do opinii
+     * @return Boolean - opisuje czy operacja została przeprowadzona pomyślnie
      */
     public boolean deleteReview(int id, String path) {
         try {
@@ -101,9 +97,9 @@ public class ReviewModel extends DbConnection {
     }
 
     /**
-     * funkcja zwracająca wybraną opinię (o wskazanym ID) z bazy danych
-     * @param id
-     * @return Review
+     * funkcja zwracająca wybraną opinię z bazy danych
+     * @param id - id szukanej opinii
+     * @return Review - zwracana znaleziona opinia
      */
     public Review getReview(int id) {
         Review review = new Review();
@@ -132,9 +128,9 @@ public class ReviewModel extends DbConnection {
     }
 
     /**
-     * funkcja pobierająca wszystkie metody utworzone przez danego użytkownika (o wskazanym userID)
-     * @param userID
-     * @return ArrayList
+     * funkcja pobierająca wszystkie metody utworzone przez danego użytkownika
+     * @param userID - id użytkownika, którego opinie są pobierane
+     * @return ArrayList - zwracana lista z opiniami użytkownika
      */
     public ArrayList<Review> getUserReviews(int userID) {
         try {
@@ -165,9 +161,9 @@ public class ReviewModel extends DbConnection {
     }
 
     /**
-     * funkcja pobierająca wszystkie opinie dla danego produktu (o wskazanym pID)
-     * @param pID
-     * @return ArrayList
+     * funkcja pobierająca wszystkie opinie dla danego produktu
+     * @param pID - id produktu, dla którego są pobierane opinie
+     * @return ArrayList - zwracana lista z opiniami produktu
      */
     public ArrayList<Review> getProductReviews(int pID) {
         try {
@@ -198,8 +194,8 @@ public class ReviewModel extends DbConnection {
     }
 
     /**
-     * funkcja pobierająca wszytskie opinie będąca w bazie danych
-     * @return ArrayList
+     * funkcja pobierająca wszytskie opinie będące w bazie danych
+     * @return ArrayList - zwracana lista ze wszystkimi opiniami
      */
     public ArrayList<Review> getAllReviews() {
         try {
