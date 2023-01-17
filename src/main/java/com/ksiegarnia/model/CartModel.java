@@ -7,13 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import com.ksiegarnia.beans.Cart;
 import com.ksiegarnia.beans.ProductinCart;
-
+/** Model dla koszyka */
 public class CartModel extends DbConnection {
 
     ResultSet rs = null;
 
     Connection con;
-
+    /** Funkcja wyszukująca wszystkich produktów dla danego użytkownika
+     * @param userId id użytkownika
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>Cart</b>.
+     * @see com.ksiegarnia.beans.Cart
+     * */
     public ArrayList<Cart> getUserCart(int userId) {
 
         try {
@@ -43,6 +47,11 @@ public class CartModel extends DbConnection {
         }
     }
 
+    /** Funkcja dodająca produkty do koszyka
+     * @param cart obiekt typu Cart
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.Cart
+     * */
     public boolean addCart(Cart cart) {
 
         try {
@@ -71,7 +80,10 @@ public class CartModel extends DbConnection {
         }
         return false;
     }
-
+    /** Funkcja usuwająca produkty z koszyka
+     * @param cartID id danego koszyka
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * */
     public boolean deleteCart(int cartID) {
         con = openConnection();
         PreparedStatement pst = null;
@@ -90,7 +102,10 @@ public class CartModel extends DbConnection {
         return false;
 
     }
-
+    /** Funkcja usuwająca wszystkie produkty z koszyka danego użytkownika
+     * @param userID id danego użytkownika
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * */
     public boolean deleteUserCart(int userID) {
         con = openConnection();
         PreparedStatement pst = null;
@@ -108,7 +123,11 @@ public class CartModel extends DbConnection {
         }
         return false;
     }
-
+    /** Funkcja sprawdzająca czy użytkownik ma dany produkt w koszyku
+     * @param pID id danego produktu
+     * @param usrID id danego użytkownika
+     * @return Funkcja zwraca <b>qu</b> obecna ilość produktu w koszyku
+     * */
     private int search(int pID, int usrID) {
         int qu = 0;
         try {
@@ -130,7 +149,12 @@ public class CartModel extends DbConnection {
         return qu;
 
     }
-
+    /** Funkcja edytująca ilość
+     * @param quantity ilość danego produktu
+     * @param usrID id danego użytkownika
+     * @param productID id danego produktu
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * */
     private boolean editQantity(int quantity, int usrID, int productID) {
         try {
 
@@ -152,7 +176,11 @@ public class CartModel extends DbConnection {
         }
         return false;
     }
-
+    /** Funkcja zwracjąca ilość koszyków danego użykownika
+     * @param usrID id danego użytkownika
+     * @return Funkcja zwraca <b>count</b> ilość koszyków
+     * @see com.ksiegarnia.beans.Cart
+     * */
     public int getNubmberOfCartsForUser(int usrID) {
 
         int count = 0;
@@ -164,7 +192,11 @@ public class CartModel extends DbConnection {
         System.out.println("Quantity ==  " + count);
         return count;
     }
-
+    /** Funkcja zwracająca wszystkie produkty w koszyku danego użytkownika
+     * @param userId id danego użytkownika
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>ProductinCart</b> zawierający produkty z koszyka.
+     * @see com.ksiegarnia.beans.ProductinCart
+     * */
     public ArrayList<ProductinCart> getProductFromCart(int userId) {
         ArrayList<ProductinCart> carts = new ArrayList<ProductinCart>();
         try {
@@ -192,7 +224,10 @@ public class CartModel extends DbConnection {
         }
         return null;
     }
-
+    /** Funkcja zwraca koszyk
+     * @param cartID id danego koszyka
+     * @return Funkcja zwraca <b>qu</b>  ilość produktów w koszyku
+     * */
     private Cart getCart(int cartID) {
         Cart qu = null;
         try {
@@ -218,7 +253,11 @@ public class CartModel extends DbConnection {
         return qu;
 
     }
-
+    /** Funkcja zmniejszająca ilość
+     * @param cartID id koszuka
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.Cart
+     * */
     public boolean reduceQuantity(int cartID) {
         Cart cart = getCart(cartID);
         if (cart != null) {
@@ -247,7 +286,11 @@ public class CartModel extends DbConnection {
         return false;
 
     }
-
+    /** Funkcja zwiększająca ilość
+     * @param cartID id koszuka
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.Cart
+     * */
     public boolean increaseQuantity(int cartID) {
         Cart cart = getCart(cartID);
         if (cart != null) {

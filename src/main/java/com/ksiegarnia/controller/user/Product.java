@@ -33,8 +33,6 @@ public class Product extends HttpServlet {
             allReviews = reviewModel.getProductReviews(productID);
             request.setAttribute("allReviews", allReviews);
             request.setAttribute("product", product);
-            ArrayList<com.ksiegarnia.beans.Product> recommeendedItem = productModel.getRecommeendedItem(product.getCategory(), productID);
-            request.setAttribute("recomed", recommeendedItem);
             request.getRequestDispatcher("/productPage.jsp").forward(request, response);
         }
     }

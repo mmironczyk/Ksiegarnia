@@ -7,12 +7,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+/** Model dla produktów */
 public class ProductModel {
     ResultSet result;
     PreparedStatement pst = null;
     DbConnection db = new DbConnection();
     private int nRecords ;
     Connection con;
+    /** Funkcja dodająca produkt
+     * @param product typu Product
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * */
     public boolean addProduct(Product product) {
         int i = 0;
         try {
@@ -39,6 +44,10 @@ public class ProductModel {
         }
         return false;
     }
+    /** Funkcja edytująca produkt
+     * @param product typu Product
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * */
     public boolean editProduct(Product product) {
         try {
             con = db.openConnection();
@@ -61,7 +70,12 @@ public class ProductModel {
         return false;
 
     }
-
+    /** Funkcja usuwająca produkt
+     * @param id id Produktu
+     * @param path ścieżka do pliku
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.Product
+     *  */
     public boolean deleteProduct(int id,String path) {
         try {
             int i = 0;
@@ -83,6 +97,10 @@ public class ProductModel {
         }
         return false;
     }
+    /** Funkcja zwracająca wszystkie produkty
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>Product</b>.
+     * @see com.ksiegarnia.beans.Product
+     *  */
     public ArrayList<Product> getAllProduct() {
         ArrayList<Product> list = new ArrayList();
         try {
@@ -102,6 +120,11 @@ public class ProductModel {
         System.out.println(list.size());
         return list;
     }
+    /** Funkcja zwracająca dany produkt
+     * @param productId id danego produktu
+     * @return Funkcja zwraca null
+     * @see com.ksiegarnia.beans.Product
+     *  */
     public Product getProduct(int productId) {
         Product productObject = new Product();// to return value of select
         try {
@@ -130,91 +153,12 @@ public class ProductModel {
 
         return null;
     }
-    public ArrayList<Product> getLastProduct() {
-        ArrayList<Product> selectLastProduct = new ArrayList();
-        try {
-            con = db.openConnection();
-            pst = con.prepareStatement("select * from ksiazki ORDER BY id_ksiazki DESC LIMIT 6 ");
-            Product obj;
-            result = pst.executeQuery();
-            while (result.next()) {
-                obj = new Product(result.getString("tytul"),result.getDouble("cena"),result.getString("okladka"),result.getString("opis"),
-                        result.getString("data_wydania"),result.getInt("ilosc_sztuk"),result.getInt("ilosc_stron"),result.getInt("id_ksiazki"),result.getString("gatunek"));
-                selectLastProduct.add(obj);
-            }
-        } catch (SQLException ex) {
-            db.closeConnection();
-            ex.printStackTrace();
-        }
-        System.out.println(selectLastProduct.size());
-        return selectLastProduct;
-    }
-    public ArrayList<Product> getProductByTitle(String title) {
-        ArrayList<Product> ListProductByName = new ArrayList();
-        try {
-            con = db.openConnection();
-            pst = con.prepareStatement("SELECT * FROM ksiazki WHERE tytul LIKE ? ESCAPE '!'");
-            title = title.replace("!", "!!")
-                    .replace("%", "!%")
-                    .replace("_", "!_")
-                    .replace("[", "![");
-            pst.setString(1, title + "%");
-            Product obj;
-            result = pst.executeQuery();
-            while (result.next()) {
-                obj = new Product(result.getString("tytul"),result.getDouble("cena"),result.getString("okladka"),result.getString("opis"),
-                        result.getString("data_wydania"),result.getInt("ilosc_sztuk"),result.getInt("ilosc_stron"),result.getInt("id_ksiazki"),result.getString("gatunek"));
-                ListProductByName.add(obj);
-            }
-        } catch (SQLException ex) {
-            db.closeConnection();
-            ex.printStackTrace();
-        }
-        System.out.println(ListProductByName.size());
-        return ListProductByName;
-    }
 
-    public ArrayList<Product> getAllProductByCategoryId(String category) {
-        ArrayList<Product> list = new ArrayList();
-        try {
-            con = db.openConnection();
-            pst = con.prepareStatement("select * from ksiazki where gatunek=? ");
-            pst.setString(1, category);
-            Product p;
-            result = pst.executeQuery();
-            while (result.next()) {
-                p = new Product(result.getString("tytul"),result.getDouble("cena"),result.getString("okladka"),result.getString("opis"),
-                        result.getString("data_wydania"),result.getInt("ilosc_sztuk"),result.getInt("ilosc_stron"),result.getInt("id_ksiazki"),result.getString("gatunek"));
-                list.add(p);
-            }
-        } catch (SQLException ex) {
-            db.closeConnection();
-            ex.printStackTrace();
-        }
-        System.out.println(list.size());
-        return list;
-    }
-    public ArrayList<Product> getRecommeendedItem(String category, int productid) {
-        ArrayList<Product> getItem = new ArrayList();
-        try {
-            con = db.openConnection();
-            pst = con.prepareStatement("SELECT * from ksiazki where id_ksiazki <> ? and gatunek= ? ORDER BY id_ksiazki ASC limit 6");
-            pst.setInt(1, productid);
-            pst.setString(2, category);
-            Product p;
-            result = pst.executeQuery();
-            while (result.next()) {
-                p = new Product(result.getString("tytul"),result.getDouble("cena"),result.getString("okladka"),result.getString("opis"),
-                        result.getString("data_wydania"),result.getInt("ilosc_sztuk"),result.getInt("ilosc_stron"),result.getInt("id_ksiazki"),result.getString("gatunek"));
-                getItem.add(p);
-            }
-        } catch (SQLException ex) {
-            db.closeConnection();
-            ex.printStackTrace();
-        }
-        System.out.println(getItem.size());
-        return getItem;
-    }
+    /** Funkcja odejmuje zakupione książki
+     * @param liczba liczba zakupiony ksiazek
+     * @param id id zakupionej ksiazki
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     *  */
     public boolean zakup(int liczba, int id) throws SQLException {
         con = db.openConnection();
         int i = 0;
@@ -228,27 +172,12 @@ public class ProductModel {
         }
         return false;
     }
-    public ArrayList<Product> getAllProductByPrice(double start, double end) {
-        ArrayList<Product> getAllProductByPrice = new ArrayList();
-        try {
-            con = db.openConnection();
-            pst = con.prepareStatement("select * from ksiazki where cena BETWEEN ? AND ?");
-            pst.setDouble(1, start);
-            pst.setDouble(2, end);
-            Product product;
-            result = pst.executeQuery();
-            while (result.next()) {
-                product = new Product(result.getString("tytul"),result.getDouble("cena"),result.getString("okladka"),result.getString("opis"),
-                        result.getString("data_wydania"),result.getInt("ilosc_sztuk"),result.getInt("ilosc_stron"),result.getInt("id_ksiazki"),result.getString("gatunek"));
-                getAllProductByPrice.add(product);
-            }
-        } catch (SQLException ex) {
-            db.closeConnection();
-            ex.printStackTrace();
-        }
-        System.out.println(getAllProductByPrice.size());
-        return getAllProductByPrice;
-    }
+    /** Funkcja wyświetla liste wszystkich książek ograniczoną limitem
+     * @param start początek zakresu
+     * @param limit koniec zakresu
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>Product</b>.
+     * @see com.ksiegarnia.beans.Product
+     *  */
     public ArrayList<Product> getAllProduct(int start , int limit) {
         ArrayList<Product> list = new ArrayList();
         try {
@@ -274,7 +203,13 @@ public class ProductModel {
         System.out.println(list.size());
         return list;
     }
-
+    /** Funkcja wyświetla liste wszystkich książek z danego gatunku ograniczoną limitem
+     * @param category kategoria ksiazek
+     * @param start początek zakresu
+     * @param limit koniec zakresu
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>Product</b>.
+     * @see com.ksiegarnia.beans.Product
+     *  */
     public List<Product> getAllProductByCategory(String category, int start , int limit) {
         ArrayList<Product> list = new ArrayList();
         try {
@@ -303,28 +238,19 @@ public class ProductModel {
         System.out.println(list.size());
         return list;
     }
-
+    /** Funkcja zwracająca ilość rekordów
+     * @return Funkcja zwraca <b>nRecords</b> ilość rekordów
+     *  */
     public int getRecords() {
         return nRecords;
     }
-
-    public double getMaxProductByPrice( ) {
-        double Hprice=0;
-        try {
-            con = db.openConnection();
-            pst = con.prepareStatement("SELECT MAX(cena) AS Hprice FROM ksiazki");
-            result = pst.executeQuery();
-            if (result.next()) {
-                Hprice = result.getDouble("Hprice");
-                db.closeConnection();
-            }
-        } catch (SQLException ex) {
-            db.closeConnection();
-            ex.printStackTrace();
-        }
-        return  Hprice;
-    }
-
+    /** Funkcja wyświetla liste książek według wyszukiwania ograniczoną limitem
+     * @param title wyszukiwany tytuł książki
+     * @param start początek zakresu
+     * @param limit koniec zakresu
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>Product</b>.
+     * @see com.ksiegarnia.beans.Product
+     *  */
     public List<Product> Search(String title, int start , int limit) {
         ArrayList<Product> list = new ArrayList();
         try {

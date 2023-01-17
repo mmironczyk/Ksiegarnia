@@ -5,12 +5,16 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import com.ksiegarnia.tools.SHA;
-
+/** Model dla służący do zarządzania użytkownkiem */
 public class UserDbModel {
     User bean = new User();
     Connection con;
     DbConnection db = new DbConnection();
     boolean b = false;
+    /** Funkcja wyszukująca użytkowników po jego loginie
+     * @param login login użytkownika
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * */
     private boolean search(String login) {
 
         try {
@@ -30,6 +34,12 @@ public class UserDbModel {
         }
         return b;
     }
+    /** Funkcja pozwalająca użytkownikowi na zalogowanie
+     * @param login login użytkownika
+     * @param password haslo użytkownika
+     * @return Funkcja zwraca <b>userSignin</b> czyli dane użytkownika.
+     * @see com.ksiegarnia.beans.User
+     * */
     public User signIn(String login, String password) {
         User userSignIn = null;
         try {
@@ -78,7 +88,11 @@ public class UserDbModel {
         }
         return null;
     }
-
+    /** Funkcja pozwalająca utworzyć uzytkownika
+     * @param bean obiekt typu User
+     * @param kodakt kod aktywacyjny
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * */
     public boolean signUp(User bean,String kodakt) {
 
         boolean b = false;
@@ -116,6 +130,11 @@ public class UserDbModel {
         }
         return b;
     }
+    /** Funkcja zwracająca dane użykownika
+     * @param id id użytkownika
+     * @return Funkcja zwraca <b>user</b> czyli obiekt typu user
+     * @see com.ksiegarnia.beans.User
+     * */
     public User getUser(int id) {
         User user = null ;
         try {
@@ -143,6 +162,10 @@ public class UserDbModel {
         }
         return user ;
     }
+    /** Funkcja pozwalająca na aktuwacje użytkownika
+     * @param kodakt kod aktywacyjny
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * */
     public boolean aktywuj(String kodakt) throws SQLException {
         con = db.openConnection();
         PreparedStatement pst = con.prepareStatement("SELECT * FROM users WHERE czy_aktywne=0 AND (kod=?)");
@@ -159,7 +182,10 @@ public class UserDbModel {
             return false;
         }
     }
-
+    /** Funkcja zwracająca liste wszystkich userów
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>User</b>.
+     * @see com.ksiegarnia.beans.User
+     * */
     public ArrayList<User> getAllUsers() {
         con = db.openConnection();
         ArrayList<User> allUser = new ArrayList();
@@ -190,7 +216,11 @@ public class UserDbModel {
         return null;
     }
 
-
+    /** Funkcja pozwalająca na zmiane danych (imie i nazwisko)
+     * @param imie imie użytkownika
+     * @param nazwisko nazwisko użytkownika
+     * @param user obiekt typu User
+     * */
     public void zmiana_danych(String imie, String nazwisko, User user) throws SQLException {
         con = db.openConnection();
         PreparedStatement pst = con.prepareStatement("UPDATE klienci SET imie=?, nazwisko=? WHERE imie=? AND nazwisko=?");
@@ -200,7 +230,11 @@ public class UserDbModel {
         pst.setString(4, user.getNazwisko());
         pst.executeQuery();
     }
-
+    /** Funkcja pozwalająca na zmiane danych (haslo)
+     * @param haslo haslo użytkownika
+     * @param haslo2 nowe haslo użytkownika
+     * @param user obiekt typu User
+     * */
     public void zmiana_hasla(String haslo,String haslo2, User user) throws SQLException {
         con = db.openConnection();
         PreparedStatement pst = con.prepareStatement("UPDATE users SET haslo=? WHERE haslo=? AND login=?");
@@ -209,7 +243,10 @@ public class UserDbModel {
         pst.setString(3, user.getLogin());
         pst.executeQuery();
     }
-
+    /** Funkcja pozwalająca na zmiane danych (mail)
+     * @param email email użytkownika
+     * @param user obiekt typu User
+     * */
     public void zmiana_email(String email, User user) throws SQLException {
         con = db.openConnection();
         PreparedStatement pst = con.prepareStatement("UPDATE users SET email=? WHERE email=? AND login=?");
@@ -218,7 +255,12 @@ public class UserDbModel {
         pst.setString(3, user.getLogin());
         pst.executeQuery();
     }
-
+    /** Funkcja pozwalająca na zmiane danych (adres)
+     * @param miasto miasto użytkownika
+     * @param kod kod haslo użytkownika
+     * @param ulica ulica użytkownika
+     * @param user obiekt typu User
+     * */
     public void zmiana_adresu(String miasto,String kod, String ulica, User user) throws SQLException {
         con = db.openConnection();
         PreparedStatement pst = con.prepareStatement("UPDATE klienci SET miejscowosc=? , kod_pocztowy=?, ulica=? WHERE login=?");
@@ -228,7 +270,9 @@ public class UserDbModel {
         pst.setString(4, user.getLogin());
         pst.executeQuery();
     }
-
+    /** Funkcja pozwalająca usunięcie użytkownika
+     * @param user obiekt typu User
+     * */
     public void DeleteUser(User user) throws SQLException {
         con = db.openConnection();
         PreparedStatement pst = con.prepareStatement("DELETE FROM klienci WHERE login=?");
@@ -238,12 +282,18 @@ public class UserDbModel {
         pst2.setInt(1, user.getUserId());
         pst2.executeQuery();
     }
+    /** Funkcja pozwalająca aktywować użytkownika
+     * @param user obiekt typu User
+     * */
     public void ActivateUser(User user) throws SQLException {
         con = db.openConnection();
         PreparedStatement pst = con.prepareStatement("UPDATE users SET czy_aktywne=1 WHERE id=?");
         pst.setInt(1, user.getUserId());
         pst.executeQuery();
     }
+    /** Funkcja pozwalająca usunąć blokade z konta użytkownika
+     * @param user obiekt typu User
+     * */
     public void ClearBlock(User user) throws SQLException {
         con = db.openConnection();
         PreparedStatement pst = con.prepareStatement("UPDATE users SET blokada=0 WHERE id=?");
