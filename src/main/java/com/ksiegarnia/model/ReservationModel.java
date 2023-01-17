@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+/** Model dla rezerwacji */
 public class ReservationModel extends DbConnection{
 
 
@@ -20,7 +20,11 @@ public class ReservationModel extends DbConnection{
     Connection con;
 
 
-
+    /** Funkcja dodająca rezerwację do bazy danych
+     * @param res obiekt klasy Reservation
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.Reservation
+     * */
     public boolean addReservation(Reservation res) {
 
         try {
@@ -41,6 +45,11 @@ public class ReservationModel extends DbConnection{
         }
         return false;
     }
+    /** Funkcja zmieniająca stan magazynowy dla rezerwowanego produktu
+     * @param liczba liczba sztuk rezerwowanego produktu
+     * @param id id rezerwowanego produktu
+     * @see com.ksiegarnia.beans.Reservation
+     * */
     public void zarezerwuj(int liczba, int id) throws SQLException {
         con = db.openConnection();
         int i = 0;
@@ -50,6 +59,11 @@ public class ReservationModel extends DbConnection{
         i = pst.executeUpdate();
         db.closeConnection();
     }
+    /** Funkcja zwracająca ArrayList-e rezerwacji znajdujących się w bazie danych dla danego użytkownika
+     * @param id id zalogowanego użytkownika
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>ReservationRecord</b>.
+     * @see com.ksiegarnia.beans.ReservationRecord
+     * */
     public ArrayList<ReservationRecord> allReservations(int id)
     {
         ArrayList<ReservationRecord> list = new ArrayList();
@@ -71,6 +85,11 @@ public class ReservationModel extends DbConnection{
         }
         return list;
     }
+    /** Funkcja usuwająca rezerwację z bazy danych dla podanego id rezerwcji
+     * @param id id rezerwacji
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.Reservation
+     * */
     public boolean deleteReservation(int id) {
         con = openConnection();
         PreparedStatement pst1 = null;

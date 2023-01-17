@@ -1,14 +1,11 @@
 package com.ksiegarnia.model;
 
-import com.ksiegarnia.beans.Order;
 import com.ksiegarnia.beans.Payment;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
+/** Model dla płatności */
 public class PaymentModel {
 
     ResultSet rs = null;
@@ -16,6 +13,11 @@ public class PaymentModel {
 
     DbConnection db = new DbConnection();
 
+    /** Funkcja dodająca zarejestrowaną płatność do bazy danych
+     * @param pay obiekt klasy Payment
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.Payment
+     * */
     public boolean addPayment(Payment pay) {
         try {
             con = db.openConnection();
@@ -36,6 +38,4 @@ public class PaymentModel {
         }
         return false;
     }
-
-
 }

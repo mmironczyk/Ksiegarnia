@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/** Model dla kodów rabatowych */
 public class PromoCodeModel {
 
     ResultSet rs = null;
@@ -14,6 +15,11 @@ public class PromoCodeModel {
 
     DbConnection db = new DbConnection();
 
+    /** Funkcja dodająca kod promocyjny do bazy danych
+     * @param code obiekt klasy PromoCode
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.PromoCode
+     * */
     public boolean addCode(PromoCode code) {
         try {
             con = db.openConnection();
@@ -33,7 +39,11 @@ public class PromoCodeModel {
         }
         return false;
     }
-
+    /** Funkcja wyszukująca kod promocyjny w bazie danych
+     * @param id obiekt klasy PromoCode
+     * @return Funkcja zwraca obiekt klasy <b>PromoCode</b> zawierający znaleziony kod promocyjny jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>null</b>.
+     * @see com.ksiegarnia.beans.PromoCode
+     * */
     public PromoCode getCode(int id) {
         PromoCode code = new PromoCode();
         try {
@@ -56,6 +66,10 @@ public class PromoCodeModel {
         }
         return null;
     }
+    /** Funkcja zwiększająca stan licznika użycia kodu rabatowego w bazie danych
+     * @param s łańcuch znaków kodu rabatowego
+     * @see com.ksiegarnia.beans.PromoCode
+     * */
     public void addUsage(String s)
     {
         PromoCode code = new PromoCode();
@@ -71,6 +85,12 @@ public class PromoCodeModel {
             e.printStackTrace();
         }
     }
+
+    /** Funkcja wyszukująca kod promocyjny w bazie danych na podstawie łańcucha znaków zadanego kodu rabatowego
+     * @param s łańcuch znaków kodu rabatowego
+     * @return Funkcja zwraca obiekt klasy <b>PromoCode</b> zawierający znaleziony kod promocyjny jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>null</b>.
+     * @see com.ksiegarnia.beans.PromoCode
+     * */
     public PromoCode getCodeFromString(String s) {
         PromoCode code = new PromoCode();
         try {
@@ -98,7 +118,11 @@ public class PromoCodeModel {
         return null;
     }
 
-
+    /** Funkcja usuwająca kod promocyjny w bazie danych na podstawie id zadanego kodu rabatowego
+     * @param id id danego kodu rabatowego
+     * @return Funkcja zwraca <b>true</b> jeśli udało się poprawnie wykonać polecenie SQL, w przeciwnym razie zwraca <b>false</b>.
+     * @see com.ksiegarnia.beans.PromoCode
+     * */
     public boolean deleteCode(int id) {
         try {
             PromoCode code = getCode(id);
@@ -117,7 +141,10 @@ public class PromoCodeModel {
         }
         return false;
     }
-
+    /** Funkcja zwracająca ArrayList-e kodów promocyjnych znajdujących się w bazie danych
+     * @return Funkcja zwraca <b>ArrayList-e</b> obiektów klasy <b>PromoCode</b>.
+     * @see com.ksiegarnia.beans.PromoCode
+     * */
     public ArrayList<PromoCode> getAllCodes() {
         ArrayList<PromoCode> list = new ArrayList();
         try {
