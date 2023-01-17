@@ -52,7 +52,7 @@ public class Signup extends HttpServlet {
         if(new UserDbModel().signUp(user,kodakt)){
 
             new MailModel(email,"","").sendActivationMail(kodakt);
-            getServletContext().getRequestDispatcher("/success2.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 
         }else {
             request.setAttribute("message", "Nie udało się zalogować");
