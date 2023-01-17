@@ -13,12 +13,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * klasa odpowiadająca za obsługę usuwania istniejącej opinii
+ * servlet odpowiadający za obsługę usuwania istniejącej opinii
  */
 @WebServlet(name = "DeleteReview", urlPatterns = {"/user/DeleteReview", "/admin/DeleteReview"})
 @MultipartConfig
 public class DeleteReview extends HttpServlet {
 
+    /**
+     * funkcja odpowiadająca za usuwanie wybranej opinii
+     * @see com.ksiegarnia.model.ReviewModel#deleteReview
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
