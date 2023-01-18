@@ -21,6 +21,6 @@ public class Logout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getSession(false).invalidate();
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("/Ksiegarnia_war_exploded/index.jsp");
     }
 }
