@@ -30,6 +30,5 @@ public class userHistory extends HttpServlet {
         String nextJSP = "/user/userPanelOrders.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
-
     }
 }

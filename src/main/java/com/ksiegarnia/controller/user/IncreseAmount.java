@@ -21,7 +21,6 @@ public class IncreseAmount extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         boolean addCart = cartModel.increaseQuantity(id);
         User user = (User) request.getSession().getAttribute("LoginUser");
-        System.out.println("Dodawanie");
         response.getWriter().print(cartModel.getNubmberOfCartsForUser(user.getUserId()));
     }
 }

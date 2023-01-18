@@ -71,7 +71,6 @@ public class UserDbModel {
                     pst2.setString(1, login);
                     pst2.executeQuery();
                     db.closeConnection();
-                    System.out.println("zalogowano");
                 }
                 else
                 {
@@ -107,7 +106,6 @@ public class UserDbModel {
                 pst1.setString(4, "user");
                 pst1.setString(5, kodakt);
                 pst1.executeUpdate();
-
                 PreparedStatement pst2 = con.prepareStatement("INSERT into klienci (login,imie,nazwisko,miejscowosc,kod_pocztowy,ulica,nr_telefonu)"
                         + "values (?,?,?,?,?,?,?)");
                 pst2.setString(1, bean.getLogin());
@@ -118,11 +116,9 @@ public class UserDbModel {
                 pst2.setString(6, bean.getAdres());
                 pst2.setString(7, bean.getTelefon());
                 pst2.executeUpdate();
-
                 pst1.close();
                 pst2.close();
                 b = true;
-
             } catch (SQLException e) {
                 e.printStackTrace();
                 return b ;

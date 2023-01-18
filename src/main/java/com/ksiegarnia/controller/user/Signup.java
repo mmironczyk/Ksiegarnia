@@ -23,15 +23,11 @@ public class Signup extends HttpServlet {
             throws ServletException, IOException {
 
         String login = request.getParameter("login");
-        System.out.println("TEST"+login);
         String imie = request.getParameter("imie");
         String nazwisko = request.getParameter("nazwisko");
         String email = request.getParameter("email");
-        System.out.println("TEST"+email);
         String password = request.getParameter("password");
-        System.out.println("TEST"+password);
         String adres = request.getParameter("adres");
-        System.out.println("TEST"+adres);
         String telefon = request.getParameter("telefon");
         String kod = request.getParameter("kod");
         String miasto = request.getParameter("miasto");
@@ -48,12 +44,9 @@ public class Signup extends HttpServlet {
         user.setTelefon(telefon);
         user.setKod(kod);
         user.setMiasto(miasto);
-        System.out.println(user.getHaslo());
         if(new UserDbModel().signUp(user,kodakt)){
-
             new MailModel(email,"","").sendActivationMail(kodakt);
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-
         }else {
             request.setAttribute("message", "Nie udało się zalogować");
             getServletContext().getRequestDispatcher("/failed.jsp").forward(request, response);
@@ -62,9 +55,7 @@ public class Signup extends HttpServlet {
     /** Funkcja generująca losowy ciąg znaków, służąca jako kod aktywacyjny */
     public String givenUsingApache_whenGeneratingRandomAlphanumericString_thenCorrect() {
         String generatedString = RandomStringUtils.randomAlphanumeric(20);
-        System.out.println(generatedString);
         return generatedString;
-
     }
-    }
+}
 

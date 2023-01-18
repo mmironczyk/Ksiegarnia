@@ -109,6 +109,7 @@
   <script type="text/javascript">
     $(document).ready(function($)
     {
+      // Funkcja pozwalająca pobrać fakturę do pliku PDF
       $(document).on("click", ".btn_print", function(event)
       {
         event.preventDefault();

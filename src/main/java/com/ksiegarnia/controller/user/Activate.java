@@ -25,7 +25,6 @@ public class Activate extends HttpServlet {
             throw new RuntimeException(e);
         }
         request.setAttribute("wynik", test);
-        System.out.println("test");
         String nextJSP = "/activation.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);

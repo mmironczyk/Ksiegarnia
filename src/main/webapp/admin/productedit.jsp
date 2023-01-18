@@ -18,7 +18,7 @@
         <div class="col-sm-9 padding-right">
 
             <c:if test="${empty requestScope.type}">
-                <c:set var="type" value="Zmień"/>
+                <c:set var="type" value="Edytuj"/>
             </c:if>
 
             <div class="col-sm-9 padding-right">

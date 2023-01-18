@@ -24,10 +24,8 @@ public class ManageReview extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         int id = Integer.parseInt(request.getParameter("id"));
         Review review = new ReviewModel().getReview(id);
-
         if (review == null) {
             request.getSession().setAttribute("message", "Nie znaleziono opinii");
             response.sendRedirect("../../failed.jsp");
@@ -42,7 +40,6 @@ public class ManageReview extends HttpServlet {
             request.getRequestDispatcher("../reviewEdit.jsp").forward(request, response);
         }
     }
-
     /**
      * funkcja pozwalająca na edycję wybranej opinii
      * @see com.ksiegarnia.model.ReviewModel#editReview
@@ -54,7 +51,6 @@ public class ManageReview extends HttpServlet {
         String reviewText = request.getParameter("reviewTextArea");
         String link = request.getParameter("reviewYtLink");
         int id = Integer.parseInt(request.getParameter("idr"));
-
         Review review = new Review();
         review.setReviewId(id);
         review.setReviewText(reviewText);
@@ -66,6 +62,5 @@ public class ManageReview extends HttpServlet {
         } else if (user.getRola().equals("admin")){
             response.sendRedirect("ServletAdReview");
         }
-
     }
 }

@@ -40,20 +40,14 @@ public class AddReview extends HttpServlet {
         }
 
         int usrID = user.getUserId();
-        System.out.println(usrID);
         int productID = Integer.parseInt(request.getParameter("pID"));
-        System.out.println(productID);
         String reviewText = request.getParameter("reviewTextArea");
-        System.out.println(reviewText);
         String link = request.getParameter("reviewYtLink");
-        System.out.println(link);
-
         Review review = new Review();
         review.setUserId(usrID);
         review.setProductId(productID);
         review.setReviewText(reviewText);
         review.setLink(link);
-
         Part filePart = request.getPart("reviewImgInput");
         if (filePart.getSize() != 0) {
             String path = request.getServletContext().getRealPath("");

@@ -197,6 +197,7 @@
 
 <script>
     $(document).ready(function () {
+        // Wyszukanie elementów zawierających klasę add-to-cart i odczytanie powiązanych z tym elementem id oraz ilości
         $('.add-to-cart').click(function () {
             var id = $(this).attr('id');
             var qaunty = $("#amount").val();
@@ -210,6 +211,7 @@
             }
 
         });
+        // Wyszukanie elementów zawierających klasę reservation i odczytanie powiązanych z tym elementem id oraz ilości
         $('.reservation').click(function () {
             var id = $(this).attr('id');
             var qaunty = $("#amount").val();
@@ -223,7 +225,7 @@
             }
 
         });
-
+        // Funkcja obsługujaca przekazanie produktu do servletu odpowiedzialnego za dodanie produktu do koszyka poprzez jQuerry i ajax
         function addProduct(id, amount) {
             $.ajax({
                 url: 'addCart',
@@ -246,6 +248,7 @@
                 }
             });
         }
+        // Funkcja obsługujaca przekazanie produktu do servletu odpowiedzialnego za rezerwację produktu poprzez jQuerry i ajax
         function reserve(id, amount) {
             $.ajax({
                 url: 'addReservation',

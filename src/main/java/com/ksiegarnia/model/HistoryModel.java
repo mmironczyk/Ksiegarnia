@@ -39,7 +39,6 @@ public class HistoryModel {
             db.closeConnection();
             ex.printStackTrace();
         }
-        System.out.println(list.size());
         return list;
     }
 

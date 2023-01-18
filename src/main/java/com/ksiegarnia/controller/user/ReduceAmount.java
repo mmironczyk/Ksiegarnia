@@ -21,7 +21,6 @@ import java.io.IOException;
             int id = Integer.parseInt(request.getParameter("id"));
             boolean addCart = cartModel.reduceQuantity(id);
             User user = (User) request.getSession().getAttribute("LoginUser");
-            System.out.println("Odejmowanie");
             response.getWriter().print(cartModel.getNubmberOfCartsForUser(user.getUserId()));
         }
     }

@@ -49,9 +49,7 @@ public class LoginControl implements Filter {
         }
     }
     @Override
-    public void destroy() {
-    }
+    public void destroy() {}
     @Override
-    public void init(FilterConfig filterConfig) {
-    }
+    public void init(FilterConfig filterConfig) {}
 }

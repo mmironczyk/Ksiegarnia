@@ -72,6 +72,7 @@
 
 <script>
     $(document).ready(function () {
+        // Wyszukanie elementów zawierających klasę add-to-cart i odczytanie powiązanych z tym elementem id oraz ilości
         $('.add-to-cart').click(function () {
             var id = $(this).attr('id');
             var qaunty = $("#S_"+id).val();
@@ -85,6 +86,7 @@
             }
         });
 
+        // Funkcja obsługujaca przekazanie produktu do servletu odpowiedzialnego za dodanie produktu do koszyka poprzez jQuerry i ajax
         function addProduct(id, amount) {
             $.ajax({
                 url: 'addCart',
@@ -107,10 +109,8 @@
                 }
             });
         }
-
     })
 </script>
-
 </body>
 </html>
 

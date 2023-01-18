@@ -22,7 +22,6 @@ public class checkPromo extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PromoCodeModel model = new PromoCodeModel();
         String s = request.getParameter("kod");
-        System.out.println(s);
         PromoCode code = model.getCodeFromString(s);
         if(code!=null){
             ServletContext context=getServletContext();

@@ -20,10 +20,8 @@ public class ChangePersonals extends HttpServlet {
      * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String imie = request.getParameter("imie");
         String nazwisko = request.getParameter("nazwisko");
-
         HttpSession session = request.getSession(true);
         User user = (User) session.getAttribute("LoginUser");
         try {

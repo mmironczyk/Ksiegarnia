@@ -20,10 +20,8 @@ public class ChangePassword extends HttpServlet {
      * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String haslo = request.getParameter("haslostare");
         String haslo2= request.getParameter("haslo");
-
         HttpSession session = request.getSession(true);
         User user = (User) session.getAttribute("LoginUser");
         try {

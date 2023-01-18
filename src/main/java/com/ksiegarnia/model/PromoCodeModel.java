@@ -101,13 +101,9 @@ public class PromoCodeModel {
             rs = pst.executeQuery();
             if (rs.next()) {
                 code.setId(rs.getInt("id_rabatu"));
-                System.out.println(rs.getInt("id_rabatu"));
                 code.setCode(rs.getString("kod"));
-                System.out.println(rs.getString("kod"));
                 code.setValue(rs.getFloat("wartosc_rabatu"));
-                System.out.println(rs.getDouble("wartosc_rabatu"));
                 code.setNumberofusage(rs.getInt("ilosc_uzyc"));
-                System.out.println(rs.getInt("ilosc_uzyc"));
                 db.closeConnection();
                 return code;
             }
@@ -161,7 +157,6 @@ public class PromoCodeModel {
             db.closeConnection();
             ex.printStackTrace();
         }
-        System.out.println(list.size());
         return list;
     }
 }

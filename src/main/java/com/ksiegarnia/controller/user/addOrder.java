@@ -39,8 +39,6 @@ public class addOrder extends HttpServlet {
         Order ord = new Order();
         String nr_zam = request.getParameter("nr_za");
         String kod = request.getParameter("kodrabatowy");
-        System.out.println(nr_zam);
-
         for(int x=0;x<carts.size();x++)
         {
             ord.setId_klienta(online.getUserId());
@@ -63,8 +61,6 @@ public class addOrder extends HttpServlet {
         payment.setRabat(rabat);
         new PaymentModel().addPayment(payment);
         new PromoCodeModel().addUsage(kod);
-
         new CartModel().deleteUserCart(Integer.parseInt(request.getParameter("id")));
-
     }
 }

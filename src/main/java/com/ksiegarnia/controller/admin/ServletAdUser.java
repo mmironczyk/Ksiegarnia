@@ -24,11 +24,9 @@ public class ServletAdUser extends HttpServlet {
         System.out.println("TEST");
         UserDbModel userModel = new UserDbModel();
         allUsers = userModel.getAllUsers();
-        System.out.println(allUsers);
         request.setAttribute("allUsersAdmin", allUsers);
         String nextJSP = "/admin/adminPanelUsers.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
-
     }
 }

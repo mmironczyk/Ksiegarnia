@@ -24,8 +24,6 @@ public class ChangeAddres extends HttpServlet {
         String miasto = request.getParameter("miasto");
         String kod = request.getParameter("kod");
         String ulica = request.getParameter("ulica");
-
-
         HttpSession session = request.getSession(true);
         User user = (User) session.getAttribute("LoginUser");
         try {

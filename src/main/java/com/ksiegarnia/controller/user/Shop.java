@@ -28,7 +28,6 @@ public class Shop extends HttpServlet {
         int totalPerPage = 9;
         int start;
         String cate="";
-        System.out.println(szukanie);
         if (request.getParameter("page") != null) {
             pageid = Integer.parseInt(request.getParameter("page"));
         }
@@ -38,7 +37,7 @@ public class Shop extends HttpServlet {
             allProducts = productModel.Search(szukanie,start,totalPerPage);
             if(allProducts.size() < 0)
             {
-
+            // Paginacja do zrobienia
             }
         }
         else if(request.getParameter("c") != null) {
@@ -47,18 +46,14 @@ public class Shop extends HttpServlet {
         } else {
             allProducts = productModel.getAllProduct(start, totalPerPage);
         }
-        System.out.println(cate);
         int noOfRecords = productModel.getRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / totalPerPage);
-
         request.setAttribute("allProducts", allProducts);
         request.setAttribute("noOfPages", noOfPages);
         request.setAttribute("currentPage", pageid);
         request.setAttribute("query" , request.getParameter("c"));
-
         String nextJSP = "/mainProductsPage.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextJSP);
         dispatcher.forward(request, response);
-
     }
 }

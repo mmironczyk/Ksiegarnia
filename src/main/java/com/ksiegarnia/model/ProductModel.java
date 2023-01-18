@@ -22,7 +22,6 @@ public class ProductModel {
         int i = 0;
         try {
             con = db.openConnection();
-            System.out.println(con);
             pst = con.prepareStatement("insert into ksiazki(tytul,cena,ilosc_sztuk,ilosc_stron,data_wydania,opis,autor,okladka,gatunek) values (?,?,?,?,?,?,?,?,?)");
             pst.setString(1, product.getTitle());
             pst.setDouble(2, product.getCost());
@@ -62,7 +61,6 @@ public class ProductModel {
             pst.setInt(8, product.getProductId());
             pst.executeUpdate();
             db.closeConnection();
-            System.out.println("Edytowano");
         } catch (SQLException ex) {
             db.closeConnection();
             ex.printStackTrace();
@@ -117,7 +115,6 @@ public class ProductModel {
             db.closeConnection();
             ex.printStackTrace();
         }
-        System.out.println(list.size());
         return list;
     }
     /** Funkcja zwracająca dany produkt
@@ -150,7 +147,6 @@ public class ProductModel {
             db.closeConnection();
             ex.printStackTrace();
         }
-
         return null;
     }
 
@@ -200,7 +196,6 @@ public class ProductModel {
             db.closeConnection();
             ex.printStackTrace();
         }
-        System.out.println(list.size());
         return list;
     }
     /** Funkcja wyświetla liste wszystkich książek z danego gatunku ograniczoną limitem
@@ -235,7 +230,6 @@ public class ProductModel {
             db.closeConnection();
             ex.printStackTrace();
         }
-        System.out.println(list.size());
         return list;
     }
     /** Funkcja zwracająca ilość rekordów
@@ -272,7 +266,4 @@ public class ProductModel {
         }
         return list;
     }
-
-
-
 }

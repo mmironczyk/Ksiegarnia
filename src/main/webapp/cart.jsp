@@ -150,7 +150,7 @@
             var id = $(this).attr('id').substring(2);
             increaseProduct(id);
         });
-
+        // Funkcja zmniejszająca liczbę danego produktu w koszyku
         function reduceProduct(id){
             $.ajax({
                 url: 'ReduceAmount',
@@ -166,7 +166,7 @@
             });
         }
 
-        //increase product to cart
+        // Funkcja zwiększająca liczbę danego produktu w koszyku
         function increaseProduct(id){
             $.ajax({
                 url: 'IncreseAmount',
@@ -182,6 +182,7 @@
                 }
             });
         }
+        // Pobiera stan koszyka danego użytkownika
         function getInitProductNumber(id) {
             $.ajax({
                 url: 'UsersCarts',
@@ -192,6 +193,7 @@
                 }
             });
         }
+        // Funkcja oblicza ponownie wartość koszyka po zmniejszeniu ilości produktów w koszyku
         function reCalculateDecrease(id){
             var price = parseFloat($("#C_"+id).text());
             $("#I_"+id).val($("#I_"+id).val()-1);
@@ -210,6 +212,7 @@
             $("#total2").text((total - price).toFixed(2)+ " zł");
 
         }
+        // Funkcja oblicza ponownie wartość koszyka po zwiększeniu ilości produktów w koszyku
         function reCalculateIncrease(id){
             var price = parseFloat($("#C_"+id).text());
             var pecies = parseInt($("#I_"+id).val()) + 1 ;
@@ -230,8 +233,5 @@
         }
     })
 </script>
-
-
-
 </body>
 </html>
