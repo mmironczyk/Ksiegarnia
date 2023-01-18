@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.beans.User;
-/** servlet obsługujący dodawanie rezerwacji przez użytkownika */
+/** servlet obsługujący dodawanie rezerwacji produktów przez użytkownika */
 @WebServlet("/addReservation")
 public class addReservation extends HttpServlet{
         /** funkcja pozwalająca na dodanie rezerwacji książki przez użytkownika, musi on poddać ilość rezerwowanych ksiązek

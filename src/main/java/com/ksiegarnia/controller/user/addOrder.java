@@ -18,7 +18,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 /** servlet obsługujący dodanie zamówienia przez użytkownika */
 @WebServlet("/addOrder")
 public class addOrder extends HttpServlet {
-    /** funkcja pozwalająca na dodanie zamówienia przez użytkownika
+    /** funkcja pozwalająca na dodanie zamówienia użutkownika do bazy danych po poprawnej płatności i finalizacji.
      * @see com.ksiegarnia.model.CartModel#getProductFromCart
      * @see com.ksiegarnia.model.ProductModel#zakup
      * @see com.ksiegarnia.model.OrderModel#allOrders 

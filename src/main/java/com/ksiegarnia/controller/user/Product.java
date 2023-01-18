@@ -12,12 +12,12 @@ import java.io.IOException;
         import jakarta.servlet.http.HttpServletRequest;
         import jakarta.servlet.http.HttpServletResponse;
         import com.ksiegarnia.model.ProductModel;
-/** Servlet zwracający listę produktów. */
+/** Servlet zwracający informacje i opinie o danym produkcie. */
 @WebServlet(name = "Product", urlPatterns = {"/Product"})
 public class Product extends HttpServlet {
 
     List<Review> allReviews = new ArrayList<>();
-    /** Funkcja zwracająca informację o produkcie.
+    /** Funkcja zwracająca informację i opinie o produkcie.
      * @see com.ksiegarnia.model.ProductModel#getProduct 
      * @see com.ksiegarnia.model.ReviewModel#getProductReviews */
     @Override

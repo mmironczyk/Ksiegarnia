@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.ksiegarnia.model.CartModel;
-/** servlet obsługujący usuwanie z koszyka */
+/** servlet obsługujący usuwanie produktów z koszyka */
 @WebServlet("/DeleteFromCart")
 public class DeleteFromCart extends HttpServlet {
     CartModel cartModel;

@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 public class Signup extends HttpServlet {
 /** Funkcja rejestrująca użytkownika poprzez wprowadzone dane znajdujące się w utworzonych zmiennych.
  *  Sprawdza, czy dane zostały podane poprawnie i wyświetla odpowienie komunikaty.
+ *  Wysyła email aktywacyjny do zarejestrowanego użytkownika.
  *  @see com.ksiegarnia.model.UserDbModel#signUp */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

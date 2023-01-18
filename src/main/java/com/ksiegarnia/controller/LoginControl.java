@@ -19,10 +19,8 @@ import com.ksiegarnia.beans.User;
                 "/admin/DeleteProduct" ,"/admin/DeletePromo" ,"/admin/DeleteUser" ,"/admin/ManageProduct" ,"/admin/ServletAdProduct" ,"/admin/ServletAdPromo" ,"/admin/ServletAdReview" ,
                 "/admin/ServletAdUser" ,"/user/ShoppingCart" ,"/ShoppingCart" ,"/user/AddCart","/user/AddReview","/user/DeleteFromCart","/user/ServletUserReview","/user/UsersCarts","/user/userPanelProfile.jsp","/logout"})
 public class LoginControl implements Filter {
-
-    public LoginControl() {
-    }
-
+    public LoginControl() {}
+    /** Filtr sprawdza wywoływane adresy URL. Jeśli nieuprawniona osoba próbuje uzyskać dostęp, przekierowywana jest do strony logowania.*/
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain)

@@ -10,7 +10,7 @@ import java.util.List;
 import jakarta.servlet.annotation.WebServlet;
 import com.ksiegarnia.beans.Product;
 import com.ksiegarnia.model.ProductModel;
-/** Servlet zwracający listę produktów, zapisując do tabeli.*/
+/** Servlet przekazujący listę wszystkich książek lub według gatunków lub wyszukiwanego tytyłu*/
 @WebServlet("/Shop")
 public class Shop extends HttpServlet {
 

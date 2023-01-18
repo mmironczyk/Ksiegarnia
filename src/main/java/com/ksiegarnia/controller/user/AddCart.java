@@ -11,10 +11,10 @@ import com.ksiegarnia.beans.Cart;
 import com.ksiegarnia.beans.User;
 import com.ksiegarnia.model.CartModel;
 
-/** servlet obsługujący dodanie przedmiotu do koszyka */
+/** servlet obsługujący dodanie przedmiotu do koszyka. */
 @WebServlet("/addCart")
 public class AddCart extends HttpServlet {
-    /** funkcja pozwalająca na dodanie przedmiotów do koszyka
+    /** funkcja pozwalająca na dodanie przedmiotów do koszyka. Każdy produkt jest osobnym koszykiem.
      * @see com.ksiegarnia.model.CartModel#addCart
      * */
     @Override
