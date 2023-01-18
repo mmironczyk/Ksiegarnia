@@ -1,7 +1,6 @@
 package com.ksiegarnia.controller.admin;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,7 +23,6 @@ public class AddBook extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         int id = Integer.parseInt(request.getParameter("id"));
         Product productobject = new ProductModel().getProduct(id);
         if (productobject == null) {
@@ -38,14 +36,13 @@ public class AddBook extends HttpServlet {
     }
 
     /** Funkcja dodająca książki z poziomu panelu administratora
-     * @see com.ksiegarnia.model.ProductModel#addProduct 
+     * @see com.ksiegarnia.model.ProductModel#addProduct
      * @see com.ksiegarnia.beans.Product
      * @see com.ksiegarnia.tools.FileUpload#uploadImage
      * */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String title = request.getParameter("title");
         double cost = Double.parseDouble(request.getParameter("cena"));
         String gatunek = request.getParameter("gatunek");
@@ -54,8 +51,6 @@ public class AddBook extends HttpServlet {
         String description = request.getParameter("Description");
         int amount = Integer.parseInt(request.getParameter("Amount"));
         int pages = Integer.parseInt(request.getParameter("pages"));
-
-
         Product productObj = new Product();
         productObj.setTitle(title);
         productObj.setCost(cost);
@@ -65,8 +60,6 @@ public class AddBook extends HttpServlet {
         productObj.setAmount(amount);
         productObj.setPages(pages);
         productObj.setAuthor(author);
-
-
         Part filePart = request.getPart("image");
         if (filePart.getSize() != 0) {
             String path = request.getServletContext().getRealPath("");
@@ -80,7 +73,6 @@ public class AddBook extends HttpServlet {
                 response.sendRedirect("ServletAdProduct");
                 return;
             }
-
         } else {
             productObj.setImage("upload/test.png");
         }
@@ -96,4 +88,6 @@ public class AddBook extends HttpServlet {
                 return;
             }
         }
+
     }
+
