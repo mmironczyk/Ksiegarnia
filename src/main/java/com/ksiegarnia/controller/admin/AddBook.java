@@ -84,9 +84,6 @@ public class AddBook extends HttpServlet {
         } else {
             productObj.setImage("upload/test.png");
         }
-        if (request.getParameter("id") != null && !request.getParameter("id").trim().equals("")) {
-            int id = Integer.parseInt(request.getParameter("id"));
-            productObj.setProductId(id);
             if (new ProductModel().addProduct(productObj)) {
                 request.getSession().setAttribute("AlertMessage", "Dodano pozycję");
                 request.getSession().setAttribute("AlertType", "success");
@@ -100,4 +97,3 @@ public class AddBook extends HttpServlet {
             }
         }
     }
-}

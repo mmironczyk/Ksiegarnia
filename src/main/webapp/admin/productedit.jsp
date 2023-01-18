@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@include file="../fragment/navbar.jspf" %>
-<div class="d-flex flex-row">
+<div class="d-flex flex-row" style="margin-top:50px;">
     <div>
         <%@include file="adminSidebar.jspf" %>
     </div>

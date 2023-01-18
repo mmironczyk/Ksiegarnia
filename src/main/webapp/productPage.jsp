@@ -15,7 +15,7 @@
 </head>
 <body>
 <%@include file="fragment/navbar.jspf" %>
-<div class="mx-auto pt-4" style="max-width: 1200px;">
+<div class="mx-auto pt-4" style="max-width: 1200px; margin-top:80px;">
     <div class="d-flex p-4 mb-5">
         <div class="text-center" style="flex: 1;">
             <img src="${product.image}" class="m-auto product-image" alt="tytuł">
